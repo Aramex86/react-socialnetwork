@@ -1,0 +1,36 @@
+
+@import "components/header";
+@import "components/navbar";
+@import "components/profile";
+
+
+//General 
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+
+
+
+.app-wrapper{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows:6rem 1fr;
+    gap:10px;
+    background: rgba(241, 241, 241, 0.486);
+    min-height: 100vh;
+}
+

@@ -1,0 +1,21 @@
+.header {
+    background: #02569c;
+    color: #ffff;
+    padding: 1rem 5rem;
+    grid-column: 1/-1;
+    grid-row: 1/1;
+    display: flex;
+    align-items: center;
+    
+    &__img {
+
+        & img {
+            //width: 4.5rem;
+            height: 5rem;
+        }
+    }
+
+    &__heading {
+        font-size: 1rem;
+    }
+}
