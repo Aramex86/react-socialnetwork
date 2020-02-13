@@ -1,7 +1,10 @@
 
-@import "components/header";
-@import "components/navbar";
-@import "components/profile";
+@import "components/my-posts";
+@import "components/posts";
+
+@import "layout/header";
+@import "layout/navbar";
+@import "layout/profile";
 
 
 //General 
@@ -21,9 +24,6 @@ body{
 html{
     font-size: 62.5%;
 }
-
-
-
 
 .app-wrapper{
     display: grid;

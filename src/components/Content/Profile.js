@@ -1,4 +1,6 @@
 import React from 'react';
+import MyPosts from './My_posts';
+import Posts from './Posts';
 
 const Content = () => {
     return (
@@ -27,22 +29,8 @@ const Content = () => {
                 </div>
             </div>
             <div className='profile__posts'>
-                <h2>My Posts</h2>
-                <form>
-                    <textarea placeholder='your post here...' draggable='disabled'></textarea>
-                    <button className='btn'>Send</button>
-                </form>
-                <div className='post__wrapper'>
-                    <div className='post__wrapper-post'>
-                        <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'></img>
-                        Hey, no body love me!!!
-                    </div>
-                    <div className='post__wrapper-post'>
-                        <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'></img>
-                        The weather is nice.
-                    </div>
-                </div>
-
+                <MyPosts /> 
+                <Posts />
             </div>
 
         </div>

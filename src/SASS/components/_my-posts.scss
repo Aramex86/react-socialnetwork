@@ -1,0 +1,35 @@
+&__posts {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+    & form {
+        width: 80%;
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-top: 15px;
+        align-items: flex-end;
+
+        & textarea {
+            height: 60px;
+            resize: none;
+            width: 100%;
+        }
+
+        & button {
+            width: 8rem;
+            height: 3rem;
+            margin-top: 6px;
+            border: none;
+            background: #02569c;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+
+}

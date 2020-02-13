@@ -1,8 +1,8 @@
 import React from 'react';
 import './css/App.min.css';
-import Header from './components/Header';
-import Navigation from './components/Navigation';
-import Content from './components/Profile';
+import Header from './components/Header/Header';
+import Navigation from './components/Navigation/Navigation';
+import Content from './components/Content/Profile';
 
 
 const App = () => {
