@@ -1,10 +1,14 @@
 import React from 'react';
 
-const Post = () => {
+const Post = (props) => {
     return (
-        <div className='post__wrapper-post'>
+        <div className='post'>
             <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'></img>
-            Hey, no body love me!!!
+            {props.message}
+
+            <span className="post__likes">
+              Likes: {props.likes}
+            </span>
         </div>
 
     );

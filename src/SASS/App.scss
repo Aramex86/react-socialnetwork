@@ -1,6 +1,8 @@
 
 @import "components/my-posts";
 @import "components/posts";
+@import "components/post";
+@import "components/dialogs";
 
 @import "layout/header";
 @import "layout/navbar";
@@ -34,3 +36,8 @@ html{
     min-height: 100vh;
 }
 
+.content-wrapper{
+    grid-column: 3/8;
+    grid-row: 2/2;
+    background: #ffffff;
+}

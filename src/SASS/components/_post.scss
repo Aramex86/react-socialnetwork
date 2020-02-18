@@ -1,4 +1,5 @@
-&-post{
+.post{
+    position: relative;
     border-bottom: 1px solid #70b9f563;
     width: 80%;
     font-weight: 500;
@@ -8,8 +9,25 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    & img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    &__likes{
+        position: absolute;
+        left: 88%;
+        border: 1px solid #70b9f563;
+        background: #02569c;
+        color: #fff;
+        width: 8%;
+        text-align: center;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 }
+

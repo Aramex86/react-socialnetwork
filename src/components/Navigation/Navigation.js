@@ -12,14 +12,13 @@ const Profile = () => {
                 <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar' className='profile__shortinfo-img'></img>
                     <p>Matej Oliver</p>
                 </div>
-
             </div>
             <ul className='nav__list'>
                 <li className='nav__list-item'>
-                    <a href='#' className='nav__list-link'>Profile</a>
+                    <a href='/content' className='nav__list-link'>Profile</a>
                 </li>
                 <li className='nav__list-item'>
-                    <a href='#' className='nav__list-link'>Messages</a>
+                    <a href='/dialogs' className='nav__list-link'>Messages</a>
                 </li>
                 <li className='nav__list-item'>
                     <a href='#' className='nav__list-link'>Music</a>
