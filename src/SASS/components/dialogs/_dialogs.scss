@@ -1,0 +1,17 @@
+.dialogs__wrapper{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    &-dialogs{
+        grid-column: 1/2;
+        font-weight: 700;
+    }
+    &-messages{
+        grid-column: 2/6;
+        font-weight: 700;
+    }
+
+}
+
+.active{
+    color: #02569c;
+}

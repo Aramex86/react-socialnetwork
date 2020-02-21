@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Profile = () => {
     return (
@@ -15,16 +16,16 @@ const Profile = () => {
             </div>
             <ul className='nav__list'>
                 <li className='nav__list-item'>
-                    <a href='/content' className='nav__list-link'>Profile</a>
+                    <NavLink to='/content' className='nav__list-link'>Profile</NavLink>
                 </li>
                 <li className='nav__list-item'>
-                    <a href='/dialogs' className='nav__list-link'>Messages</a>
+                    <NavLink to='/dialogs' className='nav__list-link'>Messages</NavLink>
                 </li>
                 <li className='nav__list-item'>
-                    <a href='#' className='nav__list-link'>Music</a>
+                    <NavLink to='/music' className='nav__list-link'>Music</NavLink>
                 </li>
                 <li className='nav__list-item'>
-                    <a href='#' className='nav__list-link'>Setings</a>
+                    <NavLink to='/setings' className='nav__list-link'>Setings</NavLink>
                 </li>
             </ul>
         </nav>

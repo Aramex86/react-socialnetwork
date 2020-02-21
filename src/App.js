@@ -5,6 +5,8 @@ import Navigation from './components/Navigation/Navigation';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Content from './components/Content/Content';
+import Music from './components/Music/Music';
+import Setings from './components/Setings/Setings';
 
 const App = () => {
     return (
@@ -15,6 +17,8 @@ const App = () => {
             <div className="content-wrapper">
                 <Route path='/dialogs' component={Dialogs}/>
                 <Route path='/content' component={Content}/>
+                <Route path='/music' component={Music}/>
+                <Route path='/setings' component={Setings}/>
                 
                 
             </div>

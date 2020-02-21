@@ -24,7 +24,7 @@
 
         &-link {
             text-decoration: none;
-            color: #02569c;
+            color: #37a2fc;
             font-weight: 600;
         }
     }
@@ -45,4 +45,8 @@
         border: 2px solid #fff;
         border-radius: 100%;
     }
+}
+
+a.active {
+    color:#02569c;
 }
