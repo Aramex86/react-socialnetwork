@@ -4,14 +4,36 @@
     &-dialogs{
         grid-column: 1/2;
         font-weight: 700;
+        border-right: 1px solid  #088fff;
     }
     &-messages{
-        grid-column: 2/6;
+        grid-column: 3/6;
         font-weight: 700;
+        &-message{
+            border-bottom: 1px solid #70b9f563;
+            width: 80%;
+            font-weight: 500;
+            box-shadow: 0px 1px 3px 3px #b4b4b473;
+            padding: 3rem 0;
+            margin-bottom: 30px;
+        }
+    }
+    &-items{
+        color: #02569c;
+        padding: 2rem 0;
+        border: 1px solid #d3d3d3;
+        letter-spacing: 1px;
+    }
+    &-links{
+        text-decoration: none;
+        color: #088fff;
+        font-size: 1.5rem;
+        margin-left: 20px;
     }
 
 }
 
-.active{
+.active-item{
     color: #02569c;
+    background: #ececec52;
 }
