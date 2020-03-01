@@ -1,22 +1,50 @@
-.nav {
+.nav__wrapper {
     grid-column: 2/3;
     background: #ffff;
-
-    &__header {
+    &-header {
         position: relative;
-
         & img {
             width: 100%;
         }
     }
-
+    &-friends {
+        margin-top: 7rem;
+        text-align: center;
+        position: relative;
+        
+        & h3{
+            font-size: 3rem;
+            font-weight: 400;
+            color: #02569c; 
+        }
+        &-wrapp {
+            display: flex;
+            margin-top: 20px;
+            & img{
+                width:5rem;
+                height: 5rem;
+                border-radius: 50px;
+            }
+            & span{
+                font-weight: 700;
+                color: #02569c; 
+            }
+            & a{
+                text-decoration: none;
+                &:hover span{
+                    color: #012746;
+                }
+            }
+        }
+    }
+}
+.nav {
     &__list {
         margin-top: 30px;
 
         &-item {
             list-style: none;
-            padding: .5rem 1.5rem;
-
+            padding: 0.5rem 1.5rem;
             &:nth-child(4) {
                 margin-top: 15px;
             }
@@ -48,5 +76,5 @@
 }
 
 a.active {
-    color:#02569c;
+    color: #02569c;
 }

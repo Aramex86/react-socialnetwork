@@ -1,0 +1,20 @@
+.message__wrapper {
+    display: flex;
+
+    &:nth-child(even){
+        justify-content: flex-end;
+
+        & img{
+            order: 2;
+        }
+    }
+
+    & img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 100px;
+        margin-left: 10px;
+        margin-right: 10px;
+        align-self: flex-end;
+    }
+}

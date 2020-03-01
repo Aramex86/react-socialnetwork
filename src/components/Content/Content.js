@@ -2,7 +2,8 @@ import React from 'react';
 import MyPosts from './My_posts';
 import Posts from './Posts';
 
-const Content = () => {
+
+const Content = (props) => {
     return (
         <div className='profile'>
             <div className='profile__header'>
@@ -12,7 +13,7 @@ const Content = () => {
             </div>
             <div className='profile__description'>
                 <div className='profile__description-avatar'>
-                    <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'></img>
+                    <img src="https://randomuser.me/api/portraits/men/40.jpg" alt='avatar'/>
                 </div>
                 <div className='profile__description-userinfo'>
                     <div className='profile__description-name'>
@@ -29,10 +30,10 @@ const Content = () => {
                 </div>
             </div>
             <div className='profile__posts'>
+                
                 <MyPosts /> 
-                <Posts />
+                <Posts posts={props.posts} />
             </div>
-
         </div>
     );
 }
