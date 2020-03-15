@@ -1,6 +1,5 @@
 import React from 'react';
 import MyPosts from './My_posts';
-import Posts from './Posts';
 
 
 const Content = (props) => {
@@ -30,9 +29,7 @@ const Content = (props) => {
                 </div>
             </div>
             <div className='profile__posts'>
-                
-                <MyPosts /> 
-                <Posts posts={props.posts} />
+                <MyPosts posts={props.posts}/> 
             </div>
         </div>
     );

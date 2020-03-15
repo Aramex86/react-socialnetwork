@@ -1,4 +1,6 @@
 import React from 'react';
+import Posts from './Post';
+
 
 const addNewPost = React.createRef();
 
@@ -17,6 +19,7 @@ const MyPosts = (props) => {
                 <textarea ref={addNewPost} placeholder='your post here...'></textarea>
                 <button className='btn' onClick={ addPost }>Add post</button>
             </form>
+            <Posts posts={props.posts}/>
         </div>
     );
 }
