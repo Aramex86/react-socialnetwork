@@ -4,12 +4,12 @@ import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route } from 'react-router-dom';
-import Content from './components/Content/Content';
+import Profile from './components/Content/Profile';
 import Music from './components/Music/Music';
 import Setings from './components/Setings/Setings';
 
 const App = (props) => {
-    
+
     return (
         <div className='app-wrapper'>
             <Header />
@@ -24,7 +24,12 @@ const App = (props) => {
 
                 <Route path='/content'
                  render = {()=> 
-                <Content posts={props.state.profilePage.posts}/>}/>
+                <Profile 
+                posts={props.state.profilePage}
+                addPost={props.addPost}
+                updatePostText={props.updatePostText}
+                
+                />}/>
 
                 <Route path='/music' component={Music}/>
                 

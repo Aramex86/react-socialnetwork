@@ -29,7 +29,11 @@ const Content = (props) => {
                 </div>
             </div>
             <div className='profile__posts'>
-                <MyPosts posts={props.posts}/> 
+                <MyPosts posts={props.posts}
+                newText={props.posts.newText}
+                addPost={props.addPost}
+                updatePostText={props.updatePostText}
+                /> 
             </div>
         </div>
     );

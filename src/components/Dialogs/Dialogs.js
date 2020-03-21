@@ -11,6 +11,7 @@ const Dialogs = (props) => {
         e.preventDefault();
         const text = addNewMessage.current.value;
         alert(text);
+        addNewMessage.current.value= "";
     }
 
 
