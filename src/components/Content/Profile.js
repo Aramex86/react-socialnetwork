@@ -31,8 +31,7 @@ const Content = (props) => {
             <div className='profile__posts'>
                 <MyPosts posts={props.posts}
                 newText={props.posts.newText}
-                addPost={props.addPost}
-                updatePostText={props.updatePostText}
+                dispatch={props.dispatch}
                 /> 
             </div>
         </div>

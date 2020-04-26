@@ -9,7 +9,6 @@ import Music from './components/Music/Music';
 import Setings from './components/Setings/Setings';
 
 const App = (props) => {
-
     return (
         <div className='app-wrapper'>
             <Header />
@@ -26,10 +25,7 @@ const App = (props) => {
                  render = {()=> 
                 <Profile 
                 posts={props.state.profilePage}
-                addPost={props.addPost}
-                updatePostText={props.updatePostText}
-                
-                />}/>
+                dispatch={props.dispatch}/>}/>
 
                 <Route path='/music' component={Music}/>
                 
