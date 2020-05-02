@@ -1,9 +1,10 @@
 import React from 'react';
 import './css/App.min.css';
+import { Route } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Dialogs from './components/Dialogs/Dialogs';
-import { Route } from 'react-router-dom';
 import Profile from './components/Content/Profile';
 import Music from './components/Music/Music';
 import Setings from './components/Setings/Setings';
