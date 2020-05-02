@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+
 let store ={
     _state:{
         profilePage: {
@@ -74,7 +77,7 @@ let store ={
                     id: 4,
                     message: 'Thanks yo!!',
                     img: 'https://randomuser.me/api/portraits/women/88.jpg'
-                }
+                },
             ]
         },
         sideBar: {
@@ -120,21 +123,32 @@ _callSubscriber(){
     //     this._callSubscriber(this._state); 
     // },
     dispatch(action){
-        if(action.type === 'ADD-POST'){
+        if(action.type === ADD_POST){
             let newPost = {
                 id:7,
                 message: this._state.profilePage.newText,
                 likesCount: 0
             };
-            this._state.profilePage.posts.push(newPost);
+            if(this._state.profilePage.newText !==''){
+                this._state.profilePage.posts.push(newPost);
+            }
+            //this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newText ='';
             this._callSubscriber(this._state);
+            
         }else if(action.type === 'UPDATE-POST-TEXT'){
             this._state.profilePage.newText = action.newText;
             this._callSubscriber(this._state);
         }
     }
 }
+export  const addNewPostActionCreator = () =>{
+    return { type: ADD_POST}
+};
+
+export  const updatePostTextActionCrator =(text) => {
+    return{type:UPDATE_POST_TEXT,newText: text}
+};
 
 export default store;
 
