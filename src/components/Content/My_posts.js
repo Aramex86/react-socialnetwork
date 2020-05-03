@@ -1,6 +1,6 @@
 import React from 'react';
 import Posts from './Posts';
-import {addNewPostActionCreator , updatePostTextActionCrator} from '../Redux/state';
+import {addNewPostActionCreator , updatePostTextActionCreator} from '../Redux/state';
 
 
 
@@ -8,6 +8,7 @@ import {addNewPostActionCreator , updatePostTextActionCrator} from '../Redux/sta
 const addNewPost = React.createRef();
 
 const MyPosts = (props) => {
+    
     const addPost = (e) => {
         e.preventDefault();
         //props.addpost();
@@ -18,7 +19,7 @@ const MyPosts = (props) => {
         let text = addNewPost.current.value;
         //props.updatePostText();
 
-        let action = updatePostTextActionCrator(text)
+        let action = updatePostTextActionCreator(text)
         props.dispatch(action);
     }
 

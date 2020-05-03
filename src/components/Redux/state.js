@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE'; 
+const UPDATE_MESSAGE_TEXT ='UPDATE-MESSAGE-TEXT';
 
 let store ={
     _state:{
@@ -78,7 +80,8 @@ let store ={
                     message: 'Thanks yo!!',
                     img: 'https://randomuser.me/api/portraits/women/88.jpg'
                 },
-            ]
+            ],
+            newAnswer:''
         },
         sideBar: {
             friends: [
@@ -122,6 +125,24 @@ _callSubscriber(){
     //      this._state.profilePage.newText = newText;
     //     this._callSubscriber(this._state); 
     // },
+
+
+    // addMessage(){
+    //     const newMessage ={
+    //         id:5,
+    //         message:this._state.messagesPage.messages.newAnswer,
+    //         img:'https://randomuser.me/api/portraits/women/88.jpg'
+    //     };
+    //     this._state.messagesPage.messages.push(newMessage);
+    //     this._state.messagesPage.messages.newAnswer='';
+    //     this._callSubscriber(this._state);
+    // },
+
+    // onChangeMessage(){
+    //     this._state.messagesPage.newAnswer = newAnswer;
+    //     this._callSubscriber(this._state); 
+    // },
+
     dispatch(action){
         if(action.type === ADD_POST){
             let newPost = {
@@ -136,9 +157,23 @@ _callSubscriber(){
             this._state.profilePage.newText ='';
             this._callSubscriber(this._state);
             
-        }else if(action.type === 'UPDATE-POST-TEXT'){
+        }else if(action.type === UPDATE_POST_TEXT){
             this._state.profilePage.newText = action.newText;
             this._callSubscriber(this._state);
+        }else if(action.type === ADD_MESSAGE){
+            const newMessage ={
+                id:5,
+                message:this._state.messagesPage.newAnswer,
+                img:'https://randomuser.me/api/portraits/women/88.jpg'
+            };
+            if(this._state.messagesPage.newAnswer !==''){
+                this._state.messagesPage.messages.push(newMessage);
+            }
+            this._state.messagesPage.newAnswer ='';
+            this._callSubscriber(this._state);
+        }else if(action.type === UPDATE_MESSAGE_TEXT){
+            this._state.messagesPage.newAnswer = action.newAnswer;
+            this._callSubscriber(this._state); 
         }
     }
 }
@@ -146,9 +181,17 @@ export  const addNewPostActionCreator = () =>{
     return { type: ADD_POST}
 };
 
-export  const updatePostTextActionCrator =(text) => {
+export  const updatePostTextActionCreator =(text) => {
     return{type:UPDATE_POST_TEXT,newText: text}
 };
+
+export const addNewMessageActionCreator = () =>{
+    return {type: ADD_MESSAGE}
+}
+
+export const updateMessageTextActionCreator = (text) =>{
+    return{type:UPDATE_MESSAGE_TEXT,newAnswer:text}
+}
 
 export default store;
 
