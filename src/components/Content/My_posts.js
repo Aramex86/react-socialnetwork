@@ -5,9 +5,10 @@ import {addNewPostActionCreator , updatePostTextActionCreator} from '../Redux/st
 
 
 
-const addNewPost = React.createRef();
 
 const MyPosts = (props) => {
+    
+    let newText = props.newText;
     
     const addPost = (e) => {
         e.preventDefault();
@@ -15,8 +16,8 @@ const MyPosts = (props) => {
         props.dispatch(addNewPostActionCreator());
     }
 
-    const onChangeText = () =>{
-        let text = addNewPost.current.value;
+    const onChangeText = (e) =>{
+        let text = e.target.value;
         //props.updatePostText();
 
         let action = updatePostTextActionCreator(text)
@@ -27,7 +28,7 @@ const MyPosts = (props) => {
         <div>
             <h2>My Posts</h2>
             <form>
-                <textarea ref={addNewPost} onChange={ onChangeText } value={props.newText} placeholder='your post here...'/>
+                <textarea value={newText} onChange={ onChangeText }  placeholder='your post here...'/>
                 <button className='btn' onClick={ addPost }>Add post</button>
             </form>
             <Posts

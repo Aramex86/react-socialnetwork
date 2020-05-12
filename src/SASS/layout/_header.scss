@@ -8,10 +8,11 @@
     align-items: center;
 
     &__img {
-
-        & img {
-            //width: 4.5rem;
-            height: 5rem;
+        width: 8rem;
+        & svg {
+            & g{
+                fill: '#ffffff';
+            }
         }
     }
 

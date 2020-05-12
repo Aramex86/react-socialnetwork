@@ -15,19 +15,21 @@ const App = (props) => {
             <Header />
             <Navigation friends = {props.state.sideBar.friends}/>
             <div className="content-wrapper">
-               
-                <Route path='/dialogs'
-                 render={() => 
-                 <Dialogs dialogs={props.state.messagesPage.dialogs} 
-                 messages={props.state.messagesPage.messages} 
-                 dispatch={props.dispatch}
-                 />}/>
 
-                <Route path='/content'
+                <Route exact path='/content'
                  render = {()=> 
                 <Profile 
                 posts={props.state.profilePage}
                 dispatch={props.dispatch}/>}/>
+               
+                <Route path='/dialogs'
+                 render={() => 
+                 <Dialogs /* dialogs={props.state.messagesPage.dialogs} 
+                 messages={props.state.messagesPage.messages} 
+                 dispatch={props.dispatch} */
+                 store={props.store}
+                 />}/>
+              
 
                 <Route path='/music' component={Music}/>
                 

@@ -154,29 +154,34 @@ _callSubscriber(){
                 this._state.profilePage.posts.push(newPost);
             }
             //this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newText ='';
+            this._state.profilePage.newText='';
             this._callSubscriber(this._state);
             
         }else if(action.type === UPDATE_POST_TEXT){
             this._state.profilePage.newText = action.newText;
             this._callSubscriber(this._state);
+
+        }else if(action.type === UPDATE_MESSAGE_TEXT){
+            this._state.messagesPage.newAnswer = action.newAnswer;
+            this._callSubscriber(this._state); 
         }else if(action.type === ADD_MESSAGE){
             const newMessage ={
                 id:5,
                 message:this._state.messagesPage.newAnswer,
                 img:'https://randomuser.me/api/portraits/women/88.jpg'
             };
+            
             if(this._state.messagesPage.newAnswer !==''){
                 this._state.messagesPage.messages.push(newMessage);
+                this._state.messagesPage.newAnswer='';
             }
-            this._state.messagesPage.newAnswer ='';
             this._callSubscriber(this._state);
-        }else if(action.type === UPDATE_MESSAGE_TEXT){
-            this._state.messagesPage.newAnswer = action.newAnswer;
-            this._callSubscriber(this._state); 
         }
     }
 }
+
+//ACTION CREATOR
+
 export  const addNewPostActionCreator = () =>{
     return { type: ADD_POST}
 };
