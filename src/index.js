@@ -1,4 +1,4 @@
-import store from './components/Redux/store';
+import store from './components/Redux/redux-store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -19,7 +19,12 @@ import {BrowserRouter} from 'react-router-dom';
 
 renderEntireTree(store.getState());
 
-store.subscribe(renderEntireTree);
+store.subscribe(() =>{
+    let state = store.getState()
+
+    renderEntireTree(state);
+
+});
 
 //Data
 

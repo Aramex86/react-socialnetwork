@@ -1,11 +1,11 @@
 import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialog-reducer";
+import dialogsReducer from "./messages-reducer";
 import sideBarReducer from "./sidebar-reducer";
 
-// const ADD_POST = 'ADD-POST';
-// const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
-// const ADD_MESSAGE = 'ADD-MESSAGE'; 
-// const UPDATE_MESSAGE_TEXT ='UPDATE-MESSAGE-TEXT';
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE'; 
+const UPDATE_MESSAGE_TEXT ='UPDATE-MESSAGE-TEXT';
 
 let store ={
     _state:{
@@ -148,7 +148,7 @@ _callSubscriber(){
     // },
 
     dispatch(action){
-        /* if(action.type === ADD_POST){
+        if(action.type === ADD_POST){
             let newPost = {
                 id:7,
                 message: this._state.profilePage.newText,
@@ -180,7 +180,7 @@ _callSubscriber(){
                 this._state.messagesPage.newAnswer='';
             }
             this._callSubscriber(this._state);
-        } */
+        }
 
         this._state.profilePage = profileReducer(this._state.profilePage,action);
         this._state.messagesPage = dialogsReducer(this._state.messagesPage,action);
