@@ -3,8 +3,7 @@ import {NavLink} from 'react-router-dom';
 import Friends from './Friends';
 
 const Profile = (props) => {
-
-    let friend = props.friends.map((friend,index) => <Friends key={index} name={friend.name} img={friend.img}/>);
+    let friend = props.store.getState().sideBar.friends.map((friend,index) => <Friends key={index} name={friend.name} img={friend.img}/>);
     return (
         <div className='nav__wrapper'>
             <div className='nav__wrapper-header'>

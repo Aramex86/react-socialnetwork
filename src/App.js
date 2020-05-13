@@ -13,7 +13,7 @@ const App = (props) => {
     return (
         <div className='app-wrapper'>
             <Header />
-            <Navigation friends = {props.state.sideBar.friends}/>
+            <Navigation store = {props.store}/>
             <div className="content-wrapper">
 
                 <Route exact path='/content'

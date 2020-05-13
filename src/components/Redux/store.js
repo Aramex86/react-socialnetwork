@@ -1,7 +1,11 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE'; 
-const UPDATE_MESSAGE_TEXT ='UPDATE-MESSAGE-TEXT';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialog-reducer";
+import sideBarReducer from "./sidebar-reducer";
+
+// const ADD_POST = 'ADD-POST';
+// const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
+// const ADD_MESSAGE = 'ADD-MESSAGE'; 
+// const UPDATE_MESSAGE_TEXT ='UPDATE-MESSAGE-TEXT';
 
 let store ={
     _state:{
@@ -144,7 +148,7 @@ _callSubscriber(){
     // },
 
     dispatch(action){
-        if(action.type === ADD_POST){
+        /* if(action.type === ADD_POST){
             let newPost = {
                 id:7,
                 message: this._state.profilePage.newText,
@@ -176,27 +180,32 @@ _callSubscriber(){
                 this._state.messagesPage.newAnswer='';
             }
             this._callSubscriber(this._state);
-        }
+        } */
+
+        this._state.profilePage = profileReducer(this._state.profilePage,action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage,action);
+        this._state.sideBar = sideBarReducer(this._state.sideBar,action);
+        this._callSubscriber(this._state);
     }
 }
 
 //ACTION CREATOR
 
-export  const addNewPostActionCreator = () =>{
-    return { type: ADD_POST}
-};
+// export  const addNewPostActionCreator = () =>{
+//     return { type: ADD_POST}
+// };
 
-export  const updatePostTextActionCreator =(text) => {
-    return{type:UPDATE_POST_TEXT,newText: text}
-};
+// export  const updatePostTextActionCreator =(text) => {
+//     return{type:UPDATE_POST_TEXT,newText: text}
+// };
 
-export const addNewMessageActionCreator = () =>{
-    return {type: ADD_MESSAGE}
-}
+// export const addNewMessageActionCreator = () =>{
+//     return {type: ADD_MESSAGE}
+// }
 
-export const updateMessageTextActionCreator = (text) =>{
-    return{type:UPDATE_MESSAGE_TEXT,newAnswer:text}
-}
+// export const updateMessageTextActionCreator = (text) =>{
+//     return{type:UPDATE_MESSAGE_TEXT,newAnswer:text}
+// }
 
 export default store;
 
