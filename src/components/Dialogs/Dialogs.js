@@ -7,24 +7,28 @@ import {addNewMessageActionCreator,updateMessageTextActionCreator} from '../Redu
 //const addNewMessage = React.createRef();
 
 const Dialogs = (props) => {
-    let state = props.store.getState().messagesPage;
+    let state = props.messagesPage;
 
     let newAnswer = state.newAnswer;
 
+    const dialog = state.dialogs.map( (dialog,index)  => <DialogItem key={index} name={dialog.name} id={dialog.id} img={dialog.img}/>);
+    const message = state.messages.map((message,index) => <Message key={index} message={message.message} id={message.id} img={message.img}/>);
+
+
     const addMessage =(e) =>{
         e.preventDefault();
-        props.store.dispatch(addNewMessageActionCreator());
+        props.sendMessage();
+        //props.store.dispatch(addNewMessageActionCreator());
     }
 
     const onChangeMessage = (e) =>{
          //const text = addNewMessage.current.value;
         const text = e.target.value;
-        props.store.dispatch(updateMessageTextActionCreator(text));
+        props.updateMessage(text);
+        //props.store.dispatch(updateMessageTextActionCreator(text));
          
     }
     
-    const dialog = state.dialogs.map( (dialog,index)  => <DialogItem key={index} name={dialog.name} id={dialog.id} img={dialog.img}/>);
-    const message = state.messages.map((message,index) => <Message key={index} message={message.message} id={message.id} img={message.img}/>);
     return (
         <div className="dialogs__wrapper">
             <div className="dialogs__wrapper-dialogs">

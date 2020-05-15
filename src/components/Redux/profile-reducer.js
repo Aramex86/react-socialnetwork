@@ -46,11 +46,14 @@ let initialState =  {
                 state.posts.push(newPost);
             }
             state.newText='';
-            return state;
-        case UPDATE_POST_TEXT:
 
+            return state;
+
+        case UPDATE_POST_TEXT:
                 state.newText = action.newText;
+
                 return state;
+                
         default:
             return state;
     }

@@ -1,5 +1,6 @@
 import React from 'react';
-import MyPosts from './My_posts';
+//import MyPosts from './My_posts';
+import MyPostsContainer from './My_postsContainer';
 
 
 const Content = (props) => {
@@ -29,9 +30,9 @@ const Content = (props) => {
                 </div>
             </div>
             <div className='profile__posts'>
-                <MyPosts posts={props.posts}
+                <MyPostsContainer store={props.store} /* posts={props.posts}
                 newText={props.posts.newText}
-                dispatch={props.dispatch}
+                dispatch={props.dispatch} */
                 /> 
             </div>
         </div>

@@ -4,7 +4,8 @@ import { Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
-import Dialogs from './components/Dialogs/Dialogs';
+//import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Profile from './components/Content/Profile';
 import Music from './components/Music/Music';
 import Setings from './components/Setings/Setings';
@@ -18,13 +19,13 @@ const App = (props) => {
 
                 <Route exact path='/content'
                  render = {()=> 
-                <Profile 
-                posts={props.state.profilePage}
-                dispatch={props.dispatch}/>}/>
+                <Profile store={props.store}
+               /*  posts={props.state.profilePage}
+                dispatch={props.dispatch} *//>}/>
                
                 <Route path='/dialogs'
                  render={() => 
-                 <Dialogs /* dialogs={props.state.messagesPage.dialogs} 
+                 <DialogsContainer /* dialogs={props.state.messagesPage.dialogs} 
                  messages={props.state.messagesPage.messages} 
                  dispatch={props.dispatch} */
                  store={props.store}

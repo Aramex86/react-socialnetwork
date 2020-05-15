@@ -1,27 +1,23 @@
 import React from 'react';
 import Posts from './Posts';
-import {addNewPostActionCreator , updatePostTextActionCreator} from '../Redux/profile-reducer';
-
-
-
 
 
 const MyPosts = (props) => {
+    let state = props.profilePage
+
+    let newText = state.newText;
     
-    let newText = props.newText;
-    
-    const addPost = (e) => {
+    const onAddPost = (e) => {
         e.preventDefault();
-        //props.addpost();
-        props.dispatch(addNewPostActionCreator());
+        props.addPost();
+       //props.dispatch(addNewPostActionCreator());
     }
 
     const onChangeText = (e) =>{
         let text = e.target.value;
-        //props.updatePostText();
-
-        let action = updatePostTextActionCreator(text)
-        props.dispatch(action);
+        props.updatePostText(text);
+        //  let action = updatePostTextActionCreator(text)
+        //  props.dispatch(action);
     }
 
     return (
@@ -29,10 +25,10 @@ const MyPosts = (props) => {
             <h2>My Posts</h2>
             <form>
                 <textarea value={newText} onChange={ onChangeText }  placeholder='your post here...'/>
-                <button className='btn' onClick={ addPost }>Add post</button>
+                <button className='btn' onClick={ onAddPost }>Add post</button>
             </form>
             <Posts
-             posts={props.posts}
+             posts={props.profilePage.posts}
             />
 
         </div>
