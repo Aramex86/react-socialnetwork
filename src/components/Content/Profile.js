@@ -30,7 +30,7 @@ const Content = (props) => {
                 </div>
             </div>
             <div className='profile__posts'>
-                <MyPostsContainer store={props.store} /* posts={props.posts}
+                <MyPostsContainer /* store={props.store} */ /* posts={props.posts}
                 newText={props.posts.newText}
                 dispatch={props.dispatch} */
                 /> 

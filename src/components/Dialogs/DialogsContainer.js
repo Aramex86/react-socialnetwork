@@ -1,26 +1,53 @@
 import React from 'react';
-import  DialogItem from './DialogItem/DialogsItem';
-import Message from './Message/Message';
 import {addNewMessageActionCreator,updateMessageTextActionCreator} from '../Redux/messages-reducer';
 import Dialogs from './Dialogs';
+import { connect } from 'react-redux';
 
 
 //const addNewMessage = React.createRef();
 
-const DialogsContainer = (props) => {
-    
-    let state = props.store.getState().messagesPage;
+/* const DialogsContainer = (props) => {
 
-    const addMessage =(e) =>{
-        props.store.dispatch(addNewMessageActionCreator());
-    }
+   
+    
+    return <SrotreContext.Consumer> 
+        {(store) => {
+        let state = store.getState().messagesPage;
 
-    const onChangeMessage = (text) =>{
-        props.store.dispatch(updateMessageTextActionCreator(text));
+        const addMessage =(e) =>{
+            store.dispatch(addNewMessageActionCreator());
+        }
+    
+        const onChangeMessage = (text) =>{
+            store.dispatch(updateMessageTextActionCreator(text));
+        }
+        
+    
+   return <Dialogs updateMessage={onChangeMessage}
+    sendMessage={addMessage}
+     messagesPage={state}/> 
     }
-    
-    
-    return <Dialogs updateMessage={onChangeMessage} sendMessage={addMessage} messagesPage={state}/> 
 }
+    </SrotreContext.Consumer>
+} */
+
+let mapStateToProps =(state)=>{
+    return{
+        messagesPage: state.messagesPage
+    }
+}
+let mapDispachToProps =(dispatch)=>{
+    return {
+        updateMessage: (text)=>{
+            dispatch(updateMessageTextActionCreator(text));
+        },
+        sendMessage:()=>{
+            dispatch(addNewMessageActionCreator());
+        }
+    }
+}
+
+const DialogsContainer = connect(mapStateToProps,mapDispachToProps)(Dialogs)
+
 
 export default DialogsContainer;

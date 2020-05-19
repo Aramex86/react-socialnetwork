@@ -3,7 +3,7 @@ import './css/App.min.css';
 import { Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
-import Navigation from './components/Navigation/Navigation';
+import NavigationContainer from './components/Navigation/NavigationContainer';
 //import Dialogs from './components/Dialogs/Dialogs';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Profile from './components/Content/Profile';
@@ -14,12 +14,12 @@ const App = (props) => {
     return (
         <div className='app-wrapper'>
             <Header />
-            <Navigation store = {props.store}/>
+            <NavigationContainer/>
             <div className="content-wrapper">
 
                 <Route exact path='/content'
                  render = {()=> 
-                <Profile store={props.store}
+                <Profile /* store={props.store} */
                /*  posts={props.state.profilePage}
                 dispatch={props.dispatch} *//>}/>
                
@@ -28,7 +28,7 @@ const App = (props) => {
                  <DialogsContainer /* dialogs={props.state.messagesPage.dialogs} 
                  messages={props.state.messagesPage.messages} 
                  dispatch={props.dispatch} */
-                 store={props.store}
+                 /* store={props.store} */
                  />}/>
               
 

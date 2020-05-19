@@ -19,8 +19,6 @@ let initialState = {
 const sideBarReducer=(state=initialState,action)=>{
     //initialState
 
-    
-
     return state
 }
 

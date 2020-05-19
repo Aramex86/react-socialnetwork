@@ -1,25 +1,60 @@
 import React from 'react';
 import {addNewPostActionCreator , updatePostTextActionCreator} from '../Redux/profile-reducer';
 import MyPosts from './My_posts';
+import { connect } from 'react-redux';
 
 
 
-const MyPostsContainer = (props) => {
-    let state = props.store.getState().profilePage;
+/* const MyPostsContainer = (props) => {
+    //let state = props.store.getState().profilePage;
 
     
-    const onAddPost = () => {
-        //props.addPost();
-       props.store.dispatch(addNewPostActionCreator());
-    }
+    
 
-    const onChangeText = (text) =>{
-        //props.updatePostText(text);
-         let action = updatePostTextActionCreator(text)
-         props.store.dispatch(action);
-    }
+    return( 
+    <SrotreContext.Consumer>
+        {(store) => {
+            let state = store.getState().profilePage;
 
-    return <MyPosts addPost={onAddPost} updatePostText={onChangeText} profilePage={state}/>
+            const onAddPost = () => {
+                //props.addPost();
+               store.dispatch(addNewPostActionCreator());
+            }
+        
+            const onChangeText = (text) =>{
+                //props.updatePostText(text);
+                 let action = updatePostTextActionCreator(text)
+                 store.dispatch(action);
+            }
+
+            return <MyPosts 
+                    addPost={onAddPost} 
+                    updatePostText={onChangeText}
+                     profilePage={state}/>
+       
+        } 
+     }
+     </SrotreContext.Consumer>)
+} */
+
+let mapStateToProps =(state)=>{
+    return{
+        profilePage: state.profilePage,
+    }
 }
+let mapDispatchToProps=(dispatch)=>{
+    return{
+        updatePostText:(text)=>{
+            let action = updatePostTextActionCreator(text)
+            dispatch(action);
+        },
+        addPost:()=>{
+            dispatch(addNewPostActionCreator());
+        }
+    }
+}
+
+
+const MyPostsContainer = connect(mapStateToProps,mapDispatchToProps)(MyPosts)
 
 export default MyPostsContainer;
