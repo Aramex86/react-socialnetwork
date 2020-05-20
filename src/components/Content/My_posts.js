@@ -3,9 +3,9 @@ import Posts from './Posts';
 
 
 const MyPosts = (props) => {
-    let state = props.profilePage
+    //let state = props.posts;
 
-    let newText = state.newText;
+    let newText = props.newText;
     
     const onAddPost = (e) => {
         e.preventDefault();
@@ -28,7 +28,7 @@ const MyPosts = (props) => {
                 <button className='btn' onClick={ onAddPost }>Add post</button>
             </form>
             <Posts
-             posts={props.profilePage.posts}
+             posts={props.posts}
             />
 
         </div>

@@ -10,7 +10,6 @@ import {Provider} from 'react-redux';
 //Rerender UI 
 
 
- const renderEntireTree =(state)=>{
     ReactDOM.render(
         <BrowserRouter>
         <Provider store={store}>
@@ -18,18 +17,11 @@ import {Provider} from 'react-redux';
         </Provider>
         </BrowserRouter>, document.getElementById('root'));
    
-}
 
-renderEntireTree(store.getState());
 
-store.subscribe(() =>{
-    let state = store.getState()
 
-    renderEntireTree(state);
 
-});
 
-//Data
 
 
 

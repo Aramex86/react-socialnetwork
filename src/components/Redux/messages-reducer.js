@@ -52,21 +52,38 @@ let initialState = {
 
  const messagesReducer = (state = initialState,action)=>{
     switch(action.type){
-        case ADD_MESSAGE:
+        case ADD_MESSAGE:{
             const newMessage ={
                 id:5,
                 message:state.newAnswer,
                 img:'https://randomuser.me/api/portraits/women/88.jpg'
             };
-            
-            if(state.newAnswer !==''){
-                state.messages.push(newMessage);
-                state.newAnswer='';
+            return{
+                ...state,
+                newAnswer:'',
+                messages:[...state.messages,newMessage]
             }
-            return state;
-        case UPDATE_MESSAGE_TEXT:
-            state.newAnswer = action.newAnswer; 
-            return state; 
+
+            // // поверхностная копия
+            // let stateCopy = {...state}
+            
+            // if(stateCopy.newAnswer !==''){
+            //     //глубокая копия
+            //     stateCopy.messages = [...state.messages];
+            //     stateCopy.messages.push(newMessage);
+            //     stateCopy.newAnswer='';
+            // }
+            // return stateCopy;
+        }
+        case UPDATE_MESSAGE_TEXT:{
+            return{
+                ...state,
+                newAnswer: action.newAnswer,
+            }
+            // let stateCopy = {...state}
+            // stateCopy.newAnswer = action.newAnswer;
+            // return stateCopy; 
+        }
         default:
             return state;   
     }   

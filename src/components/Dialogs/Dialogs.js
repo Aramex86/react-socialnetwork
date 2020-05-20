@@ -6,12 +6,12 @@ import Message from './Message/Message';
 //const addNewMessage = React.createRef();
 
 const Dialogs = (props) => {
-    let state = props.messagesPage;
+    //let state = props.dialogs;
 
-    let newAnswer = state.newAnswer;
+    let newAnswer = props.newAnswer;
 
-    const dialog = state.dialogs.map( (dialog,index)  => <DialogItem key={index} name={dialog.name} id={dialog.id} img={dialog.img}/>);
-    const message = state.messages.map((message,index) => <Message key={index} message={message.message} id={message.id} img={message.img}/>);
+    const dialog = props.dialogs.map( (dialog,index)  => <DialogItem key={index} name={dialog.name} id={dialog.id} img={dialog.img}/>);
+    const message = props.messages.map((message,index) => <Message key={index} message={message.message} id={message.id} img={message.img}/>);
 
 
     const addMessage =(e) =>{
