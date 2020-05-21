@@ -29,7 +29,13 @@ const Profile = (props) => {
                         <NavLink to='/dialogs' className='nav__list-link'>Messages</NavLink>
                     </li>
                     <li className='nav__list-item'>
+                        <NavLink to='/news' className='nav__list-link'>News</NavLink>
+                    </li>
+                    <li className='nav__list-item'>
                         <NavLink to='/music' className='nav__list-link'>Music</NavLink>
+                    </li>
+                    <li className='nav__list-item'>
+                        <NavLink to='/allusers' className='nav__list-link'>All Users</NavLink>
                     </li>
                     <li className='nav__list-item'>
                         <NavLink to='/setings' className='nav__list-link'>Setings</NavLink>

@@ -44,10 +44,10 @@ let initialState =  {
             };
             return{
                 ...state,
-                newText: '',
+                newText:'',
                 posts:[...state.posts,newPost]
-
             }
+            
             // let stateCopy = {...state};
             // if(stateCopy.newText !==''){
             //   stateCopy.posts = [...state.posts]; 

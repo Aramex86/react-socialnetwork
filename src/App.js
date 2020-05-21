@@ -8,6 +8,8 @@ import NavigationContainer from './components/Navigation/NavigationContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Profile from './components/Content/Profile';
 import Music from './components/Music/Music';
+import News from './components/News/News';
+import AllUsersContainer  from './components/All_Users/All_UsersContainer';
 import Setings from './components/Setings/Setings';
 
 const App = (props) => {
@@ -30,9 +32,13 @@ const App = (props) => {
                  dispatch={props.dispatch} */
                  /* store={props.store} */
                  />}/>
-              
+
+                <Route path='/news' component={News}/>
 
                 <Route path='/music' component={Music}/>
+
+                <Route path='/allusers'
+                render={() => <AllUsersContainer/>}/>
                 
                 <Route path='/setings' component={Setings}/>
             </div>

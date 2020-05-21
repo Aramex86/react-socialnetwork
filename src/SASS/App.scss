@@ -1,9 +1,14 @@
 
-@import "components/my-posts";
-@import "components/posts";
-@import "components/post";
+@import "components/Allusers/alluserspage";
+
+@import "components/Posts/my-posts";
+@import "components/Posts/posts";
+@import "components/Posts/post";
+
 @import "components/dialogs/dialogs";
 @import "components/dialogs/message-wrapper";
+
+
 
 @import "layout/header";
 @import "layout/navbar";

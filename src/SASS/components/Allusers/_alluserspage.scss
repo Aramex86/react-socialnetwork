@@ -1,0 +1,65 @@
+.userspage__wrapp{
+    padding: 2rem 0;
+    display: flex;
+    width: 100%;
+    
+
+    &-avatar{
+        display: flex;
+        width: 30%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+            & img{
+                width: 30%;
+                margin-bottom: 10px;
+                border-radius: 50%;
+            }
+            & button{
+                width: 6.5rem;
+                height: 3rem;
+                margin-top: 6px;
+                border: none;
+                background: #02569c;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                outline: none;
+                border-radius: 7px;
+                transition: all .5s ease;
+            }
+        }
+        &-info{
+            display: flex;
+            border-bottom: 1px solid #70b9f563;
+            width: 50%;
+            font-weight: 500;
+            box-shadow: 0 1px 3px 3px #b4b4b473;
+            padding: 1rem 1rem;
+            border-radius: 12px;
+            justify-content: space-between;
+            height: 100px;
+            &-left{
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                & div:nth-child(1){
+                    font-weight: 800;
+                }
+            }
+            &-right{
+                font-weight: 800;
+                & div:nth-child(1){
+                    margin-bottom: 5px;
+                    padding-right: 3rem;
+                }
+                & div:nth-child(2){
+                    margin-right: 20px;
+                }
+
+            }
+        }
+    }
+
+
