@@ -12,7 +12,8 @@
         align-items: center;
         
             & img{
-                width: 30%;
+                //width: 40%;
+                height: 60px;
                 margin-bottom: 10px;
                 border-radius: 50%;
             }
@@ -62,4 +63,16 @@
         }
     }
 
-
+.selected{
+    font-weight: bold;
+    
+}
+.margin{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+    & span{
+        margin-right: 2px;
+        cursor: pointer;
+    }
+}

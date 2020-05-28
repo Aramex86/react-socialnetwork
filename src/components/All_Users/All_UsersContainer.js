@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
 import AllUsers from './All_Users';
-import { followAC,unfollowAC,setUsersAC } from '../Redux/users-reducer';
+import { followAC,unfollowAC,setUsersAC,setCurrentPageAC,setTotalUsersCountAC } from '../Redux/users-reducer';
 
 
 // Step 2) Create functions take state
 export let mapStateToProps=(state)=>{
     return{
-        users:state.usersPage.users
+        users:state.usersPage.users,
+        pageSize:state.usersPage.pageSize,
+        totalUserCount:state.usersPage.totalUserCount,
+        currentPage:state.usersPage.currentPage
     }
 }
 
@@ -21,6 +24,12 @@ export let mapDispachToProps=(dispatch)=>{
         },
         setUsers:(users)=>{
             dispatch(setUsersAC(users));
+        },
+        setCurrentPage:(pageNumber)=>{
+            dispatch(setCurrentPageAC(pageNumber));
+        },
+        setTotalUsersCount:(totalCount)=>{
+            dispatch(setTotalUsersCountAC(totalCount))
         }
 
 

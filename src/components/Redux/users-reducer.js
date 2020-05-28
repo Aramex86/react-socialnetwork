@@ -3,57 +3,18 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 
 
 
 // Step 1) innitilState
 let initialState = {
-    users:[
-        {
-            id: 1,
-            followed:true,
-            name: 'Olga',
-            img: 'https://randomuser.me/api/portraits/women/88.jpg',
-            status:'Hello World!!!',
-            location:{
-                city:'Kisinev',
-                counrty:'Moldova'
-            }
-        },
-        {
-            id: 2,
-            followed:false,
-            name: 'Vasea',
-            img: 'https://randomuser.me/api/portraits/men/31.jpg',
-            status:'Hi Iam happy today!!!',
-            location:{
-                city:'Minsk',
-                counrty:'Belarus'
-            }
-        },
-        {
-            id: 3,
-            followed:true,
-            name: 'Sveta',
-            img: 'https://randomuser.me/api/portraits/women/57.jpg',
-            status:'Where are you ALL...',
-            location:{
-                city:'Moscow',
-                counrty:'Russia'
-            }
-        },
-        {
-            id: 4,
-            followed:false,
-            name: 'Slava',
-            img: 'https://randomuser.me/api/portraits/men/94.jpg',
-            status:'Lets Play',
-            location:{
-                city:'Kiev',
-                counrty:'Ukraine'
-            }
-        }
-    ]
+     users:[],
+     pageSize:5,
+     totalUserCount:0,
+     currentPage:1
+    
 }
 
 
@@ -86,8 +47,18 @@ const usersReducer = (state=initialState, action)=>{
         case SET_USERS:
             return{
                 ...state,
-                users:[...state.users,...action.users]
+                users: action.users
             }  
+        case SET_CURRENT_PAGE:
+            return{
+                ...state,
+                 currentPage:action.currentPage
+                }  
+        case SET_TOTAL_USERS_COUNT:
+            return{
+                ...state,
+                totalUserCount:action.count
+                }  
 
         default:
             return state;
@@ -114,6 +85,18 @@ export const unfollowAC = (userId)=>{
      return{
          type:SET_USERS,
          users
+     }
+ }
+ export const setCurrentPageAC = (currentPage) =>{
+     return{
+         type:SET_CURRENT_PAGE,
+         currentPage:currentPage
+     }
+ }
+ export const setTotalUsersCountAC = (totalUserCount) =>{
+     return{
+         type:SET_TOTAL_USERS_COUNT,
+         count:totalUserCount
      }
  }
 
