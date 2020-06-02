@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { followAC,unfollowAC,setUsersAC,setCurrentPageAC,setTotalUsersCountAC,setPrealoaderAC } from '../Redux/users-reducer';
+import { follow,unfollow,setUsers,setCurrentPage,setTotalUsersCount,setPrealoader } from '../Redux/users-reducer';
 import AllUsers from './All_Users';
 import * as axios from 'axios';
 import Prealoder from '../common/Prealoder/Prealoder';
@@ -10,20 +10,20 @@ import Prealoder from '../common/Prealoder/Prealoder';
 class AllUsersApiCall extends React.Component{
     componentDidMount(){
         //Prealoader
-        this.props.togglePrealoader(true);
+        this.props.setPrealoader(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
         .then(res => {
             console.log(res);
-            this.props.togglePrealoader(false);
+            this.props.setPrealoader(false);
              this.props.setUsers(res.data.items);
              this.props.setTotalUsersCount(res.data.totalCount);
              });
     }
     onPageChanged =(pageNumber)=>{
-        this.props.togglePrealoader(true);
+        this.props.setPrealoader(true);
         this.props.setCurrentPage(pageNumber);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(res => {
-            this.props.togglePrealoader(false);     
+            this.props.setPrealoader(false);     
             this.props.setUsers(res.data.items);
              });
     }
@@ -57,7 +57,7 @@ export let mapStateToProps=(state)=>{
 }
 
 //Step 3) Dispatch action from reducer
-export let mapDispachToProps=(dispatch)=>{
+/* export let mapDispachToProps=(dispatch)=>{
     return{
         follow:(userId)=>{
             dispatch(followAC(userId));
@@ -80,9 +80,16 @@ export let mapDispachToProps=(dispatch)=>{
 
 
     }
-}
+} */
 
 // Step 1) Create component cotainer with connect 
-const AllUsersContainer = connect(mapStateToProps,mapDispachToProps)(AllUsersApiCall)
+const AllUsersContainer = connect(mapStateToProps,{
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    setPrealoader
+})(AllUsersApiCall)
 
 export default AllUsersContainer;

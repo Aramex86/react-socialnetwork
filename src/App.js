@@ -4,13 +4,12 @@ import { Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import NavigationContainer from './components/Navigation/NavigationContainer';
-//import Dialogs from './components/Dialogs/Dialogs';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
-import Profile from './components/Content/Profile';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import AllUsersContainer  from './components/All_Users/All_UsersContainer';
 import Setings from './components/Setings/Setings';
+import ProfileContainer from './components/Content/ProfileContainer';
 
 const App = (props) => {
     return (
@@ -19,11 +18,9 @@ const App = (props) => {
             <NavigationContainer/>
             <div className="content-wrapper">
 
-                <Route exact path='/content'
+                <Route  path='/content/:userId?'
                  render = {()=> 
-                <Profile /* store={props.store} */
-               /*  posts={props.state.profilePage}
-                dispatch={props.dispatch} *//>}/>
+                <ProfileContainer />}/>
                
                 <Route path='/dialogs'
                  render={() => 

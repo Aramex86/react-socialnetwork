@@ -74,39 +74,39 @@ const usersReducer = (state=initialState, action)=>{
 
 //Step 3) Create ActionCreator
 
-export const followAC =(userId)=>{
+export const follow =(userId)=>{
     return{
         type: FOLLOW,
         userId
     }
 }
-export const unfollowAC = (userId)=>{
+export const unfollow = (userId)=>{
     return{
         type: UNFOLLOW,
         userId
     }
 }
 
-// server call
- export const setUsersAC = (users) =>{
+// server call AC
+ export const setUsers = (users) =>{
      return{
          type:SET_USERS,
          users
      }
  }
- export const setCurrentPageAC = (currentPage) =>{
+ export const setCurrentPage = (currentPage) =>{
      return{
          type:SET_CURRENT_PAGE,
          currentPage:currentPage
      }
  }
- export const setTotalUsersCountAC = (totalUserCount) =>{
+ export const setTotalUsersCount = (totalUserCount) =>{
      return{
          type:SET_TOTAL_USERS_COUNT,
          count:totalUserCount
      }
  }
- export const setPrealoaderAC = (isFetching) =>{
+ export const setPrealoader = (isFetching) =>{
      return{
          type:TOGGLE_PREALOADER,
          isFetching:isFetching
