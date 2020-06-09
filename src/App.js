@@ -2,7 +2,6 @@ import React from 'react';
 import './css/App.min.css';
 import { Route } from 'react-router-dom';
 
-import Header from './components/Header/Header';
 import NavigationContainer from './components/Navigation/NavigationContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Music from './components/Music/Music';
@@ -10,11 +9,12 @@ import News from './components/News/News';
 import AllUsersContainer  from './components/All_Users/All_UsersContainer';
 import Setings from './components/Setings/Setings';
 import ProfileContainer from './components/Content/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 const App = (props) => {
     return (
         <div className='app-wrapper'>
-            <Header />
+            <HeaderContainer />
             <NavigationContainer/>
             <div className="content-wrapper">
 

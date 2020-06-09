@@ -12,7 +12,7 @@ const TOGGLE_PREALOADER ='TOGGLE_PREALOADER'
 // Step 1) innitilState
 let initialState = {
      users:[],
-     pageSize:25,
+     pageSize:5,
      totalUserCount:0,
      currentPage:1,
      isFetching: false

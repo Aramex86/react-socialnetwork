@@ -1,22 +1,45 @@
 .header {
     background: #02569c;
     color: #ffff;
-    padding: 1rem 5rem;
+    padding: 1rem 13rem;
     grid-column: 1/-1;
-    grid-row: 1/1;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    &__img {
-        width: 8rem;
-        & svg {
-            & g{
-                fill: '#ffffff';
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-img {
+            width: 8rem;
+
+            & svg {
+                & g {
+                    fill: '#ffffff';
+                }
             }
         }
+
+        &-heading {
+            font-size: 1rem;
+        }
+
     }
 
-    &__heading {
-        font-size: 1rem;
+
+}
+
+.login-btn {
+    display: grid;
+    grid-column: 9;
+
+    & a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        font-weight: 600;
     }
 }

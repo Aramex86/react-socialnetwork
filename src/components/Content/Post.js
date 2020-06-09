@@ -3,7 +3,7 @@ import React from 'react';
 const Post = (props) => {
     return (
         <div className='post'>
-            <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'></img>
+            <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'/>
             {props.message}
 
             <span className="post__likes">
