@@ -1,7 +1,5 @@
 import React from 'react';
-//import MyPosts from './My_posts';
 import MyPostsContainer from './My_postsContainer';
-import ProfileInfo from './ProfileInfo';
 import UserInfo from './UserProfile';
 
 

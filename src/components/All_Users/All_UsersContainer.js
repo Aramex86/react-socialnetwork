@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { follow,unfollow,setUsers,setCurrentPage,setTotalUsersCount,setPrealoader } from '../Redux/users-reducer';
 import AllUsers from './All_Users';
-import * as axios from 'axios';
 import Prealoder from '../common/Prealoder/Prealoder';
+import { usersAPI } from '../../api/Api';
 
 // class component for API calls
 
@@ -11,20 +11,20 @@ class AllUsersApiCall extends React.Component{
     componentDidMount(){
         //Prealoader
         this.props.setPrealoader(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,{withCredentials:true})
+        usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
         .then(res => {
-            console.log(res);
             this.props.setPrealoader(false);
-             this.props.setUsers(res.data.items);
-             this.props.setTotalUsersCount(res.data.totalCount);
+             this.props.setUsers(res.items);
+             this.props.setTotalUsersCount(res.totalCount);
              });
     }
+
     onPageChanged =(pageNumber)=>{
         this.props.setPrealoader(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,{withCredentials:true}).then(res => {
+      usersAPI.getPages(pageNumber,this.props.pageSize).then(res => {
             this.props.setPrealoader(false);     
-            this.props.setUsers(res.data.items);
+            this.props.setUsers(res.items);
              });
     }
     render(){
