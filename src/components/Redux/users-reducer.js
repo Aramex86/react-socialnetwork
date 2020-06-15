@@ -1,3 +1,6 @@
+import {usersAPI} from "../../api/Api";
+
+
 //Step 4) Create const with type names
 
 const FOLLOW = 'FOLLOW';
@@ -84,13 +87,13 @@ const usersReducer = (state=initialState, action)=>{
 
 //Step 3) Create ActionCreator
 
-export const follow =(userId)=>{
+export const followSucces =(userId)=>{
     return{
         type: FOLLOW,
         userId
     }
 }
-export const unfollow = (userId)=>{
+export const unfollowSucces = (userId)=>{
     return{
         type: UNFOLLOW,
         userId
@@ -129,5 +132,46 @@ export const unfollow = (userId)=>{
          userId
      }
  }
+
+ //Thunk creator
+
+ export const getUsers=(currentPage,pageSize)=>{
+    return(dispatch) =>{
+     //Prealoader
+     dispatch(setPrealoader(true));
+     dispatch(setCurrentPage(currentPage));
+     usersAPI.getUsers(currentPage,pageSize)
+     .then(res => {
+        dispatch(setPrealoader(false));
+        dispatch(setUsers(res.items));
+        dispatch(setTotalUsersCount(res.totalCount));
+          });
+        }
+ }
+ export const unfollow=(userId)=>{
+    return(dispatch) =>{
+          dispatch(toggleFollowngProggress(true,userId));
+        usersAPI.unfollow(userId)
+        .then(res => {
+            if(res.data.resultCode === 0){
+            dispatch(unfollowSucces(userId))
+            }
+            dispatch(toggleFollowngProggress(false,userId));
+            });
+        }
+ }
+ export const follow=(userId)=>{
+    return(dispatch) =>{
+          dispatch(toggleFollowngProggress(true,userId));
+        usersAPI.follow(userId)
+        .then(res => {
+            if(res.data.resultCode === 0){
+            dispatch(followSucces(userId))
+            }
+            dispatch(toggleFollowngProggress(false,userId));
+            });
+        }
+ }
+ 
 
 export default usersReducer;

@@ -25,6 +25,13 @@ export const usersAPI={
         return instance.get(`users?page=${pageNumber}&count=${pageSize}`).then(res=>{ 
             return res.data;
         });
+    },
+    follow(id){
+        return instance.post(`follow/${id}`)
+    },
+
+    unfollow(id){
+        return instance.delete(`follow/${id}`)
     }
 
 
@@ -43,17 +50,4 @@ export const authAPI={
         return instance.get('auth/me');
     }
 }
-
-// follow unfollow API
-export const subscribeAPI={
-    follow(id){
-        return instance.post(`follow/${id}`)
-    },
-
-    unfollow(id){
-        return instance.delete(`follow/${id}`)
-    }
-}
-
-
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow,unfollow,setUsers,setCurrentPage,setTotalUsersCount,setPrealoader,toggleFollowngProggress } from '../Redux/users-reducer';
+import { follow,unfollow,setUsers,setCurrentPage,setTotalUsersCount,setPrealoader,toggleFollowngProggress,getUsers } from '../Redux/users-reducer';
 import AllUsers from './All_Users';
 import Prealoder from '../common/Prealoder/Prealoder';
 import { usersAPI } from '../../api/Api';
@@ -9,23 +9,18 @@ import { usersAPI } from '../../api/Api';
 
 class AllUsersApiCall extends React.Component{
     componentDidMount(){
-        //Prealoader
-        this.props.setPrealoader(true);
-        usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
-        .then(res => {
-            this.props.setPrealoader(false);
-             this.props.setUsers(res.items);
-             this.props.setTotalUsersCount(res.totalCount);
-             });
+        this.props.getUsers(this.props.currentPage,this.props.pageSize);
     }
 
     onPageChanged =(pageNumber)=>{
-        this.props.setPrealoader(true);
-        this.props.setCurrentPage(pageNumber);
-      usersAPI.getPages(pageNumber,this.props.pageSize).then(res => {
-            this.props.setPrealoader(false);     
-            this.props.setUsers(res.items);
-             });
+        this.props.getUsers(pageNumber,this.props.pageSize);
+        
+    //     this.props.setPrealoader(true);
+    //     this.props.setCurrentPage(pageNumber);
+    //   usersAPI.getPages(pageNumber,this.props.pageSize).then(res => {
+    //         this.props.setPrealoader(false);     
+    //         this.props.setUsers(res.items);
+    //          });
     }
     render(){
         return<>
@@ -38,7 +33,6 @@ class AllUsersApiCall extends React.Component{
         users={this.props.users}
         follow={this.props.follow}
         unfollow={this.props.unfollow}
-        toggleFollowngProggress={this.props.toggleFollowngProggress}
         followingInProgress={this.props.followingInProgress}
         // isFetching={this.props.isFetching}
         />
@@ -94,7 +88,8 @@ const AllUsersContainer = connect(mapStateToProps,{
     setCurrentPage,
     setTotalUsersCount,
     setPrealoader,
-    toggleFollowngProggress
+    toggleFollowngProggress,
+    getUsers: getUsers,
 })(AllUsersApiCall)
 
 export default AllUsersContainer;
