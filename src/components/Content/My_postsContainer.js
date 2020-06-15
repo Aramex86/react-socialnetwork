@@ -6,10 +6,6 @@ import { connect } from 'react-redux';
 
 /* const MyPostsContainer = (props) => {
     //let state = props.store.getState().profilePage;
-
-    
-    
-
     return( 
     <SrotreContext.Consumer>
         {(store) => {

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { follow,unfollow,setUsers,setCurrentPage,setTotalUsersCount,setPrealoader,toggleFollowngProggress,getUsers } from '../Redux/users-reducer';
 import AllUsers from './All_Users';
 import Prealoder from '../common/Prealoder/Prealoder';
-import { usersAPI } from '../../api/Api';
 
 // class component for API calls
 
