@@ -88,7 +88,7 @@ const AllUsersContainer = connect(mapStateToProps,{
     setTotalUsersCount,
     setPrealoader,
     toggleFollowngProggress,
-    getUsers: getUsers,
+    getUsers
 })(AllUsersApiCall)
 
 export default AllUsersContainer;

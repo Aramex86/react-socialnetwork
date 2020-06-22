@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import {setUserProfile,getProfile} from '../Redux/profile-reducer';
+import {getProfile} from '../Redux/profile-reducer';
 import { withRouter } from 'react-router-dom';
 
 
@@ -29,10 +29,11 @@ class ContentComponenet extends React.Component {
 
 let mapStateToProps =(state) =>{
  return{
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth:state.auth.isAuth
  }
 }
 
 let WithRouterDataContainer = withRouter(ContentComponenet)
 
-export default  connect(mapStateToProps,{setUserProfile,getProfile}) (WithRouterDataContainer);
+export default  connect(mapStateToProps,{getProfile}) (WithRouterDataContainer);

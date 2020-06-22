@@ -5,10 +5,9 @@ import UserInfo from './UserProfile';
 
 const Content = (props) => {
     return (<div>
-        
             <div className='profile'>
                {/*  <ProfileInfo/> */}
-               <UserInfo profile={props.profile}/>
+               <UserInfo profile={props.profile}  isAuth={props.isAuth}/>
             </div>
             <div className='profile__posts'>
                 <MyPostsContainer /* store={props.store} */ /* posts={props.posts}

@@ -7,14 +7,16 @@ import twitter from '../../assets/images/twitter.png';
 import like from '../../assets/images/like.png';
 import unlike from '../../assets/images/unlike.png';
 import userPhoto from '../../assets/images/user.png';
+import {Redirect} from 'react-router-dom';
 
 
 
 const UserInfo =(props)=>{
-   // debugger;
     if(!props.profile){
         return <Prealoder/>
     }
+     if(!props.isAuth) return <Redirect to='/login'/> 
+
     return (
         <div>
             <div className='userinfo__description'>
@@ -31,9 +33,9 @@ const UserInfo =(props)=>{
                     <div className='userinfo__description-contacts'>
                         <ul className='social'>
                             <li><a href={props.profile.contacts.facebook}><img src={facebook} alt='facebook'/></a></li>
-                            <li><a href={props.profile.contacts.twitter}><img src={twitter} alt='facebook'/></a></li>
-                            <li><a href={props.profile.contacts.instagram}><img src={instagram} alt='facebook'/></a></li>
-                            <li><a href={props.profile.contacts.github}><img src={github} alt='facebook'/></a></li>
+                            <li><a href={props.profile.contacts.twitter}><img src={twitter} alt='twitter'/></a></li>
+                            <li><a href={props.profile.contacts.instagram}><img src={instagram} alt='instagram '/></a></li>
+                            <li><a href={props.profile.contacts.github}><img src={github} alt='github'/></a></li>
                         </ul>
                     </div>
                     <div className='userinfo__description-about'>

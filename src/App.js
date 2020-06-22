@@ -10,6 +10,7 @@ import AllUsersContainer  from './components/All_Users/All_UsersContainer';
 import Setings from './components/Setings/Setings';
 import ProfileContainer from './components/Content/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 const App = (props) => {
     return (
@@ -38,6 +39,8 @@ const App = (props) => {
                 render={() => <AllUsersContainer/>}/>
                 
                 <Route path='/setings' component={Setings}/>
+                <Route path='/login' component={Login}/>
+
             </div>
         </div>
     );

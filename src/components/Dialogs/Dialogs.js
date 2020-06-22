@@ -1,12 +1,13 @@
 import React from 'react';
 import  DialogItem from './DialogItem/DialogsItem';
 import Message from './Message/Message';
+import { Redirect } from 'react-router-dom';
 
 
 //const addNewMessage = React.createRef();
 
 const Dialogs = (props) => {
-    //let state = props.dialogs;
+    if(!props.isAuth) return<Redirect to='/login'/>
 
     let newAnswer = props.newAnswer;
 

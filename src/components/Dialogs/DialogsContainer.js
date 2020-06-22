@@ -34,7 +34,8 @@ let mapStateToProps =(state)=>{
     return{
         dialogs: state.messagesPage.dialogs,
         messages: state.messagesPage.messages,
-        newAnswer: state.messagesPage.newAnswer
+        newAnswer: state.messagesPage.newAnswer,
+        isAuth:state.auth.isAuth
     }
 }
 let mapDispachToProps =(dispatch)=>{
