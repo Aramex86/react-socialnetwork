@@ -7,7 +7,6 @@ import twitter from '../../assets/images/twitter.png';
 import like from '../../assets/images/like.png';
 import unlike from '../../assets/images/unlike.png';
 import userPhoto from '../../assets/images/user.png';
-import {Redirect} from 'react-router-dom';
 
 
 
@@ -15,7 +14,7 @@ const UserInfo =(props)=>{
     if(!props.profile){
         return <Prealoder/>
     }
-     if(!props.isAuth) return <Redirect to='/login'/> 
+     
 
     return (
         <div>
