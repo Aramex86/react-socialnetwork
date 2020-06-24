@@ -12,6 +12,9 @@ import {
 } from "../Redux/users-reducer";
 import AllUsers from "./All_Users";
 import Prealoder from "../common/Prealoder/Prealoder";
+import { compose } from "redux";
+import WithAuthRedirect from '../HOC/WithAuthRedirect';
+
 
 // class component for API calls
 
@@ -89,15 +92,27 @@ export let mapStateToProps = (state) => {
 } */
 
 // Step 1) Create component cotainer with connect
-const AllUsersContainer = connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  setPrealoader,
-  toggleFollowngProggress,
-  getUsers,
-})(AllUsersApiCall);
+// const AllUsersContainer = connect(mapStateToProps, {
+//   follow,
+//   unfollow,
+//   setUsers,
+//   setCurrentPage,
+//   setTotalUsersCount,
+//   setPrealoader,
+//   toggleFollowngProggress,
+//   getUsers,
+// })(AllUsersApiCall);
 
-export default AllUsersContainer;
+export default compose(
+     WithAuthRedirect,
+    connect(mapStateToProps, {
+        follow,
+        unfollow,
+        setUsers,
+        setCurrentPage,
+        setTotalUsersCount,
+        setPrealoader,
+        toggleFollowngProggress,
+        getUsers,
+      })
+)(AllUsersApiCall);
