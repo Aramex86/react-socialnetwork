@@ -7,6 +7,7 @@ import twitter from '../../assets/images/twitter.png';
 import like from '../../assets/images/like.png';
 import unlike from '../../assets/images/unlike.png';
 import userPhoto from '../../assets/images/user.png';
+import UserChangeStatus from './UserChangeStatus';
 
 
 
@@ -27,7 +28,8 @@ const UserInfo =(props)=>{
                         {props.profile.fullName}
                     </div>
                     <div className='userinfo__description-status'>
-                      <span>Status :</span> {props.profile.aboutMe}
+                      {/* <span>Status :</span> {props.profile.aboutMe} */}
+                      <UserChangeStatus status={'Hello !!! how are you!!!'}/>
                     </div>
                     <div className='userinfo__description-contacts'>
                         <ul className='social'>

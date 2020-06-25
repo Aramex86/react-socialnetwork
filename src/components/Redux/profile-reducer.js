@@ -98,7 +98,7 @@ export const getProfile=(userId)=>{
         .then(res => {
             dispatch(setUserProfile(res));
         });
-    }
+    } 
 }
 
 export default profileReducer;
