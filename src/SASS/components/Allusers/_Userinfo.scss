@@ -1,107 +1,105 @@
 .userinfo__description {
-    display: flex;
-    padding: 2rem 2rem;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  padding: 2rem 2rem;
+  justify-content: flex-start;
+  align-items: center;
 
-    &-avatar {
-        width: 200px;
-        text-align: center;
+  &-avatar {
+    width: 200px;
+    text-align: center;
 
-        & img {
-            border-radius: 50px;
-        }
+    & img {
+      border-radius: 50px;
     }
+  }
 
-    /*  &-userinfo{
+  /*  &-userinfo{
         width: 70%;
     } */
 
-    &-name {
-        font-size: 2rem;
-        font-weight: bold;
-        display: flex;
-        justify-content: flex-start;
-        margin-bottom: 10px;
+  &-name {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  &-status {
+    margin-bottom: 10px;
+
+    & span {
+      font-weight: bold;
+    }
+  }
+
+  &-contacts {
+    margin-bottom: 10px;
+
+    & li {
+      display: inline-block;
+      list-style: none;
+      cursor: pointer;
+      //padding: 0 .2rem;
+    }
+  }
+
+  &-about {
+    & ul {
+      padding: 0 1rem;
     }
 
-    &-status {
-        margin-bottom: 10px;
-
-        & span {
-            font-weight: bold;
-        }
+    & li {
+      list-style: none;
+      text-transform: capitalize;
     }
 
-    &-contacts {
-        margin-bottom: 10px;
+    &-joblook {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 20px;
 
-        & li {
-            display: inline-block;
-            list-style: none;
-            cursor: pointer;
-            //padding: 0 .2rem;
+      h4 {
+        width: 100%;
+      }
+
+      & span {
+        width: 200px;
+
+        & img {
+          width: 20px;
         }
+      }
     }
-
-    &-about {
-        & ul {
-            padding: 0 1rem;
-        }
-
-        & li {
-            list-style: none;
-            text-transform: capitalize;
-        }
-
-        &-joblook {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            margin-bottom: 20px;
-
-            h4 {
-                width: 100%;
-            }
-
-
-
-            & span {
-                width: 200px;
-
-                & img {
-                    width: 20px;
-                }
-            }
-        }
-    }
+  }
 }
 
-.social {
-    & a {
-        //color: white;
-        text-decoration: none;
-        font-weight: 700;
-        padding: 0 .5rem;
-    }
 
-    & img {
-        width: 20px;
-        height: 20px;
-    }
+.social {
+  & a {
+    //color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
+
+  & img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .userphoto {
-    width: 167px;
+  width: 167px;
 }
 
-.like{
-    margin-left: 10px;
-    margin-top: -2px;
+.like {
+  margin-left: 10px;
+  margin-top: -2px;
 }
 
-.unlike{
-    margin-left: 10px;
-    margin-top: 5px;
-
+.unlike {
+  margin-left: 10px;
+  margin-top: 5px;
 }

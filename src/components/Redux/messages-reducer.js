@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'; 
-const UPDATE_MESSAGE_TEXT ='UPDATE-MESSAGE-TEXT';
 //initialState
 
 let initialState = {
@@ -55,12 +54,12 @@ let initialState = {
         case ADD_MESSAGE:{
             const newMessage ={
                 id:5,
-                message:state.newAnswer,
+                message:action.newAnswer,
                 img:'https://randomuser.me/api/portraits/women/88.jpg'
             };
             return{
                 ...state,
-                newAnswer:'',
+                //newAnswer:'',
                 messages:[...state.messages,newMessage]
             }
 
@@ -75,25 +74,15 @@ let initialState = {
             // }
             // return stateCopy;
         }
-        case UPDATE_MESSAGE_TEXT:{
-            return{
-                ...state,
-                newAnswer: action.newAnswer,
-            }
-            // let stateCopy = {...state}
-            // stateCopy.newAnswer = action.newAnswer;
-            // return stateCopy; 
-        }
+        
         default:
             return state;   
     }   
 }
-export const addNewMessageActionCreator = () =>{
-    return {type: ADD_MESSAGE}
+export const addNewMessageActionCreator = (newAnswer) =>{
+    return {type: ADD_MESSAGE , newAnswer}
 }
 
-export const updateMessageTextActionCreator = (text) =>{
-    return{type:UPDATE_MESSAGE_TEXT,newAnswer:text}
-}
+
 
 export default messagesReducer;

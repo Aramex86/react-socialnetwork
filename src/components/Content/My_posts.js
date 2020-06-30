@@ -1,38 +1,37 @@
-import React from 'react';
-import Posts from './Posts';
+import React from "react";
+import Posts from "./Posts";
+import { Field } from "redux-form";
+import { reduxForm } from "redux-form";
 
+let AddProfilePost = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <Field
+        component="textarea"
+        name="newText"
+        placeholder="your post here..."
+      />
+      <button>Add post</button>
+    </form>
+  );
+};
+
+let AddPostFormRedux = reduxForm({ form: "profileForm" })(AddProfilePost);
 
 const MyPosts = (props) => {
-    //let state = props.posts;
 
-    let newText = props.newText;
-    
-    const onAddPost = (e) => {
-        e.preventDefault();
-        props.addPost();
-       //props.dispatch(addNewPostActionCreator());
-    }
+  const onAddPost = (values) => {
+     props.addPost(values.newText);
+  };
 
-    const onChangeText = (e) =>{
-        let text = e.target.value;
-        props.updatePostText(text);
-        //  let action = updatePostTextActionCreator(text)
-        //  props.dispatch(action);
-    }
-
-    return (
-        <div>
-            <h2>My Posts</h2>
-            <form>
-                <textarea value={newText} onChange={ onChangeText }  placeholder='your post here...'/>
-                <button className='btn' onClick={ onAddPost }>Add post</button>
-            </form>
-            <Posts
-             posts={props.posts}
-            />
-
-        </div>
-    );
-}
+  
+  return (
+    <div>
+      <h2>My Posts</h2>
+      <AddPostFormRedux onSubmit={onAddPost} />
+      <Posts posts={props.posts} />
+    </div>
+  );
+};
 
 export default MyPosts;
