@@ -1,17 +1,35 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import { Input } from "../common/FormControl/TextArea";
+import { required } from "../../utilies/Validation";
 
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field placeholder={"Login"} name={'login'} component={'input'}/>
+        <Field
+          placeholder={"Login"}
+          name={"login"}
+          component={Input}
+          validate={[required]}
+        />
       </div>
       <div>
-        <Field placeholder={"Password"} name={'password'}  component={'input'}/>
+        <Field
+          placeholder={"Password"}
+          name={"password"}
+          component={Input}
+          validate={[required]}
+        />
       </div>
       <div>
-        <Field type={"checkbox"} name={'rememberMe'} placeholder={"Login"} component={'input'}/>
+        <Field
+          type={"checkbox"}
+          name={"rememberMe"}
+          placeholder={"Login"}
+          component={Input}
+          validate={[required]}
+        />
       </div>
       <div>
         <button>Login</button>
@@ -20,17 +38,18 @@ const LoginForm = (props) => {
   );
 };
 
-const LoginReduxForm = reduxForm({form:'login'})(LoginForm)
+const LoginReduxForm = reduxForm({ form: "login" })(LoginForm);
 
 const Login = (props) => {
-
-    const onSubmit = (formData)=>{
-        console.log(formData);
-    }
-  return <div>
-  <h1>Login</h1>
-  <LoginReduxForm onSubmit={onSubmit}/>
-  </div>
+  const onSubmit = (formData) => {
+    console.log(formData);
+  };
+  return (
+    <div>
+      <h1>Login</h1>
+      <LoginReduxForm onSubmit={onSubmit} />
+    </div>
+  );
 };
 
 export default Login;

@@ -1,6 +1,7 @@
-
 @import "components/Allusers/alluserspage";
 @import "components/Allusers/Userinfo";
+
+@import "components/common/textarea";
 
 @import "components/Posts/my-posts";
 @import "components/Posts/posts";
@@ -8,8 +9,6 @@
 
 @import "components/dialogs/dialogs";
 @import "components/dialogs/message-wrapper";
-
-
 
 @import "layout/header";
 @import "layout/navbar";

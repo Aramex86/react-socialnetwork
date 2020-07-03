@@ -259,6 +259,19 @@
   margin-top: 5px;
 }
 
+.formControl {
+  width: 100%;
+}
+
+.formControl textarea {
+  height: 60px;
+  resize: none;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid red;
+  border-radius: 4px;
+}
+
 .profile__posts {
   margin-top: 30px;
   display: -webkit-box;
@@ -286,13 +299,6 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-}
-
-.profile__posts form textarea {
-  height: 60px;
-  resize: none;
-  width: 100%;
-  padding: 1rem;
 }
 
 .profile__posts form button {

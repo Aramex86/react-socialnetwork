@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/App.min.css';
+import './SASS/App.scss';
 import { Route } from 'react-router-dom';
 
 import NavigationContainer from './components/Navigation/NavigationContainer';
