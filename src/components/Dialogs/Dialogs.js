@@ -6,16 +6,17 @@ import { Field, reduxForm } from "redux-form";
 import {TextArea} from "../common/FormControl/TextArea";
 import { maxLength,required } from "../../utilies/Validation";
 
-const maxLength10 = maxLength(10);
+const maxLength50 = maxLength(50);
 
 const DialogsForm = (props) => {
+  
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
         name="newAnswer"
         placeholder="your message here..."
         component={TextArea}
-        validate={[required,maxLength10]}
+        validate={[required,maxLength50]}
       ></Field>
       <button>SEND</button>
     </form>

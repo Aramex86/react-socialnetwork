@@ -35,7 +35,7 @@ import { connect } from 'react-redux';
 let mapStateToProps =(state)=>{
     return{
         posts: state.profilePage.posts,
-        newText : state.profilePage.newText,
+        // newText : state.profilePage.newText,
     }
 }
 let mapDispatchToProps=(dispatch)=>{
