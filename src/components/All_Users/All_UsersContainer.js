@@ -104,7 +104,7 @@ export let mapStateToProps = (state) => {
 // })(AllUsersApiCall);
 
 export default compose(
-     WithAuthRedirect,
+    // WithAuthRedirect,
     connect(mapStateToProps, {
         follow,
         unfollow,

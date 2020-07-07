@@ -10,14 +10,13 @@ class ContentComponenet extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 2;
+      userId = this.props.authUserId;
+      if(!userId){
+        this.props.history.push('/login');
+      }
     }
     this.props.getProfile(userId);
     this.props.getStatus(userId);
-    // profileAPI.getProfile(userId)
-    // .then(res => {
-    //     this.props.setUserProfile(res);
-    // });
   }
 
   render() {
@@ -37,6 +36,7 @@ let mapStateToProps = (state) => {
     profile: state.profilePage.profile,
     isAuth: state.auth.isAuth,
     status: state.profilePage.status,
+    authUserId: state.auth.userId,
   };
 };
 
