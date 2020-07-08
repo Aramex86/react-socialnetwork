@@ -134,7 +134,7 @@ export const unfollowSucces = (userId)=>{
 
  //Thunk creator
 
- export const getUsers=(currentPage,pageSize)=>{
+ export const requestUsers=(currentPage,pageSize)=>{
     return(dispatch) =>{
      //Prealoader
      dispatch(setPrealoader(true));
