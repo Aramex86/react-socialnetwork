@@ -7,7 +7,8 @@ import twitter from "../../assets/images/twitter.png";
 import like from "../../assets/images/like.png";
 import unlike from "../../assets/images/unlike.png";
 import userPhoto from "../../assets/images/user.png";
-import UserChangeStatus from "./UserChangeStatus";
+//import UserChangeStatus from "./UserChangeStatus";
+import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 
 const UserInfo = (props) => {
   if (!props.profile) {
@@ -33,7 +34,7 @@ const UserInfo = (props) => {
           <div className="userinfo__description-status">
             <span>About me :</span> {props.profile.aboutMe}
             <div style={{display:"flex"}}>
-            <span> Status:</span> <UserChangeStatus status={props.status}  updateStatus={props.updateStatus}/>
+            <span> Status:</span> <UserChangeStatusWithHooks status={props.status}  updateStatus={props.updateStatus}/>
             </div>
           </div>
           <div className="userinfo__description-contacts">
