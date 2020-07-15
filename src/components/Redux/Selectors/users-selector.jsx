@@ -7,7 +7,7 @@ import { createSelector } from "reselect";
 ///////-> reslect library<-/////////
 
 export const getUsers= createSelector(getUsersSelector,(users)=>{
-  return users.filter(u => console.log(u.id));
+  return users.filter(u => true);
 });
 
 /////////////////
