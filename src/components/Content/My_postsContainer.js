@@ -4,33 +4,6 @@ import { connect } from 'react-redux';
 
 
 
-/* const MyPostsContainer = (props) => {
-    //let state = props.store.getState().profilePage;
-    return( 
-    <SrotreContext.Consumer>
-        {(store) => {
-            let state = store.getState().profilePage;
-
-            const onAddPost = () => {
-                //props.addPost();
-               store.dispatch(addNewPostActionCreator());
-            }
-        
-            const onChangeText = (text) =>{
-                //props.updatePostText(text);
-                 let action = updatePostTextActionCreator(text)
-                 store.dispatch(action);
-            }
-
-            return <MyPosts 
-                    addPost={onAddPost} 
-                    updatePostText={onChangeText}
-                     profilePage={state}/>
-       
-        } 
-     }
-     </SrotreContext.Consumer>)
-} */
 
 let mapStateToProps =(state)=>{
     return{

@@ -3,6 +3,7 @@ import MyPostsContainer from "./My_postsContainer";
 import UserInfo from "./UserProfile";
 
 const Content = (props) => {
+  console.log('Content');
   return (
     <div>
       <div className="profile">
