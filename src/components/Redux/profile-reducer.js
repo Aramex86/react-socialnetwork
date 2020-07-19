@@ -83,8 +83,11 @@ const profileReducer = (state = initialState, action) => {
         status: action.status,
       };
     }
-    case DELETE_POST:{
-      return{...state,posts:state.posts.filter(p => p.id != action.postId)}
+    case DELETE_POST: {
+      return {
+        ...state,
+        posts: state.posts.filter((p) => p.id !== action.postId),
+      };
     }
 
     default:
@@ -93,12 +96,12 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export const addNewPostActionCreator = (newText) => {
-  return { type: ADD_POST ,newText };
+  return { type: ADD_POST, newText };
 };
 
-export const deletePost=(postId)=>{
-  return{type:DELETE_POST,postId}
-}
+export const deletePost = (postId) => {
+  return { type: DELETE_POST, postId };
+};
 // export const updatePostTextActionCreator = (newText) => {
 //   return { type: UPDATE_POST_TEXT, action:newText };
 // };
@@ -110,28 +113,19 @@ export const setUserStatus = (status) => {
 };
 //Thunk creator
 
-export const getProfile = (userId) => {
-  return (dispatch) => {
-    profileAPI.getProfile(userId).then((res) => {
-      dispatch(setUserProfile(res));
-    });
-  };
+export const getProfile = (userId) => async (dispatch) => {
+  const res = await profileAPI.getProfile(userId);
+  dispatch(setUserProfile(res));
 };
-export const getStatus = (userId) => {
-  return (dispatch) => {
-    profileAPI.getStatus(userId).then((res) => {
-      dispatch(setUserStatus(res.data));
-    });
-  };
+export const getStatus = (userId) => async (dispatch) => {
+  const res = await profileAPI.getStatus(userId);
+  dispatch(setUserStatus(res.data));
 };
-export const updateStatus = (status) => {
-  return (dispatch) => {
-    profileAPI.updateStatus(status).then((res) => {
-      if (res.data.resultCode === 0) {
-        dispatch(setUserStatus(status));
-      }
-    });
-  };
+export const updateStatus = (status) => async (dispatch) => {
+  const res = await profileAPI.updateStatus(status);
+  if (res.data.resultCode === 0) {
+    dispatch(setUserStatus(status));
+  }
 };
 
 export default profileReducer;

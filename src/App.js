@@ -14,6 +14,7 @@ import ProfileContainer from "./components/Content/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import Prealoder from "./components/common/Prealoder/Prealoder";
+import { compose } from "redux";
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +25,6 @@ class App extends Component {
     if(!this.props.initialized){
       return <Prealoder />
     }
-
 
     return (
       <div className="app-wrapper">
@@ -55,4 +55,6 @@ const mapStateToProps=(state)=>({
 
 
 
-export default connect(mapStateToProps, { initializeApp })(App);
+export default compose(
+  //withRouter ,
+  connect(mapStateToProps, { initializeApp })(App));

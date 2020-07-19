@@ -13,7 +13,7 @@ import {
 import AllUsers from "./All_Users";
 import Prealoder from "../common/Prealoder/Prealoder";
 import { compose } from "redux";
-import WithAuthRedirect from "../HOC/WithAuthRedirect";
+// import WithAuthRedirect from "../HOC/WithAuthRedirect";
 import {
   getUsers,
   getPageSize,

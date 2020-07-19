@@ -2,22 +2,19 @@ import React from "react";
 import MyPostsContainer from "./My_postsContainer";
 import UserInfo from "./UserProfile";
 
-const Content = (props) => {
-  console.log('Content');
+const Content = ({profile,status,updateStatus,...props}) => {
   return (
     <div>
       <div className="profile">
         {/*  <ProfileInfo/> */}
         <UserInfo
-          profile={props.profile}
-          status={props.status}
-          updateStatus={props.updateStatus} /* isAuth={props.isAuth} */
+          profile={profile}
+          status={status}
+          updateStatus={updateStatus}
         />
       </div>
       <div className="profile__posts">
-        <MyPostsContainer /* store={props.store} */ /* posts={props.posts}
-                newText={props.posts.newText}
-                dispatch={props.dispatch} */
+        <MyPostsContainer 
         />
       </div>
     </div>
