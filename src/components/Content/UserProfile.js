@@ -10,7 +10,8 @@ import userPhoto from "../../assets/images/user.png";
 //import UserChangeStatus from "./UserChangeStatus";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 
-const UserInfo = (profile,status,updateStatus,...props) => {
+const UserInfo = (props) => {
+  console.log(props);
   if (!props.profile) {
     return <Prealoder />;
   }
@@ -20,8 +21,8 @@ const UserInfo = (profile,status,updateStatus,...props) => {
         <div className="userinfo__description-avatar">
           <div>
             {" "}
-            {profile.photos.small != null ? (
-              <img src={profile.photos.small} alt="avatar" />
+            {props.profile.photos.small != null ? (
+              <img src={props.profile.photos.small} alt="avatar" />
             ) : (
               <img src={userPhoto} alt="avata" className="userphoto" />
             )}{" "}
@@ -29,33 +30,33 @@ const UserInfo = (profile,status,updateStatus,...props) => {
         </div>
         <div className="userinfo__description-userinfo">
           <div className="userinfo__description-name">
-            {profile.fullName}
+            {props.profile.fullName}
           </div>
           <div className="userinfo__description-status">
-            <span>About me :</span> {profile.aboutMe}
+            <span>About me :</span> {props.profile.aboutMe}
             <div style={{display:"flex"}}>
-            <span> Status:</span> <UserChangeStatusWithHooks status={status}  updateStatus={updateStatus}/>
+            <span> Status:</span> <UserChangeStatusWithHooks status={props.status}  updateStatus={props.updateStatus}/>
             </div>
           </div>
           <div className="userinfo__description-contacts">
             <ul className="social">
               <li>
-                <a href={profile.contacts.facebook}>
+                <a href={props.profile.contacts.facebook}>
                   <img src={facebook} alt="facebook" />
                 </a>
               </li>
               <li>
-                <a href={profile.contacts.twitter}>
+                <a href={props.profile.contacts.twitter}>
                   <img src={twitter} alt="twitter" />
                 </a>
               </li>
               <li>
-                <a href={profile.contacts.instagram}>
+                <a href={props.profile.contacts.instagram}>
                   <img src={instagram} alt="instagram " />
                 </a>
               </li>
               <li>
-                <a href={profile.contacts.github}>
+                <a href={props.profile.contacts.github}>
                   <img src={github} alt="github" />
                 </a>
               </li>
@@ -65,7 +66,7 @@ const UserInfo = (profile,status,updateStatus,...props) => {
             <div className="userinfo__description-about-joblook">
               <div>Loking for job</div>
               <span>
-                {profile.lookingForAJob ? (
+                {props.profile.lookingForAJob ? (
                   <img src={like} alt="like" className="like" />
                 ) : (
                   <img src={unlike} alt="unlike" className="unlike" />
@@ -74,7 +75,7 @@ const UserInfo = (profile,status,updateStatus,...props) => {
             </div>
             <div className="userinfo__description-about-jobdesc">
               <h5>Description:</h5>
-              {profile.lookingForAJobDescription}
+              {props.profile.lookingForAJobDescription}
             </div>
           </div>
         </div>
