@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class UserChangeStatus extends Component {
   state = {
     editMode: false,
-    status:!this.props.status
+    status:this.props.status
 
   };
   activateEditMode=()=>{
@@ -36,7 +36,7 @@ componentDidUpdate(prevProps,prevState){
       <div style={{marginLeft:"10px"}}>
         {!this.state.editMode && 
           <div>
-            <p onDoubleClick={this.activateEditMode}>{this.props.status||'no status'}</p>
+            <span onDoubleClick={this.activateEditMode}>{this.props.status||'no status'}</span>
           </div>
         }
         {this.state.editMode && 

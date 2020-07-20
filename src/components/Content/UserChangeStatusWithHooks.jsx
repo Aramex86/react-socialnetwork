@@ -2,8 +2,8 @@ import React, { useState,useEffect } from "react";
 
 const UserChangeStatusWithHooks=(props)=> {
   
-const [editMode, setEditMode] = useState(false);
-const [status, setStatus] = useState(props.setStatus);
+const [editMode, setEditMode] = useState();
+const [status, setStatus] = useState(props.status);
 
 
 useEffect(() => {
