@@ -11,12 +11,13 @@ const AllUsers = ({
   ...props
 }) => {
   return (
-    <div>
+    <div className="Alluser">
       <Paginator
         currentPage={currentPage}
         onPageChanged={onPageChanged}
-        totalUserCount={totalUserCount}
+       // totalUserCount={totalUserCount}
         pageSize={pageSize}
+        totalItemsCount={totalUserCount}
       />
       {users.map((u, i) => (
         <User
