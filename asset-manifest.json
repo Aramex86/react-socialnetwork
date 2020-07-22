@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/SlavaFrEd/demo-site/static/css/main.2eaf8c48.chunk.css",
+    "main.js": "/SlavaFrEd/demo-site/static/js/main.754b1357.chunk.js",
+    "main.js.map": "/SlavaFrEd/demo-site/static/js/main.754b1357.chunk.js.map",
+    "runtime-main.js": "/SlavaFrEd/demo-site/static/js/runtime-main.91dd38a1.js",
+    "runtime-main.js.map": "/SlavaFrEd/demo-site/static/js/runtime-main.91dd38a1.js.map",
+    "static/js/2.0a4d76a8.chunk.js": "/SlavaFrEd/demo-site/static/js/2.0a4d76a8.chunk.js",
+    "static/js/2.0a4d76a8.chunk.js.map": "/SlavaFrEd/demo-site/static/js/2.0a4d76a8.chunk.js.map",
+    "static/js/3.994a5cfc.chunk.js": "/SlavaFrEd/demo-site/static/js/3.994a5cfc.chunk.js",
+    "static/js/3.994a5cfc.chunk.js.map": "/SlavaFrEd/demo-site/static/js/3.994a5cfc.chunk.js.map",
+    "static/js/4.84ebfca6.chunk.js": "/SlavaFrEd/demo-site/static/js/4.84ebfca6.chunk.js",
+    "static/js/4.84ebfca6.chunk.js.map": "/SlavaFrEd/demo-site/static/js/4.84ebfca6.chunk.js.map",
+    "index.html": "/SlavaFrEd/demo-site/index.html",
+    "precache-manifest.1e17f1e911239874bf7e9222817a2b14.js": "/SlavaFrEd/demo-site/precache-manifest.1e17f1e911239874bf7e9222817a2b14.js",
+    "service-worker.js": "/SlavaFrEd/demo-site/service-worker.js",
+    "static/css/main.2eaf8c48.chunk.css.map": "/SlavaFrEd/demo-site/static/css/main.2eaf8c48.chunk.css.map",
+    "static/js/2.0a4d76a8.chunk.js.LICENSE.txt": "/SlavaFrEd/demo-site/static/js/2.0a4d76a8.chunk.js.LICENSE.txt",
+    "static/media/github.png": "/SlavaFrEd/demo-site/static/media/github.b801b1a5.png",
+    "static/media/instagram.png": "/SlavaFrEd/demo-site/static/media/instagram.4a8c2347.png",
+    "static/media/user.png": "/SlavaFrEd/demo-site/static/media/user.f5840b79.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.91dd38a1.js",
+    "static/js/2.0a4d76a8.chunk.js",
+    "static/css/main.2eaf8c48.chunk.css",
+    "static/js/main.754b1357.chunk.js"
+  ]
+}
