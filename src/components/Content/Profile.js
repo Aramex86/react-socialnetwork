@@ -1,16 +1,19 @@
 import React from "react";
 import MyPostsContainer from "./My_postsContainer";
-import UserInfo from "./UserProfile";
+import UserProfile from "./UserProfile";
+import { savePhoto } from "../Redux/profile-reducer";
 
-const Content = ({profile,status,updateStatus,...props}) => {
+const Content = ({profile,status,updateStatus,isOwner,savePhoto,...props}) => {
   return (
     <div>
       <div className="profile">
         {/*  <ProfileInfo/> */}
-        <UserInfo
+        <UserProfile
           profile={profile}
           status={status}
           updateStatus={updateStatus}
+          isOwner={isOwner}
+          savePhoto={savePhoto}
         />
       </div>
       <div className="profile__posts">

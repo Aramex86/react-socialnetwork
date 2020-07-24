@@ -11,10 +11,14 @@ import userPhoto from "../../assets/images/user.png";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 
 const UserInfo = (props) => {
-  console.log(props);
-  if (!props.profile) {
+   if (!props.profile) {
     return <Prealoder />;
   }
+const onMainPhotoSelected =(e)=>{
+  if(e.target.files.length){
+    props.savePhoto(e.target.files[0]);
+  }
+}
   return (
     <div>
       <div className="userinfo__description">
@@ -24,8 +28,9 @@ const UserInfo = (props) => {
             {props.profile.photos.small != null ? (
               <img src={props.profile.photos.small} alt="avatar" />
             ) : (
-              <img src={userPhoto} alt="avata" className="userphoto" />
+              <img src={userPhoto} alt="avatar" className="userphoto" />
             )}{" "}
+            {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
           </div>
         </div>
         <div className="userinfo__description-userinfo">
