@@ -7,17 +7,27 @@ import WithAuthRedirect from "../HOC/WithAuthRedirect";
 import { compose } from "redux";
 
 class ContentComponenet extends React.Component {
-  componentDidMount() {
+  refreshProfile() {
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.authUserId;
-      if(!userId){
-        this.props.history.push('/login');
+      if (!userId) {
+        this.props.history.push("/login");
       }
     }
     this.props.getProfile(userId);
     this.props.getStatus(userId);
   }
+
+  componentDidMount() {
+    this.refreshProfile();
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.props.match.params.userId != prevProps.match.params.userId) {
+      this.refreshProfile();
+    }
+  };
 
   render() {
     return (

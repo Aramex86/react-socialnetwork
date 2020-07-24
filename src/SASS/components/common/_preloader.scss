@@ -1,0 +1,12 @@
+.preloader{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #27a6fa;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
