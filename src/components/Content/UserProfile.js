@@ -1,24 +1,24 @@
-import React from "react";
+import React,{useState} from "react";
 import Prealoder from "../common/Prealoder/Prealoder";
-import facebook from "../../assets/images/facebook.png";
-import instagram from "../../assets/images/instagram.png";
-import github from "../../assets/images/github.png";
-import twitter from "../../assets/images/twitter.png";
 import like from "../../assets/images/like.png";
 import unlike from "../../assets/images/unlike.png";
 import userPhoto from "../../assets/images/user.png";
 //import UserChangeStatus from "./UserChangeStatus";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
+import ProfileDataForm from './ProfileDataForm';
 
 const UserInfo = (props) => {
-   if (!props.profile) {
+  const [editMode,setEditMode]= useState(false);
+
+  if (!props.profile) {
     return <Prealoder />;
   }
-const onMainPhotoSelected =(e)=>{
-  if(e.target.files.length){
-    props.savePhoto(e.target.files[0]);
-  }
-}
+  
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
   return (
     <div>
       <div className="userinfo__description">
@@ -30,61 +30,71 @@ const onMainPhotoSelected =(e)=>{
             ) : (
               <img src={userPhoto} alt="avatar" className="userphoto" />
             )}{" "}
-            {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
+            {props.isOwner && (
+              <input type={"file"} onChange={onMainPhotoSelected} />
+            )}
           </div>
         </div>
         <div className="userinfo__description-userinfo">
-          <div className="userinfo__description-name">
-            {props.profile.fullName}
-          </div>
+          {editMode?<ProfileDataForm profile={props.profile}/>:<ProfileData goToEditMode={()=>{setEditMode(true)}} profile={props.profile} isOwner={props.isOwner}/>}
           <div className="userinfo__description-status">
-            <span>About me :</span> {props.profile.aboutMe}
-            <div style={{display:"flex"}}>
-            <span> Status:</span> <UserChangeStatusWithHooks status={props.status}  updateStatus={props.updateStatus}/>
+            <div style={{ display: "flex" }}>
+              <span> Status:</span>{" "}
+              <UserChangeStatusWithHooks
+                status={props.status}
+                updateStatus={props.updateStatus}
+              />
             </div>
           </div>
           <div className="userinfo__description-contacts">
-            <ul className="social">
-              <li>
-                <a href={props.profile.contacts.facebook}>
-                  <img src={facebook} alt="facebook" />
-                </a>
-              </li>
-              <li>
-                <a href={props.profile.contacts.twitter}>
-                  <img src={twitter} alt="twitter" />
-                </a>
-              </li>
-              <li>
-                <a href={props.profile.contacts.instagram}>
-                  <img src={instagram} alt="instagram " />
-                </a>
-              </li>
-              <li>
-                <a href={props.profile.contacts.github}>
-                  <img src={github} alt="github" />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="userinfo__description-about">
-            <div className="userinfo__description-about-joblook">
-              <div>Loking for job</div>
-              <span>
-                {props.profile.lookingForAJob ? (
-                  <img src={like} alt="like" className="like" />
-                ) : (
-                  <img src={unlike} alt="unlike" className="unlike" />
-                )}
-              </span>
-            </div>
-            <div className="userinfo__description-about-jobdesc">
-              <h5>Description:</h5>
-              {props.profile.lookingForAJobDescription}
-            </div>
+            <b>Contacts</b>:
+            {Object.keys(props.profile.contacts).map((key) => {
+              return (
+                <Contacts
+                  key={key}
+                  contactTitle={key}
+                  contactValue={props.profile.contacts[key]}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+const ProfileData = ({ profile,isOwner,goToEditMode }) => {
+  return (
+    <div>
+     {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+      <div className="userinfo__description-name">{profile.fullName}</div>
+      <b>About me :</b> {profile.aboutMe}
+      <div className="userinfo__description-about">
+        <div className="userinfo__description-about-joblook">
+          <div>Loking for job</div>
+          <span>
+            {profile.lookingForAJob ? (
+              <img src={like} alt="like" className="like" />
+            ) : (
+              <img src={unlike} alt="unlike" className="unlike" />
+            )}
+          </span>
+        </div>
+        <div className="userinfo__description-about-jobdesc">
+        <b>My professional skills:</b>
+          {profile.lookingForAJobDescription}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+const Contacts = ({ contactTitle, contactValue }) => {
+  return (
+    <div className="contacts_align">
+      <b>{contactTitle}</b>:{contactValue}
     </div>
   );
 };
