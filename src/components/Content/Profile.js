@@ -1,7 +1,6 @@
 import React from "react";
 import MyPostsContainer from "./My_postsContainer";
 import UserProfile from "./UserProfile";
-import { savePhoto } from "../Redux/profile-reducer";
 
 const Content = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile,...props}) => {
   return (

@@ -20,10 +20,12 @@ const UserInfo = ({ saveProfile, ...props }) => {
     }
   };
 
-  const onSubmit = (formData) => {
-    saveProfile(formData);
-    setEditMode(false);
+  const onSubmit =(formData) => {
+     saveProfile(formData).then(()=>{
+      setEditMode(false);
+     });
   };
+
   return (
     <div>
       <div className="userinfo__description">
@@ -42,7 +44,11 @@ const UserInfo = ({ saveProfile, ...props }) => {
         </div>
         <div className="userinfo__description-userinfo">
           {editMode ? (
-            <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit} />
+            <ProfileDataForm
+              initialValues={props.profile}
+              profile={props.profile}
+              onSubmit={onSubmit}
+            />
           ) : (
             <ProfileData
               goToEditMode={() => {
