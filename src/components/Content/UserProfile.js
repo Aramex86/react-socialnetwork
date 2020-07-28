@@ -1,23 +1,28 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Prealoder from "../common/Prealoder/Prealoder";
 import like from "../../assets/images/like.png";
 import unlike from "../../assets/images/unlike.png";
 import userPhoto from "../../assets/images/user.png";
 //import UserChangeStatus from "./UserChangeStatus";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
-import ProfileDataForm from './ProfileDataForm';
+import ProfileDataForm from "./ProfileDataForm";
 
-const UserInfo = (props) => {
-  const [editMode,setEditMode]= useState(false);
+const UserInfo = ({ saveProfile, ...props }) => {
+  const [editMode, setEditMode] = useState(false);
 
   if (!props.profile) {
     return <Prealoder />;
   }
-  
+
   const onMainPhotoSelected = (e) => {
     if (e.target.files.length) {
       props.savePhoto(e.target.files[0]);
     }
+  };
+
+  const onSubmit = (formData) => {
+    saveProfile(formData);
+    setEditMode(false);
   };
   return (
     <div>
@@ -36,7 +41,17 @@ const UserInfo = (props) => {
           </div>
         </div>
         <div className="userinfo__description-userinfo">
-          {editMode?<ProfileDataForm profile={props.profile}/>:<ProfileData goToEditMode={()=>{setEditMode(true)}} profile={props.profile} isOwner={props.isOwner}/>}
+          {editMode ? (
+            <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit} />
+          ) : (
+            <ProfileData
+              goToEditMode={() => {
+                setEditMode(true);
+              }}
+              profile={props.profile}
+              isOwner={props.isOwner}
+            />
+          )}
           <div className="userinfo__description-status">
             <div style={{ display: "flex" }}>
               <span> Status:</span>{" "}
@@ -64,10 +79,14 @@ const UserInfo = (props) => {
   );
 };
 
-const ProfileData = ({ profile,isOwner,goToEditMode }) => {
+const ProfileData = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div>
-     {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
+      {isOwner && (
+        <div>
+          <button onClick={goToEditMode}>edit</button>
+        </div>
+      )}
       <div className="userinfo__description-name">{profile.fullName}</div>
       <b>About me :</b> {profile.aboutMe}
       <div className="userinfo__description-about">
@@ -82,14 +101,13 @@ const ProfileData = ({ profile,isOwner,goToEditMode }) => {
           </span>
         </div>
         <div className="userinfo__description-about-jobdesc">
-        <b>My professional skills:</b>
+          <b>My professional skills:</b>
           {profile.lookingForAJobDescription}
         </div>
       </div>
     </div>
   );
 };
-
 
 const Contacts = ({ contactTitle, contactValue }) => {
   return (

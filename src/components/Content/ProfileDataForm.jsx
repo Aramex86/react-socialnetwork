@@ -1,30 +1,26 @@
 import React from "react";
-import unlike from "../../assets/images/unlike.png";
-import like from "../../assets/images/like.png";
-
-import userPhoto from "../../assets/images/user.png";
 import { createField, Input, TextArea } from "../common/FormControl/TextArea";
 import { reduxForm } from "redux-form";
 
-const ProfileDataForm = ({ profile, isOwner, goToEditMode }) => {
+const ProfileDataForm = ({ handleSubmit, profile,error}) => {
   return (
-    <form>
-      {isOwner && (
-        <div>
-          <button onClick={goToEditMode}>save</button>
-        </div>
-      )}
-      <div className="userinfo__description-name">
-        {createField("Full name", "fullname", Input)}
+    <form onSubmit={handleSubmit}>
+      <div>
+        <button>save</button>
+        {error && <div className="commonError">
+       {error}
+       </div>}
       </div>
-      <b>About me :</b> {profile.aboutMe}
-      {createField('About me', "aboutMe", TextArea)}
-
+      <div className="userinfo__description-name">
+        {createField("Full name", "fullname", Input,[],'text')}
+      </div>
+      <b>About me :</b>
+      {createField("About me", "aboutMe", TextArea)}
       <div className="userinfo__description-about">
         <div className="userinfo__description-about-joblook">
           <div>Loking for job</div>
           <span>
-          {createField('', "Loking for job",Input,[], {type:'checkbox'})}
+            {createField(null, "Loking for job", Input, [], "checkbox")}
             {/* {profile.lookingForAJob ? (
               <img src={like} alt="like" className="like" />
             ) : (
@@ -34,10 +30,21 @@ const ProfileDataForm = ({ profile, isOwner, goToEditMode }) => {
         </div>
         <div className="userinfo__description-about-jobdesc">
           <b>My professional skills:</b>
-          {profile.lookingForAJobDescription}
-          {createField('My professional skills', "lookingForAJobDescription", TextArea)}
+          {createField(
+            "My professional skills",
+            "lookingForAJobDescription",
+            TextArea
+          )}
         </div>
       </div>
+      <div className="userinfo__description-contacts">
+            <b>Contacts</b>:
+            {Object.keys(profile.contacts).map((key) => {
+              return <div key={key} className='contacts_align'>
+                <b>{key}: {createField(key, "constacts." + key, Input, [], )}</b>
+              </div>
+            })}
+          </div>
     </form>
   );
 };
