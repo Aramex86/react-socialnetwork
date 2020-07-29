@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SASS/App.scss";
-import { Route } from "react-router-dom";
+import { Route,Switch, Redirect } from "react-router-dom";
 import { initializeApp } from "./components/Redux/app-reducer";
 import { connect } from "react-redux";
 
@@ -26,8 +26,17 @@ const ProfileContainer = React.lazy(() =>
 );
 
 class App extends Component {
-  componentDidMount() {
+  catchAllUnhandleErrors=(promiseRejectionEvent)=>{
+    alert('some error');
+    console.error(promiseRejectionEvent);
+};
+  componentDidMount() {    
     this.props.initializeApp();
+    window.addEventListener('unhandledrejection',this.catchAllUnhandleErrors);
+  }
+  componentWillMount(){
+    window.removeEventListener('unhandledrejection',this.catchAllUnhandleErrors);
+
   }
 
   render() {
@@ -50,6 +59,11 @@ class App extends Component {
               );
             }}
           /> */}
+          <Switch>
+          <Route
+           exact path="/"
+            render={()=><Redirect to='/content'/>}
+          />
           <Route
             path="/content/:userId?"
             render={WithSuspense(ProfileContainer)}
@@ -68,6 +82,8 @@ class App extends Component {
 
           <Route path="/setings" component={Setings} />
           <Route path="/login" component={Login} />
+          <Route path="*" render={()=><div>404 NOT FOUND</div>} />
+          </Switch>
         </div>
       </div>
     );

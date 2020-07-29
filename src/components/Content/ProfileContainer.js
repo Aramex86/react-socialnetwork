@@ -30,7 +30,7 @@ class ContentComponenet extends React.Component {
   };
 
   render() {
-    return (
+    return (  
       <Profile
         {...this.props}
         profile={this.props.profile}
