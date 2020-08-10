@@ -31,7 +31,7 @@ export const createField = (
   props={}
 ) => (
 
-  <div>
+  <div className="form-field">
     <Field
       placeholder={placeholder}
       name={name}

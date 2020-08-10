@@ -26,6 +26,7 @@ const ProfileContainer = React.lazy(() =>
 );
 
 class App extends Component {
+  
   catchAllUnhandleErrors=(promiseRejectionEvent)=>{
     alert('some error');
     console.error(promiseRejectionEvent);
@@ -40,11 +41,14 @@ class App extends Component {
   }
 
   render() {
+    
     if (!this.props.initialized) {
       return <Prealoder />;
     }
+   
 
     return (
+      
       <div className="app-wrapper">
         <HeaderContainer />
         <NavigationContainer />
@@ -60,6 +64,7 @@ class App extends Component {
             }}
           /> */}
           <Switch>
+          <Route path="/login" component={Login} />
           <Route
            exact path="/"
             render={()=><Redirect to='/content'/>}
@@ -92,6 +97,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
+  
 });
 
 export default compose(

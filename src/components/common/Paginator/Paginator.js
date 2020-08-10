@@ -38,15 +38,6 @@
 
 // export default Paginator; 
 
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
 
 let Paginator = ({
@@ -70,7 +61,7 @@ let Paginator = ({
   const rightPortionPageNumber = portionNumber * portionSize;
 
   return (
-    <div>
+    <div className="paginator__wrapp">
        { portionNumber > 1 &&
         <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button> }
       

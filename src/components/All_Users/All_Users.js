@@ -12,13 +12,7 @@ const AllUsers = ({
 }) => {
   return (
     <div className="Alluser">
-      <Paginator
-        currentPage={currentPage}
-        onPageChanged={onPageChanged}
-       // totalUserCount={totalUserCount}
-        pageSize={pageSize}
-        totalItemsCount={totalUserCount}
-      />
+      
       {users.map((u, i) => (
         <User
           key={i}
@@ -28,6 +22,13 @@ const AllUsers = ({
           follow={props.follow}
         />
       ))}
+      <Paginator
+        currentPage={currentPage}
+        onPageChanged={onPageChanged}
+       // totalUserCount={totalUserCount}
+        pageSize={pageSize}
+        totalItemsCount={totalUserCount}
+      />
     </div>
   );
 };
