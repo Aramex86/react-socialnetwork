@@ -3,9 +3,11 @@ import Prealoder from "../common/Prealoder/Prealoder";
 import like from "../../assets/images/like.png";
 import unlike from "../../assets/images/unlike.png";
 import userPhoto from "../../assets/images/user.png";
+
 //import UserChangeStatus from "./UserChangeStatus";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
+import UserAvatar from './UserAvatar';
 
 const UserInfo = ({ saveProfile, ...props }) => {
   const [editMode, setEditMode] = useState(false);
@@ -29,19 +31,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
   return (
     <div>
       <div className="userinfo__description">
-        <div className="userinfo__description-avatar">
-          <div>
-            {" "}
-            {props.profile.photos.small != null ? (
-              <img src={props.profile.photos.small} alt="avatar" />
-            ) : (
-              <img src={userPhoto} alt="avatar" className="userphoto" />
-            )}{" "}
-            {props.isOwner && (
-              <input type={"file"} onChange={onMainPhotoSelected} />
-            )}
-          </div>
-        </div>
+        <UserAvatar onMainPhotoSelected={onMainPhotoSelected} profile={props.profile}/>
         <div className="userinfo__description-userinfo">
           {editMode ? (
             <ProfileDataForm
@@ -56,17 +46,11 @@ const UserInfo = ({ saveProfile, ...props }) => {
               }}
               profile={props.profile}
               isOwner={props.isOwner}
+              status={props.status}
+              updateStatus={props.updateStatus}
             />
           )}
-          <div className="userinfo__description-status">
-            <div style={{ display: "flex" }}>
-              <span> Status:</span>{" "}
-              <UserChangeStatusWithHooks
-                status={props.status}
-                updateStatus={props.updateStatus}
-              />
-            </div>
-          </div>
+         
           <div className="userinfo__description-contacts">
             <b>Contacts</b>:
             {Object.keys(props.profile.contacts).map((key) => {
@@ -85,7 +69,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
   );
 };
 
-const ProfileData = ({ profile, isOwner, goToEditMode }) => {
+const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
   return (
     <div>
       {isOwner && (
@@ -94,6 +78,15 @@ const ProfileData = ({ profile, isOwner, goToEditMode }) => {
         </div>
       )}
       <div className="userinfo__description-name">{profile.fullName}</div>
+       <div className="userinfo__description-status">
+            <div style={{ display: "flex" }}>
+              <span> Status:</span>{" "}
+              <UserChangeStatusWithHooks
+                status={props.status}
+                updateStatus={props.updateStatus}
+              />
+            </div>
+          </div>
       <b>About me :</b> {profile.aboutMe}
       <div className="userinfo__description-about">
         <div className="userinfo__description-about-joblook">

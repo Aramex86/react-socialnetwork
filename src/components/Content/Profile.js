@@ -6,7 +6,6 @@ const Content = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile,...p
   return (
     <div>
       <div className="profile">
-        {/*  <ProfileInfo/> */}
         <UserProfile
           profile={profile}
           status={status}
@@ -14,6 +13,7 @@ const Content = ({profile,status,updateStatus,isOwner,savePhoto,saveProfile,...p
           isOwner={isOwner}
           savePhoto={savePhoto}
           saveProfile={saveProfile}
+          props={props}
         />
       </div>
       <div className="profile__posts">

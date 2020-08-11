@@ -6,7 +6,7 @@ import Profile from './Navigation';
         return{
             sideBar: state.sideBar,
             profile: state.profilePage.profile,
-            auth: state.auth,
+            auth: state.auth.isAuth,
         }
     }
 

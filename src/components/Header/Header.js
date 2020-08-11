@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import SignOut from '../../assets/images/signout.png';
 
 const Header =({profile,...props}) => {
-
  return (
    
     <header className="header">
