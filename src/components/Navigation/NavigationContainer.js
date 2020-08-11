@@ -4,7 +4,9 @@ import Profile from './Navigation';
    
     let mapStateToProps =(state) =>{
         return{
-            sideBar: state.sideBar
+            sideBar: state.sideBar,
+            profile: state.profilePage.profile,
+            auth: state.auth,
         }
     }
 

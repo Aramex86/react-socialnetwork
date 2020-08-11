@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SignOut from '../../assets/images/signout.png';
 
-const Header = (props) => {
-  return (
+const Header =({profile,...props}) => {
+
+ return (
+   
     <header className="header">
       <div className="header__logo">
         <div className="header__logo-img">
@@ -20,8 +23,8 @@ const Header = (props) => {
       </div>
       <div className="login-btn">
         {props.isAuth ? (
-          <div>
-            {props.login} <button onClick={props.logout}>Log out</button>
+          <div className="log__out">
+          {profile?<img src={profile.photos.small} alt='profile' className="header__photo"/>:''}  {profile?profile.fullName:props.login} <button onClick={props.logout}><img src={SignOut} alt=''/><span>Sing Out</span></button>
           </div>
         ) : (
           <NavLink to={"/login"}>LOGIN</NavLink>
@@ -29,6 +32,8 @@ const Header = (props) => {
       </div>
     </header>
   );
+
+ 
 };
 
 export default Header;

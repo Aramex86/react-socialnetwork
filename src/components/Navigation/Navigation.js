@@ -4,7 +4,8 @@ import Friends from './Friends';
 
 const Profile = (props) => {
     let state = props.sideBar;
-    
+    // console.log(props.profilePage.profile);
+    // console.log(props.auth);
     let friend = state.friends.map((friend,index) => <Friends key={index} name={friend.name} img={friend.img}/>);
     return (
         <div className='nav__wrapper'>
@@ -17,7 +18,7 @@ const Profile = (props) => {
                         src='https://randomuser.me/api/portraits/men/40.jpg'
                         alt='avatar'
                         className='profile__shortinfo-img'></img>
-                    <p>Matej Oliver</p>
+                    <p>{props.auth.login}</p>
                 </div>
             </div>
             <nav className='nav'>
