@@ -2,7 +2,14 @@ import React from 'react';
 import userPhoto from "../../assets/images/user.png";
 
 const UserAvatar = (props) => {
-    console.log(props)
+
+  console.log(props);
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
+    
     return (
         <div className="userinfo__description-avatar">
         <div>
@@ -13,7 +20,7 @@ const UserAvatar = (props) => {
             <img src={userPhoto} alt="avatar" className="userphoto" />
           )}{" "}
           {props.isOwner && (
-            <input type={"file"} /* onChange={onMainPhotoSelected} */ />
+            <input type={"file"} onChange={onMainPhotoSelected} />
           )}
         </div>
       </div>

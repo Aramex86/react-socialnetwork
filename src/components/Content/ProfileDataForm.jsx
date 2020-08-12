@@ -18,14 +18,9 @@ const ProfileDataForm = ({ handleSubmit, profile, error }) => {
         {createField("About me", "aboutMe", TextArea)}
       </div>
       <div className="userinfo__description-about-joblook">
-        <div>Loking for job</div>
+        <span>Loking for job:</span>
         <span>
           {createField("", "lookingForAJob", Input, [], "checkbox")}
-          {/* {profile.lookingForAJob ? (
-              <img src={like} alt="like" className="like" />
-            ) : (
-              <img src={unlike} alt="unlike" className="unlike" />
-            )} */}
         </span>
       </div>
       <div className="userinfo__description-about-jobdesc">

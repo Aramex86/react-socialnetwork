@@ -1,40 +1,41 @@
 .profile {
-
-    &__header {
+	&__header {
         height: 300px;
 
-        & img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-    }
+		& img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+		}
+	}
 
-    &__description {
-        margin-top: 30px;
-        display: flex;
-        padding: 0 1rem;
+	&__description {
+		margin-top: 30px;
+		display: flex;
+		padding: 0 1rem;
 
-        
-        &-userinfo {
-            margin-left: 2rem;
-        }
+		&-userinfo {
+			margin-left: 2rem;
+			display: flex;
+			justify-content: space-evenly;
+			width: 100%;
+            padding: 1rem;
+            background: red;
+		}
 
-        &-name {
-            font-weight: 700;
-            font-size: 2rem;
-        }
+		&-name {
+			font-weight: 700;
+			font-size: 2rem;
+		}
 
-        &-about {
-            margin-top: 12px;
+		&-about {
+			margin-top: 12px;
 
-            & ul li {
-                list-style: none;
-                padding: .5rem;
-                text-transform: capitalize;
-            }
-        }
-
-    }
+			& ul li {
+				list-style: none;
+				padding: 0.5rem;
+				text-transform: capitalize;
+			}
+		}
+	}
 }
-

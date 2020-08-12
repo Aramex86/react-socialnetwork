@@ -1,109 +1,144 @@
 .userinfo__description {
-  display: flex;
-  padding: 2rem 2rem;
-  justify-content: flex-start;
-  align-items: center;
+	display: flex;
+	padding: 2rem 2rem;
+	align-items: center;
 
-  &-avatar {
-    width: 200px;
-    text-align: center;
+	&-avatar {
+		width: 200px;
+		text-align: center;
 
-    & img {
-      border-radius: 50px;
-    }
-  }
+		& img {
+			border-radius: 50px;
+		}
+	}
 
-  /*  &-userinfo{
-        width: 70%;
-    } */
+	&-userinfo {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+		padding: 2rem;
+		position: relative;
+	}
 
-  &-name {
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 10px;
-  }
+	&-name {
+		font-size: 2rem;
+		font-weight: bold;
+		display: flex;
+		justify-content: flex-start;
+		margin-bottom: 10px;
+	}
 
-  &-status {
-    margin-bottom: 10px;
+	&-status {
+		margin-bottom: 10px;
 
-    & span {
-      font-weight: bold;
-    }
-  }
+		& span {
+			font-weight: bold;
+		}
 
-  &-contacts {
-    margin-bottom: 10px;
+		& p {
+			color: #02569c;
+			font-weight: 600;
+		}
+	}
 
-    & li {
-      display: inline-block;
-      list-style: none;
-      cursor: pointer;
-      //padding: 0 .2rem;
-    }
-  }
+	&-contacts {
+		outline: 1px solid black;
+		width: 35%;
 
-  &-about {
-    & ul {
-      padding: 0 1rem;
-    }
+		& li {
+			display: inline-block;
+			list-style: none;
+			cursor: pointer;
+			//padding: 0 .2rem;
+		}
+	}
 
-    & li {
-      list-style: none;
-      text-transform: capitalize;
-    }
+	&-about {
+		margin-top: 10px;
+		width: 50%;
+		& ul {
+			padding: 0 1rem;
+		}
 
-    &-joblook {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 20px;
+		& li {
+			list-style: none;
+			text-transform: capitalize;
+		}
 
-      h4 {
+		&-joblook {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			margin-bottom: 20px;
+
+			h4 {
+				width: 100%;
+			}
+
+			& span {
+				font-weight: 700;
+
+				& img {
+					width: 20px;
+				}
+			}
+		}
+		&-jobdesc {
+			display: flex;
+			flex-direction: column;
+			& p {
+				display: block;
+				word-break: break-word;
         width: 100%;
-      }
+        color: #02569c;
+			}
+		}
 
-      & span {
-        width: 200px;
-
-        & img {
-          width: 20px;
-        }
-      }
-    }
-  }
+		& button {
+			position: absolute;
+			right: 68px;
+			top: 0;
+		}
+	}
 }
 
-
 .social {
-  & a {
-    //color: white;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 0 0.5rem;
-  }
+	& a {
+		//color: white;
+		text-decoration: none;
+		font-weight: 700;
+		padding: 0 0.5rem;
+	}
 
-  & img {
-    width: 20px;
-    height: 20px;
-  }
+	& img {
+		width: 20px;
+		height: 20px;
+	}
 }
 
 .userphoto {
-  width: 167px;
+	width: 167px;
 }
 
 .like {
-  margin-left: 10px;
-  margin-top: -2px;
+	margin-left: 10px;
+	margin-top: -2px;
 }
 
 .unlike {
-  margin-left: 10px;
-  margin-top: 5px;
+	margin-left: 10px;
+	margin-top: 5px;
 }
 
-.contacts_align{
-  padding: 3px 15px;
+.contacts_align {
+	padding: 3px 15px;
+}
+
+.about_me {
+  display:inline-flex;
+  & p{
+    color: #02569c;
+    font-weight: 600;
+  }
+  
 }

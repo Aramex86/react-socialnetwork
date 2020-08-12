@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Prealoder from "../common/Prealoder/Prealoder";
 import like from "../../assets/images/like.png";
 import unlike from "../../assets/images/unlike.png";
-import userPhoto from "../../assets/images/user.png";
 
 //import UserChangeStatus from "./UserChangeStatus";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import UserAvatar from './UserAvatar';
+import { savePhoto } from "../Redux/profile-reducer";
 
 const UserInfo = ({ saveProfile, ...props }) => {
   const [editMode, setEditMode] = useState(false);
@@ -16,11 +16,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
     return <Prealoder />;
   }
 
-  const onMainPhotoSelected = (e) => {
-    if (e.target.files.length) {
-      props.savePhoto(e.target.files[0]);
-    }
-  };
+  
 
   const onSubmit =(formData) => {
      saveProfile(formData).then(()=>{
@@ -31,8 +27,10 @@ const UserInfo = ({ saveProfile, ...props }) => {
   return (
     <div>
       <div className="userinfo__description">
-        <UserAvatar onMainPhotoSelected={onMainPhotoSelected} profile={props.profile}/>
+        <UserAvatar  profile={props.profile} savePhoto={savePhoto} isOwner={props.isOwner}/>
+
         <div className="userinfo__description-userinfo">
+          <div className="userinfo__description-about">
           {editMode ? (
             <ProfileDataForm
               initialValues={props.profile}
@@ -50,7 +48,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
               updateStatus={props.updateStatus}
             />
           )}
-         
+         </div>
           <div className="userinfo__description-contacts">
             <b>Contacts</b>:
             {Object.keys(props.profile.contacts).map((key) => {
@@ -80,17 +78,18 @@ const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
       <div className="userinfo__description-name">{profile.fullName}</div>
        <div className="userinfo__description-status">
             <div style={{ display: "flex" }}>
-              <span> Status:</span>{" "}
+              <span> Status :</span>{" "}
               <UserChangeStatusWithHooks
                 status={props.status}
                 updateStatus={props.updateStatus}
               />
             </div>
           </div>
-      <b>About me :</b> {profile.aboutMe}
+
+     <div className="about_me"><b>About me :</b> <p>{profile.aboutMe}</p></div> 
       <div className="userinfo__description-about">
         <div className="userinfo__description-about-joblook">
-          <div>Loking for job</div>
+          <span>Loking for job :</span>
           <span>
             {profile.lookingForAJob ? (
               <img src={like} alt="like" className="like" />
@@ -101,7 +100,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
         </div>
         <div className="userinfo__description-about-jobdesc">
           <b>My professional skills:</b>
-          {profile.lookingForAJobDescription}
+          <p>{profile.lookingForAJobDescription}</p>
         </div>
       </div>
     </div>
