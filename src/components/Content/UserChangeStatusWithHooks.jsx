@@ -23,19 +23,18 @@ const onStatusChange =(e)=>{
 
 
   
-    return (<>
-      <div style={{marginLeft:"10px"}}>
+    return (
+    <>
         {  !editMode &&
-          <div>
+          
             <p onDoubleClick={activateEditMode}>{props.status||'no status'}</p>
-          </div>
+         
         }
         { editMode &&
-          <div>
+        
             <input type="text" onBlur={deactivateEditMode} onChange={onStatusChange} value={status} autoFocus={true}/>
-          </div>
+         
         }
-      </div>
     </>);
   }
 

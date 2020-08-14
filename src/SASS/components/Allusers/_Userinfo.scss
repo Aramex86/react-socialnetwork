@@ -13,10 +13,15 @@
 	}
 
 	&-userinfo {
-		
+		display: flex;
 		width: 100%;
 		padding: 2rem;
 		position: relative;
+		transition: all 0.5s ease-in;
+		&:hover {
+			box-shadow: 0px 0px 8px 3px rgba(193, 192, 192, 46%);
+			border-radius: 7px;
+		}
 	}
 
 	&-name {
@@ -38,21 +43,30 @@
 			color: #02569c;
 			font-weight: 600;
 		}
+		& img{
+			width: 5%;
+			margin-left: 10px;
+			opacity: 0;
+		}
+		&:hover img{
+			opacity: 5;
+			transition: .2s ease;
+		}
 	}
 
 	&-contacts {
 		margin-top: 10px;
-
-		& li {
-			display: inline-block;
-			list-style: none;
-			cursor: pointer;
-			//padding: 0 .2rem;
+		width: 50%;
+		&-list {
+			//width: 50%;
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 
 	&-about {
 		margin-top: 10px;
+		width: 50%;
 		& ul {
 			padding: 0 1rem;
 		}
@@ -67,7 +81,7 @@
 			justify-content: flex-start;
 			align-items: flex-start;
 			margin-bottom: 10px;
-			& .form-field{
+			& .form-field {
 				width: 15px;
 			}
 
@@ -86,20 +100,38 @@
 		&-jobdesc {
 			display: flex;
 			flex-direction: column;
-			width: 50%;
+			width: 70%;
 			& p {
 				display: block;
 				word-break: break-word;
-        width: 100%;
-        color: #02569c;
+				width: 100%;
+				color: #02569c;
 			}
 		}
+	}
+}
 
-		& button {
-			// position: absolute;
-			// right: 68px;
-			// top: 0;
-		}
+.edit-btn {
+	position: absolute;
+	right: -18px;
+	top: 5px;
+	background: none;
+	border: none;
+	outline: none;
+	& img {
+		width: 24%;
+	}
+}
+
+.save-btn{
+	position: absolute;
+	right: -18px;
+	top: 5px;
+	background: none;
+	border: none;
+	outline: none;
+	& img{
+		width: 24%;
 	}
 }
 
@@ -132,14 +164,17 @@
 }
 
 .contacts_align {
-	padding: 3px 0;
+	padding: 3px 3px;
+
+	& .value_style {
+		color: #02569c;
+	}
 }
 
 .about_me {
-  display:inline-flex;
-  & p{
-    color: #02569c;
-    font-weight: 600;
-  }
-  
+	display: inline-flex;
+	& p {
+		color: #02569c;
+		font-weight: 600;
+	}
 }

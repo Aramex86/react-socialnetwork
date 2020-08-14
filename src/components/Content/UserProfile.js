@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Prealoder from "../common/Prealoder/Prealoder";
 import like from "../../assets/images/like.png";
 import unlike from "../../assets/images/unlike.png";
+import pencil from "../../assets/images/pencil.png";
+import pencilSmall from "../../assets/images/pencil-small.png";
 
 //import UserChangeStatus from "./UserChangeStatus";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import UserAvatar from './UserAvatar';
 import { savePhoto } from "../Redux/profile-reducer";
+
 
 const UserInfo = ({ saveProfile, ...props }) => {
   const [editMode, setEditMode] = useState(false);
@@ -51,6 +54,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
          </div>
           <div className="userinfo__description-contacts">
             <b>Contacts</b>:
+            <div className="userinfo__description-contacts-list">
             {Object.keys(props.profile.contacts).map((key) => {
               return (
                 <Contacts
@@ -60,6 +64,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
                 />
               );
             })}
+            </div>
           </div>
         </div>
       </div>
@@ -72,22 +77,23 @@ const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
     <div>
       {isOwner && (
         <div>
-          <button onClick={goToEditMode}>edit</button>
+          <button onClick={goToEditMode} className="edit-btn"><img src={pencil} alt="x"/></button>
         </div>
       )}
       <div className="userinfo__description-name">{profile.fullName}</div>
        <div className="userinfo__description-status">
             <div style={{ display: "flex" }}>
-              <span> Status :</span>{" "}
+              <span> Status: </span>{" "}
               <UserChangeStatusWithHooks
                 status={props.status}
                 updateStatus={props.updateStatus}
               />
+              <img src={pencilSmall} alt='x'/>
             </div>
           </div>
 
-     <div className="about_me"><b>About me :</b> <p>{profile.aboutMe}</p></div> 
-      <div className="userinfo__description-about">
+     <div className="about_me"><b>About me: </b> <p>{profile.aboutMe}</p></div> 
+      <div className="userinfo__description-about_job">
         <div className="userinfo__description-about-joblook">
           <span>Loking for job :</span>
           <span>
@@ -106,13 +112,12 @@ const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
     </div>
   );
 };
-
 const Contacts = ({ contactTitle, contactValue }) => {
   return (
     <div className="contacts_align">
-      <b>{contactTitle}</b>:{contactValue}
+      <b>{contactTitle}</b>: {contactValue?<span className="value_style">{contactValue},</span>:''}
     </div>
-  );
-};
+  )};
+
 
 export default UserInfo;
