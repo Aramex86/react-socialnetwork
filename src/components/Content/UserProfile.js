@@ -52,20 +52,6 @@ const UserInfo = ({ saveProfile, ...props }) => {
             />
           )}
          </div>
-          <div className="userinfo__description-contacts">
-            <b>Contacts</b>:
-            <div className="userinfo__description-contacts-list">
-            {Object.keys(props.profile.contacts).map((key) => {
-              return (
-                <Contacts
-                  key={key}
-                  contactTitle={key}
-                  contactValue={props.profile.contacts[key]}
-                />
-              );
-            })}
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -73,6 +59,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
 };
 
 const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
+
   return (
     <div>
       {isOwner && (
@@ -108,6 +95,20 @@ const ProfileData = ({ profile, isOwner, goToEditMode,...props }) => {
           <b>My professional skills:</b>
           <p>{profile.lookingForAJobDescription}</p>
         </div>
+        <div className="userinfo__description-contacts">
+            <b>Contacts</b>:
+            <div className="userinfo__description-contacts-list">
+            {Object.keys(profile.contacts).map((key) => {
+              return (
+                <Contacts
+                  key={key}
+                  contactTitle={key}
+                  contactValue={profile.contacts[key]}
+                />
+              );
+            })}
+            </div>
+          </div>
       </div>
     </div>
   );

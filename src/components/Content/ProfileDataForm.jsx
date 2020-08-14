@@ -6,24 +6,24 @@ const ProfileDataForm = ({ handleSubmit, profile, error }) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<button className="save-btn"><img src={save} alt='save'/></button>
+				<button className="edit-btn"><img src={save} alt='save'/></button>
 				{error && <div className="commonError">{error}</div>}
 			</div>
-			<div className="userinfo__description-name">{createField('Full name', 'fullName', Input)}</div>
+			<div className="edituserinfo__description-name">{createField('Full name', 'fullName', Input)}</div>
 
-			<div className="userinfo__description-about_me">
+			<div className="edituserinfo__description-about_me">
 				<b>About me :</b>
 				{createField('About me', 'aboutMe', TextArea)}
 			</div>
-			<div className="userinfo__description-about-joblook">
+			<div className="edituserinfo__description-about-joblook">
 				<span>Loking for job:</span>
 				{createField('', 'lookingForAJob', Input, [], 'checkbox')}
 			</div>
-			<div className="userinfo__description-about-jobdesc">
+			<div className="edituserinfo__description-about-jobdesc">
 				<b>My professional skills:</b>
 				{createField('My professional skills', 'lookingForAJobDescription', TextArea)}
 			</div>
-			<div className="userinfo__description-contacts_edit">
+			<div className="edituserinfo__description-contacts_edit">
 				<b>Contacts</b>:
 				{Object.keys(profile.contacts).map((key) => {
 					return (

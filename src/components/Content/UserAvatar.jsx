@@ -15,7 +15,7 @@ const UserAvatar = (props) => {
         <div>
           {" "}
           {props.profile.photos.small != null ? (
-            <img src={props.profile.photos.small} alt="avatar" />
+            <img src={props.profile.photos.large} alt="avatar" />
           ) : (
             <img src={userPhoto} alt="avatar" className="userphoto" />
           )}{" "}
