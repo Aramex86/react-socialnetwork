@@ -15,12 +15,16 @@ const UserAvatar = (props) => {
         <div>
           {" "}
           {props.profile.photos.small != null ? (
-            <img src={props.profile.photos.large} alt="avatar" />
+            <img src={props.profile.photos.small} alt="avatar" />
           ) : (
             <img src={userPhoto} alt="avatar" className="userphoto" />
           )}{" "}
           {props.isOwner && (
-            <input type={"file"} onChange={onMainPhotoSelected} />
+            <label className='userinfo__description-changePhoto'>
+<input type={"file"} onChange={onMainPhotoSelected} />
+<span>+</span>
+            </label>
+            
           )}
         </div>
       </div>

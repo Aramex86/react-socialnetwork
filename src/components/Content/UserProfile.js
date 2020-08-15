@@ -30,7 +30,7 @@ const UserInfo = ({ saveProfile, ...props }) => {
   return (
     <div>
       <div className="userinfo__description">
-        <UserAvatar  profile={props.profile} savePhoto={savePhoto} isOwner={props.isOwner}/>
+        <UserAvatar  profile={props.profile} savePhoto={props.savePhoto} isOwner={props.isOwner}/>
 
         <div className="userinfo__description-userinfo">
           <div className="userinfo__description-about">

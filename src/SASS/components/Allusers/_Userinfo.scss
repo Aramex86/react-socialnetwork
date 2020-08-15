@@ -1,200 +1,232 @@
 .userinfo__description {
-	display: flex;
-	padding: 2rem 2rem;
-	align-items: center;
-	width: 70%;
-	margin: 0 auto;
+  display: flex;
+  padding: 2rem 0rem;
+  //align-items: flex-start;
+  width: 70%;
+  margin: 0 auto;
 
-	&-avatar {
-		width: 200px;
-		text-align: center;
+  &-avatar {
+    width: 200px;
+    text-align: center;
+    margin-top: 40px;
+	position: relative;
+	cursor: pointer;
+	height: 100px;
+	
 
-		& img {
-			border-radius: 50px;
-		}
+    & img {
+      border-radius: 50px;
+    }
+    & input[type='file'] {
+      display: none;
 	}
-
-	&-userinfo {
-		display: flex;
-		width: 100%;
-		padding: 2rem;
-		position: relative;
-		transition: all 0.5s ease-in;
-		justify-content: center;
-		&:hover {
-			box-shadow: 0px 0px 8px 3px rgba(193, 192, 192, 46%);
-			border-radius: 7px;
+	&:hover{
+		& img{
+			filter: blur(1px);
 		}
+		
 	}
-
-	&-name {
-		font-size: 2rem;
-		font-weight: bold;
-		display: flex;
-		justify-content: flex-start;
-		margin-bottom: 10px;
+	&:hover .userinfo__description-changePhoto{
+		opacity: 5;
 	}
+	
+  }
+  &-changePhoto {
+    display: flex;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    color: #ffffff;
+    font-size: 6rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all .5s ease;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
 
-	&-status {
-		margin-bottom: 10px;
+  &-userinfo {
+    display: flex;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.5s ease-in;
+    justify-content: center;
+    &:hover {
+      box-shadow: 0px 0px 8px 3px rgba(193, 192, 192, 46%);
+      border-radius: 7px;
+    }
+  }
 
-		& span {
-			font-weight: bold;
-		}
+  &-name {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
 
-		& p {
-			color: #02569c;
-			font-weight: 600;
-		}
-		& img {
-			width: 2%;
-			margin-left: 10px;
-			opacity: 0;
-		}
-		&:hover img {
-			opacity: 5;
-			transition: 0.2s ease;
-		}
-	}
+  &-status {
+    margin-bottom: 10px;
 
-	&-contacts {
-		margin-top: 10px;
-		width: 70%;
-		&-list {
-			display: flex;
-			flex-wrap: wrap;
-		}
-	}
+    & span {
+      font-weight: bold;
+    }
 
-	&-about {
-		margin-top: 10px;
-		//width: 50%;
-		& ul {
-			padding: 0 1rem;
-		}
+    & p {
+      color: #02569c;
+      font-weight: 600;
+    }
+    & img {
+      width: 2%;
+      margin-left: 10px;
+      opacity: 0;
+    }
+    &:hover img {
+      opacity: 5;
+      transition: 0.2s ease;
+    }
+  }
 
-		& li {
-			list-style: none;
-			text-transform: capitalize;
-		}
+  &-contacts {
+    margin-top: 10px;
+    width: 70%;
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 
-		&-joblook {
-			display: flex;
-			justify-content: flex-start;
-			align-items: flex-start;
-			margin-bottom: 10px;
-			& .form-field {
-				width: 15px;
-			}
+  &-about {
+    margin-top: 10px;
+    //width: 50%;
+    & ul {
+      padding: 0 1rem;
+    }
 
-			h4 {
-				width: 100%;
-			}
+    & li {
+      list-style: none;
+      text-transform: capitalize;
+    }
 
-			& span {
-				font-weight: 700;
+    &-joblook {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      & .form-field {
+        width: 15px;
+      }
 
-				& img {
-					width: 20px;
-				}
-			}
-		}
-		&-jobdesc {
-			display: flex;
-			flex-direction: column;
-			//width: 70%;
-			& p {
-				display: block;
-				word-break: break-word;
-				width: 100%;
-				color: #02569c;
-			}
-		}
-	}
+      h4 {
+        width: 100%;
+      }
+
+      & span {
+        font-weight: 700;
+
+        & img {
+          width: 20px;
+        }
+      }
+    }
+    &-jobdesc {
+      display: flex;
+      flex-direction: column;
+      //width: 70%;
+      & p {
+        display: block;
+        word-break: break-word;
+        width: 100%;
+        color: #02569c;
+      }
+    }
+  }
 }
 
 .edit-btn {
-	position: absolute;
-	right: -18px;
-	top: 5px;
-	background: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	& img {
-		width: 24%;
-	}
+  position: absolute;
+  right: -18px;
+  top: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  & img {
+    width: 24%;
+  }
 }
 
 .save-btn {
-	position: absolute;
-	right: -18px;
-	top: 5px;
-	background: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	& img {
-		width: 24%;
-	}
+  position: absolute;
+  right: -18px;
+  top: 5px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  & img {
+    width: 24%;
+  }
 }
 
 .social {
-	& a {
-		//color: white;
-		text-decoration: none;
-		font-weight: 700;
-		padding: 0 0.5rem;
-	}
+  & a {
+    //color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0 0.5rem;
+  }
 
-	& img {
-		width: 20px;
-		height: 20px;
-	}
+  & img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .userphoto {
-	width: 167px;
+  width: 167px;
 }
 
 .like {
-	margin-left: 10px;
-	margin-top: -2px;
+  margin-left: 10px;
+  margin-top: -2px;
 }
 
 .unlike {
-	margin-left: 10px;
-	margin-top: 5px;
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 .contacts_align {
-	padding: 3px 3px;
+  padding: 3px 3px;
 
-	& .value_style {
-		color: #02569c;
-	}
+  & .value_style {
+    color: #02569c;
+  }
 }
 
 .about_me {
-	display: inline-flex;
-	& p {
-		color: #02569c;
-		font-weight: 600;
-	}
+  display: inline-flex;
+  & p {
+    color: #02569c;
+    font-weight: 600;
+  }
 }
 //EDIT USER PAGE
 
 .edituserinfo__description {
-	&-about {
-		&-joblook {
-			display: flex;
-    align-items: baseline;
-    font-weight: 700;
-			& .formControl input {
-				width: 15px;
-				height: 13px;
-				margin-left: 5px;
-			}
-		}
-	}
+  &-about {
+    &-joblook {
+      display: flex;
+      align-items: baseline;
+      font-weight: 700;
+      & .formControl input {
+        width: 15px;
+        height: 13px;
+        margin-left: 5px;
+      }
+    }
+  }
 }
