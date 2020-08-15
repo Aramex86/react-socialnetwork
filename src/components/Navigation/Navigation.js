@@ -32,12 +32,13 @@ const Profile = ({profile,...props}) => {
                     </li>
                 </ul>
             </nav>
-            <div className="nav__wrapper-friends">
+            {props.auth?<div className="nav__wrapper-friends">
                 <h3>Friends</h3>
                 <div className="nav__wrapper-friends-wrapp">
                     {friend}
                 </div>
-            </div>
+            </div>:''}
+            
         </div>
     );
 }

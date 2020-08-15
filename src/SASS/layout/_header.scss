@@ -49,7 +49,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:190px;
     font-weight: 700;
     letter-spacing: 1px;
 
@@ -61,6 +60,7 @@
         color:#ffffff;
         border: none;
         cursor: pointer;
+        margin-left: 10px;
         & img{
             height: 20px;
             margin-right: 7px;
@@ -73,4 +73,5 @@
     height: 4rem;
     border: 2px solid #fff;
     border-radius: 50px;
+    margin-right: 10px;
 }

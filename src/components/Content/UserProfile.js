@@ -9,7 +9,7 @@ import pencilSmall from "../../assets/images/pencil-small.png";
 import UserChangeStatusWithHooks from "./UserChangeStatusWithHooks";
 import ProfileDataForm from "./ProfileDataForm";
 import UserAvatar from './UserAvatar';
-import { savePhoto } from "../Redux/profile-reducer";
+//import { savePhoto } from "../Redux/profile-reducer";
 
 
 const UserInfo = ({ saveProfile, ...props }) => {
