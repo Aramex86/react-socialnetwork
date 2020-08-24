@@ -2,6 +2,10 @@
     padding: 2rem 0;
     display: flex;
     width: 100%;
+
+    @include respond(small-phone){
+    padding: 1rem 1rem;
+  }
     
 
     &-avatar{
@@ -16,6 +20,10 @@
                 height: 60px;
                 margin-bottom: 10px;
                 border-radius: 50%;
+                @include respond(small-phone){
+                    height: 50px;
+                    margin-bottom: 5px;
+                  }
             }
             & button{
                 width: 6.5rem;
@@ -41,6 +49,10 @@
             border-radius: 12px;
             justify-content: space-between;
             height: 100px;
+            @include respond(small-phone){
+                width: 100%;
+              }
+            
             &-left{
                 display: flex;
                 justify-content: space-between;

@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import SignOut from '../../assets/images/signout.png';
 
 const Header =({profile,...props}) => {
-  console.log(profile?profile.fullName.length:'');
  return (
-   
     <header className="header">
       <div className="header__logo">
         <div className="header__logo-img">
@@ -24,7 +22,7 @@ const Header =({profile,...props}) => {
       <div className="login-btn">
         {props.isAuth ? (
           <div className="log__out">
-          {profile?<img src={profile.photos.small} alt='profile' className="header__photo"/>:''}  {profile?profile.fullName:props.login} <button onClick={props.logout}><img src={SignOut} alt=''/><span>Sing Out</span></button>
+          {profile?<img src={profile.photos.small} alt='profile' className="header__photo"/>:''}  <span className="header_fullname">{profile?profile.fullName:props.login}</span> <button onClick={props.logout}><img src={SignOut} alt=''/><span>Sing Out</span></button>
           </div>
         ) : (
           <NavLink to={"/login"}>LOGIN</NavLink>

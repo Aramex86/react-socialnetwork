@@ -23,7 +23,8 @@ let initialState = {
             id: 5,
             name: 'Slava',
             img: 'https://randomuser.me/api/portraits/men/94.jpg'
-        }
+        },
+        
     ],
     messages: [
         {

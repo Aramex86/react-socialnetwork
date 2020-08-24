@@ -1,6 +1,12 @@
 .nav__wrapper {
     grid-column: 2/3;
     background: #ffff;
+
+
+    @include respond(phone){
+      grid-column: 1/2;
+      padding-left: 2rem;
+    }
     &-header {
         position: relative;
         & img {

@@ -23,8 +23,7 @@ let AddProfilePost = (props) => {
 
 let AddPostFormRedux = reduxForm({ form: "profileForm" })(AddProfilePost);
 
-const MyPosts = (props) => {
-
+const MyPosts = ({profile,...props}) => {
   const onAddPost = (values) => {
      props.addPost(values.newText);
   };
@@ -34,7 +33,7 @@ const MyPosts = (props) => {
     <div>
       <h2>My Posts</h2>
       <AddPostFormRedux onSubmit={onAddPost} />
-      <Posts posts={props.posts} />
+      <Posts posts={props.posts} profile={profile} />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Post = (props) => {
+const Post = ({profile,...props}) => {
     return (
         <div className='post'>
-            <img src='https://randomuser.me/api/portraits/men/40.jpg' alt='avatar'/>
+            {profile?<img src={profile.photos.small} alt='avatar'/> : null}
             {props.message}
 
             <span className="post__likes">

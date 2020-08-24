@@ -30,3 +30,4 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMidlle
 window.___store__ = store;
 
 export default store;
+

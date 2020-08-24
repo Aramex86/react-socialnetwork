@@ -16,5 +16,10 @@
         margin-left: 10px;
         margin-right: 10px;
         align-self: flex-end;
+        @include respond(small-phone){
+            margin-left: 5px;
+            margin-right: 5px;
+        }
     }
+
 }

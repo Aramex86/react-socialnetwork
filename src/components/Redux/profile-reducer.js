@@ -12,7 +12,7 @@ let initialState = {
   posts: [
     {
       id: 1,
-      message: "Hello how are you",
+      message: "It's Sunny Day",
       likesCount: 10,
     },
     {
@@ -27,19 +27,10 @@ let initialState = {
     },
     {
       id: 4,
-      message: "Hello how are you",
+      message: "Everything is GooD!!!",
       likesCount: 20,
-    },
-    {
-      id: 5,
-      message: "Hello how are you",
-      likesCount: 20,
-    },
-    {
-      id: 6,
-      message: "Hello how are you",
-      likesCount: 20,
-    },
+    }
+    
   ],
   profile: null,
   status: "",

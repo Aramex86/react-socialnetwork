@@ -2,17 +2,32 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     height: 100%;
+
+    @include respond(phone){
+        grid-template-rows:repeat( auto-fill ,auto-fill);
+    }
     &-dialogs {
         grid-column: 1/2;
         font-weight: 700;
         background: #eeeeeeab;
         padding: 1rem 0;
+        @include respond(phone){
+            grid-column: 1/9;
+            grid-row: 1;
+            display: flex;
+            justify-content: space-around;
+            background: #ffffff47;
+        }
 
     }
     &-messages {
         grid-column: 2/6;
         font-weight: 700;
         padding: 6rem 0;
+        @include respond(phone){
+            grid-column: 1/6;
+            padding: 2rem 0;
+        }
         & form{
             display: flex;
             width: 65%;
@@ -62,8 +77,16 @@
         color: #02569c;
         padding: 2rem 0;
         letter-spacing: 1px;
-        border-bottom: 1px solid #e6e4e4eb;
-
+        //border-bottom: 1px solid #e6e4e4eb;
+        background: transparent;
+        @include respond(phone){
+            display: flex;
+        }
+        
+        @include respond(small-phone){
+            padding: 0;
+        }
+        
     }
     &-links {
         text-decoration: none;
@@ -72,11 +95,24 @@
         margin-left: 20px;
         display: flex;
         align-items: center;
+        @include respond(phone){
+            display: inline-block;
+            text-align: center;
+            margin:0;
+        }
         & img {
-            width: 4rem;
-            height: 4rem;
+            width: 6rem;
+            height: 6rem;
             border-radius: 50px;
             margin-right: 12px;
+            @include respond(phone){
+                margin:0;
+            }
+            @include respond(small-phone){
+                height: 4rem;
+                width: 4rem;
+
+              }
         }
     }
     
@@ -85,5 +121,5 @@
 
 .active-item {
     color: #02569c;
-    background: #ececec52;
+    //background: #ececec52;
 }

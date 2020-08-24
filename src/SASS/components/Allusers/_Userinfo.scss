@@ -1,17 +1,26 @@
 .userinfo__description {
   display: flex;
-  padding: 2rem 0rem;
+  padding: 2rem 2rem;
   //align-items: flex-start;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
+  @include respond(small-phone){
+    flex-direction: column;
+    padding: 1rem 1rem;
+  }
 
   &-avatar {
     width: 200px;
     text-align: center;
-    margin-top: 40px;
 	position: relative;
 	cursor: pointer;
-	height: 100px;
+  height: 100px;
+  @include respond(small-phone){
+    width: 45%;
+    margin:0 auto;
+    margin-top: 40px;
+    margin-bottom:25px;
+  }
 	
 
     & img {
@@ -44,6 +53,11 @@
     width: 100%;
     height: 100%;
     justify-content: center;
+    @include respond(small-phone){
+      top: 13%;
+      left: 4%;
+      transform: translate(-1%, 0%);
+    }
   }
 
   &-userinfo {
@@ -82,6 +96,12 @@
       width: 2%;
       margin-left: 10px;
       opacity: 0;
+      @include respond(small-phone){
+        width: 7%;
+    margin-left: 10px;
+    opacity: 0;
+    height: 13px;
+      }
     }
     &:hover img {
       opacity: 5;
@@ -91,10 +111,13 @@
 
   &-contacts {
     margin-top: 10px;
-    width: 70%;
+    width: 90%;
     &-list {
       display: flex;
       flex-wrap: wrap;
+    }
+    @include respond(phone){
+      width: 100%;
     }
   }
 
@@ -156,20 +179,28 @@
   & img {
     width: 24%;
   }
-}
-
-.save-btn {
-  position: absolute;
-  right: -18px;
-  top: 5px;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  & img {
-    width: 24%;
+  @include respond(small-phone){
+    right: -12px;
+    top: 5px;
   }
 }
+
+// .save-btn {
+//   position: absolute;
+//   right: -18px;
+//   top: 5px;
+//   background: none;
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
+//   & img {
+//     width: 24%;
+//   }
+//   @include respond(small-phone){
+//     right: -15px;
+//     top: 1px;
+//   }
+// }
 
 .social {
   & a {

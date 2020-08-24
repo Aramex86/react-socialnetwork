@@ -9,7 +9,6 @@ import { maxLength,required } from "../../utilies/Validation";
 const maxLength50 = maxLength(50);
 
 const DialogsForm = (props) => {
-  
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
@@ -23,6 +22,8 @@ const DialogsForm = (props) => {
   );
 };
 let DialogsFormRedux = reduxForm({ form: "dialogsForm" })(DialogsForm);
+
+
 const Dialogs = (props) => {
   if (!props.isAuth) return <Redirect to="/login" />;
 
@@ -41,6 +42,7 @@ const Dialogs = (props) => {
       message={message.message}
       id={message.id}
       img={message.img}
+      profile={props.profile}
     />
   ));
 

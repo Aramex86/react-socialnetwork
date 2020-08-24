@@ -38,6 +38,7 @@ let mapStateToProps =(state)=>{
         dialogs: state.messagesPage.dialogs,
         messages: state.messagesPage.messages,
         newAnswer: state.messagesPage.newAnswer,
+        profile:state.profilePage.profile
         
     }
 }
