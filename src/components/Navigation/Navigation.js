@@ -39,7 +39,7 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
             <button className="btn_showhide"
               onClick={() => hideMenuFunc()}
             >
-              <div className="btn_showhide-stripe btn_showhide-stripe-hide"></div>
+              <div className="btn_showhide-stripe btn_showhide-stripe-hide "></div>
             </button>
             <div >
               {" "}

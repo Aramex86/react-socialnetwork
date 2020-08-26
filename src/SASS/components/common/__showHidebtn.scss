@@ -5,21 +5,21 @@
   outline: none;
   position: absolute;
   left: 9px;
-  
-border:none;
+  top: -2px;
+  border:none;
   z-index: 1;
   &-stripe {
     transition: all .5s ease;
       position: relative;
     width: 22px;
     height: 2px;
-    background: black;
+    background: #02569c;
     &::before{
         content: '';
         position: absolute;
         width: 22px;
         height: 2px;
-        background: black;
+        background: #02569c;
         bottom: 6px;
         left: -5px;
         transition: all .5s ease;
@@ -29,24 +29,23 @@ border:none;
         position: absolute;
         width: 22px;
         height: 2px;
-        background: black;
+        background: #02569c;
         top: 6px;
         left: 5px;
         transition: all .5s ease;
     }
     &-hide{
-
-        background: #ffffff;
+        background: #02569c;
         transform: rotate(-44deg);
         &::before{
             content: '';
-            background: #ffffff;
+            background: #02569c;
             left: 5px;
             opacity: 0;
         }
         &::after{
             content: '';
-            background: #ffffff;
+            background: #02569c;
             left: 0px;
             top: 0;
             transform: rotate(87deg);

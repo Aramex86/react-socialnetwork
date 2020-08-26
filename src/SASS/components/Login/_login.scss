@@ -1,7 +1,12 @@
 .commonError{
     border:1px solid red;
     color:red;
-    
+}
+
+.login-bg{
+    & img{
+        width: 100%;
+    }
 }
 
 .login__wrapper{
