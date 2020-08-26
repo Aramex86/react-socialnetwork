@@ -13,9 +13,9 @@ const UserAvatar = (props) => {
 			<div>
 				{' '}
 				{props.profile.photos.small != null ? (
-					<img src={props.profile.photos.small} alt="avatar" />
+					<img src={props.profile.photos.small} alt="avatar" className="profilephoto"/>
 				) : (
-					<img src={userPhoto} alt="avatar" className="userphoto" />
+					<img src={userPhoto} alt="avatar" className="userphoto" style={{filter:'none'}}/>
 				)}{' '}
 				{props.isOwner && (
 					<label className="userinfo__description-changePhoto">

@@ -50,8 +50,9 @@ class App extends Component {
     return (
       
       <div className="app-wrapper">
-        <HeaderContainer />
+         <HeaderContainer />
         <NavigationContainer />
+        
         <div className="content-wrapper">
           {/* <Route
             path="/content/:userId?"
@@ -64,11 +65,12 @@ class App extends Component {
             }}
           /> */}
           <Switch>
-          <Route path="/login" component={Login} />
+          
           <Route
            exact path="/"
             render={()=><Redirect to='/content'/>}
           />
+         
           <Route
             path="/content/:userId?"
             render={WithSuspense(ProfileContainer)}

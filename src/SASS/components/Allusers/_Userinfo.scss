@@ -66,7 +66,7 @@
     padding: 2rem;
     position: relative;
     transition: all 0.5s ease-in;
-    justify-content: center;
+    //justify-content: center;
     &:hover {
       box-shadow: 0px 0px 8px 3px rgba(193, 192, 192, 46%);
       border-radius: 7px;
@@ -179,8 +179,11 @@
   & img {
     width: 24%;
   }
+  @include respond(phone){
+    right: -6px;
+  }
   @include respond(small-phone){
-    right: -12px;
+    right: -4px;
     top: 5px;
   }
 }
@@ -240,6 +243,7 @@
 
 .about_me {
   display: inline-flex;
+  margin-bottom: 10px;
   & p {
     color: #02569c;
     font-weight: 600;

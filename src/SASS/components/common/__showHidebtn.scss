@@ -1,0 +1,56 @@
+.btn_showhide {
+  width: 26px;
+  height: 27px;
+  background: transparent;
+  outline: none;
+  position: absolute;
+  left: 9px;
+  
+border:none;
+  z-index: 1;
+  &-stripe {
+    transition: all .5s ease;
+      position: relative;
+    width: 22px;
+    height: 2px;
+    background: black;
+    &::before{
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 2px;
+        background: black;
+        bottom: 6px;
+        left: -5px;
+        transition: all .5s ease;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        width: 22px;
+        height: 2px;
+        background: black;
+        top: 6px;
+        left: 5px;
+        transition: all .5s ease;
+    }
+    &-hide{
+
+        background: #ffffff;
+        transform: rotate(-44deg);
+        &::before{
+            content: '';
+            background: #ffffff;
+            left: 5px;
+            opacity: 0;
+        }
+        &::after{
+            content: '';
+            background: #ffffff;
+            left: 0px;
+            top: 0;
+            transform: rotate(87deg);
+        }
+    }
+  }
+}

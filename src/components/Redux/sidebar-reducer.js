@@ -1,5 +1,6 @@
 
 
+
 let initialState = {
     friends: [
         {
@@ -14,12 +15,17 @@ let initialState = {
             name: 'Olga',
             img: 'https://randomuser.me/api/portraits/women/88.jpg'
         }
-    ]
+    ],
+    profile:null,
 };
 const sideBarReducer=(state=initialState,action)=>{
     //initialState
-
-    return state
+    
+            return state
+        
+    
 }
+
+
 
 export default sideBarReducer;

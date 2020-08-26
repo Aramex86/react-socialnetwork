@@ -1,11 +1,16 @@
 .nav__wrapper {
     grid-column: 2/3;
     background: #ffff;
-
+    position: relative;
+    transition:all .5s ease-in;
+&-hide{
+    background: transparent;
+    transition:all .5s ease-in;
+}
 
     @include respond(phone){
       grid-column: 1/2;
-      padding-left: 2rem;
+      margin-left: .5rem;
     }
     &-header {
         position: relative;
