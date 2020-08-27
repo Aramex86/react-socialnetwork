@@ -9,6 +9,7 @@ let mapStateToProps =(state)=>{
     return{
         posts: state.profilePage.posts,
         profile: state.profilePage.profile,
+        authUserId:state.auth.userId,
     }
 }
 let mapDispatchToProps=(dispatch)=>{

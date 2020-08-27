@@ -6,7 +6,6 @@ import SideBarHeader from "./SideBar-header";
 const SidebarProfile = ({ profile, authUserId, ...props }) => {
   const [hideMenu, setHideMenu] = useState(true);
 
-  console.log(hideMenu);
   const hideMenuFunc = () => {
     setHideMenu(true);
   };
@@ -16,7 +15,6 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
   };
 
   let width = window.innerWidth;
-  console.log(width);
 
   let state = props.sideBar;
   let friend = state.friends.map((friend, index) => (

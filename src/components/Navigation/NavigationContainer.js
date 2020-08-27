@@ -3,10 +3,14 @@ import SidebarProfile from "./Navigation";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import React, { Component } from "react";
+import {getSideBar} from '../Redux/sidebar-reducer';
  
 class ProfileContainer extends Component {
+  
     
   render() {
+
+    
     return (
       <SidebarProfile
         profile={this.props.profile}
@@ -28,4 +32,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(withRouter, connect(mapStateToProps))(ProfileContainer);
+export default compose(withRouter, connect(mapStateToProps,{getSideBar}))(ProfileContainer);

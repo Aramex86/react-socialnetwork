@@ -33,7 +33,7 @@ const MyPosts = ({profile,...props}) => {
     <div>
       <h2>My Posts</h2>
       <AddPostFormRedux onSubmit={onAddPost} />
-      <Posts posts={props.posts} profile={profile} />
+      <Posts posts={props.posts} profile={profile} authUserId={props.authUserId}/>
     </div>
   );
 };

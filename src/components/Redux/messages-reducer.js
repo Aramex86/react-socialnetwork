@@ -30,7 +30,7 @@ let initialState = {
         {
             id: 1,
             message: 'Hello how are you',
-            img: 'https://randomuser.me/api/portraits/men/40.jpg'
+            img: 'https://randomuser.me/api/portraits/men/17.jpg'
         }, {
             id: 2,
             message: 'I am fine!!!',
@@ -39,7 +39,7 @@ let initialState = {
         }, {
             id: 3,
             message: 'Happy birthday',
-            img: 'https://randomuser.me/api/portraits/men/40.jpg'
+            img: 'https://randomuser.me/api/portraits/men/17.jpg'
 
         }, {
             id: 4,

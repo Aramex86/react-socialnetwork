@@ -75,7 +75,7 @@ class App extends Component {
             path="/content/:userId?"
             render={WithSuspense(ProfileContainer)}
           />
-
+         
           <Route
             path="/dialogs"
             render={WithSuspense(DialogsContainer)}
