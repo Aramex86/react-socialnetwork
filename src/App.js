@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import NavigationContainer from "./components/Navigation/NavigationContainer";
 import Music from "./components/Music/Music";
-import News from "./components/News/News";
+//import NewsConatiner from "./components/News/NewsContainer";
 import AllUsersContainer from "./components/All_Users/All_UsersContainer";
 import Setings from "./components/Setings/Setings";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -23,6 +23,9 @@ const DialogsContainer = React.lazy(() =>
 //import ProfileContainer from "./components/Content/ProfileContainer";
 const ProfileContainer = React.lazy(() =>
   import("./components/Content/ProfileContainer")
+);
+const NewsConatiner = React.lazy(() =>
+  import("./components/News/NewsContainer")
 );
 
 class App extends Component {
@@ -81,7 +84,8 @@ class App extends Component {
             render={WithSuspense(DialogsContainer)}
           />
 
-          <Route path="/news" component={News} />
+          <Route path="/news"
+           render={WithSuspense(NewsConatiner)} />
 
           <Route path="/music" component={Music} />
 

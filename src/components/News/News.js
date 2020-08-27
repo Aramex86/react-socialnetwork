@@ -1,11 +1,22 @@
-import React from 'react';
+import React from "react";
+import Atricle from "./Article";
 
-const News =()=>{
-    return(
+const News = ({ articles }) => {
 
-        <h1>News Page</h1>
-    )
-}
+  const article = articles.map((article, i) => (
+    <Atricle
+      key={i}
+      author={article.author}
+      title={article.title}
+      description={article.description}
+      url={article.url}
+      urlToImage={article.urlToImage}
+      content={article.content}
+      publishedAt={article.publishedAt}
+    />
+  ));
 
+  return <div>{article}</div>;
+};
 
 export default News;

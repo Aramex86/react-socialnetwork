@@ -11,6 +11,7 @@ const instance = axios.create({
   },
 });
 
+
 export const usersAPI = {
   getUsers(currentPage, pageSize) {
     return instance
@@ -82,3 +83,14 @@ export const securityApi={
     return instance.get('security/get-captcha-url');
   }
 }
+
+//News request
+
+// const  newsURL='http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce'
+
+// export const newsApi = axios.get(newsURL).then((res)=>{
+//       console.log(res.data.articles);
+//       return res.data;
+      
+//     });
+
