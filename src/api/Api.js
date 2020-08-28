@@ -11,6 +11,14 @@ const instance = axios.create({
   },
 });
 
+const instanceNews = axios.create({
+
+withCredentials:true,
+
+baseURL:'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce',
+
+});
+
 
 export const usersAPI = {
   getUsers(currentPage, pageSize) {
@@ -86,11 +94,14 @@ export const securityApi={
 
 //News request
 
+
+
 // const  newsURL='http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce'
 
-// export const newsApi = axios.get(newsURL).then((res)=>{
-//       console.log(res.data.articles);
-//       return res.data;
-      
-//     });
+// export const newsApi ={
+
+//   getNews(){
+//     return instanceNews.get();
+//   }
+// }
 
