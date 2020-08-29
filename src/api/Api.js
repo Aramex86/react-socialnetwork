@@ -100,5 +100,5 @@ export const securityApi = {
  //const  proxy_url = 'https://cors-anywhere.herokuapp.com/';
 
 export const newsRequest = () => {
- return axios.get(`http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce`,{withCredentials:false}).then(res=>res.data);
+ return axios.get(`https://gnews.io/api/v3/search?q=example&token=8c8e1cce3fd5612ebed49da3879a9b9d`).then(res=>res.data);
 };

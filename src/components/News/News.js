@@ -10,12 +10,13 @@ const News = ({ articles }) => {
       title={article.title}
       description={article.description}
       url={article.url}
-      urlToImage={article.urlToImage}
       content={article.content}
       publishedAt={article.publishedAt}
+      image={article.image}
+      source={article.source}
     />
   ));
-
+    
   return <div>{article}</div>;
 };
 
