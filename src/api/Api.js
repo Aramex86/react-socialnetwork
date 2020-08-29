@@ -3,7 +3,7 @@ import * as axios from "axios";
 const instance = axios.create({
   //option permision
   withCredentials: true,
-  
+
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
   //headers api
   headers: {
@@ -12,13 +12,11 @@ const instance = axios.create({
 });
 
 const instanceNews = axios.create({
+  withCredentials: true,
 
-withCredentials:true,
-
-baseURL:'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce',
-
+  baseURL:
+    "http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce",
 });
-
 
 export const usersAPI = {
   getUsers(currentPage, pageSize) {
@@ -62,46 +60,45 @@ export const profileAPI = {
   savePhoto(photoFile) {
     const formData = new FormData();
 
-    formData.append('image',photoFile)
-    return instance.put(`/profile/photo/`, formData,{
-      headers:{
-        'Content-Type':'multipart/term-data'
-      }
+    formData.append("image", photoFile);
+    return instance.put(`/profile/photo/`, formData, {
+      headers: {
+        "Content-Type": "multipart/term-data",
+      },
     });
   },
-  saveProfile(profile){
-    return  instance.put('profile',profile);
-  }
+  saveProfile(profile) {
+    return instance.put("profile", profile);
+  },
 };
 
 export const authAPI = {
   setAuth() {
     return instance.get("auth/me");
   },
-  login(email, password, rememberMe = false,captcha=null) {
-    return instance.post("auth/login", { email, password, rememberMe,captcha });
+  login(email, password, rememberMe = false, captcha = null) {
+    return instance.post("auth/login", {
+      email,
+      password,
+      rememberMe,
+      captcha,
+    });
   },
   logout() {
     return instance.delete("auth/login");
   },
 };
 
-export const securityApi={
-  getCaptchaUrl(){
-    return instance.get('security/get-captcha-url');
-  }
-}
+export const securityApi = {
+  getCaptchaUrl() {
+    return instance.get("security/get-captcha-url");
+  },
+};
 
 //News request
 
+ //const  proxy_url = 'https://cors-anywhere.herokuapp.com/';
 
-
-// const  newsURL='http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce'
-
-// export const newsApi ={
-
-//   getNews(){
-//     return instanceNews.get();
-//   }
-// }
-
+export const newsRequest = () => {
+ return axios.get(`http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=050a8dc039ff4b9e81bea7ad19bab7ce`,{withCredentials:false}).then(res=>res.data);
+};
