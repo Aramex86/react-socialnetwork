@@ -11,7 +11,6 @@ class NewsContainer extends Component {
 componentDidMount(){
     newsRequest().then((res) => {
         this.props.getNews(res.articles);
-        console.log(res.articles);
       });
 }
 

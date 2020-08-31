@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { login } from "../Redux/auth-reducer";
 import { Redirect } from "react-router-dom";
 import loginBg from "../../assets/images/loginPagePicture.jpg";
+import ShowPas from './ShowPass';
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
@@ -48,7 +49,7 @@ const Login = (props) => {
 
   return (
     <div className="login__wrapper">
-      {/* <h1>Login</h1> */}
+      <ShowPas />
       <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   );

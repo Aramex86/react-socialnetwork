@@ -1,7 +1,6 @@
 import React from "react";
 
 const Article = ({
-  author,
   title,
   description,
   url,
@@ -9,7 +8,6 @@ const Article = ({
   publishedAt,
   source
 }) => {
-  console.log(source.name)
   return (
     <div className="article-wrapper">
       <h3 className="article-wrapper_title">{title}</h3>
