@@ -72,9 +72,31 @@
   border-radius: 7px;
 }
 
-.showPass{
+.showPass {
   position: absolute;
-    right: 11%;
-    top: 20%;
-    z-index: 2;
+  right: 13%;
+  top: 2%;
+  z-index: 2;
+  animation: scale 0.6s infinite;
+  font-weight: 600;
+  & button {
+    background: white;
+    border: none;
+    outline: none;
+    width: 37px;
+    height: 18px;
+    font-weight: 700;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -7,19 +7,36 @@ function rand() {
 }
 
 function getModalStyle() {
-  const top = 45 + rand();
-  const right = 80 + rand();
+  const top = 16 + rand();
+  const right = 15 + rand();
 
   return {
     top: `${top}%`,
-    left: `${right}%`,
+    rigth: `${right}%`,
     transform: `translate(-${top}%, -${right}%)`,
   };
 }
 
+// const windowWidth=()=>{
+//   if{}
+// }
+
+
 const useStyles = makeStyles((theme) => ({
+  paper1:{
+    position:'absolute',
+    right:-26,
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(2, 4, 3),
+
+  },
+
+
+
   paper: {
     position: 'absolute',
+    right:0,
+    top:10,
     width: 400,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
@@ -43,7 +60,7 @@ export default function SimpleModal() {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <div style={modalStyle} className={window.innerWidth === 400?classes.paper1:classes.paper}>
       <h2 id="simple-modal-title">LOGIN DATA</h2>
       <p id="simple-modal-description">
       login: aramexfrontend@mail.ru
@@ -57,7 +74,7 @@ export default function SimpleModal() {
   return (
     <div className="showPass">
       <button type="button" onClick={handleOpen}>
-        show pass
+        Hint
       </button>
       <Modal
         open={open}
