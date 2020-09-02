@@ -9,9 +9,9 @@ import {newsRequest} from '../../api/Api';
 class NewsContainer extends Component {
 
 componentDidMount(){
-    newsRequest().then((res) => {
-        this.props.getNews(res.articles);
-      });
+    // newsRequest().then((res) => {
+    //     this.props.getNews(res.articles);
+    //   });
 }
 
     render() {

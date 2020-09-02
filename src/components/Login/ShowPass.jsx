@@ -7,7 +7,7 @@ function rand() {
 }
 
 function getModalStyle() {
-  const top = 16 + rand();
+  const top = 25  + rand();
   const right = 15 + rand();
 
   return {
@@ -17,17 +17,15 @@ function getModalStyle() {
   };
 }
 
-// const windowWidth=()=>{
-//   if{}
-// }
 
 
 const useStyles = makeStyles((theme) => ({
   paper1:{
     position:'absolute',
-    right:-26,
+    right:0,
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(2, 4, 3),
+    width: 200
 
   },
 
@@ -60,7 +58,7 @@ export default function SimpleModal() {
   };
 
   const body = (
-    <div style={modalStyle} className={window.innerWidth === 400?classes.paper1:classes.paper}>
+    <div style={modalStyle} className={window.innerWidth <= 400?classes.paper1:classes.paper}>
       <h2 id="simple-modal-title">LOGIN DATA</h2>
       <p id="simple-modal-description">
       login: aramexfrontend@mail.ru
