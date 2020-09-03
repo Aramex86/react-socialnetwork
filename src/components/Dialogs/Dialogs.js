@@ -30,8 +30,9 @@ const validate = (values) => {
   if (!values.newAnswer) {
     errors.newAnswer = "The field can not be empty";
   } else if (values.newAnswer.length > 25) {
-    errors.newAnswer = "Must be 15 characters or less";
+    errors.newAnswer = "Must be 25 characters or less";
   }
+  return errors;
 };
 
 const DialogsForm = (props) => {
@@ -47,13 +48,13 @@ const DialogsForm = (props) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <textarea
+        maxlength="27"
         name="newAnswer"
         id="newAnswer"
         type="textarea"
-        onChange={formik.handleChange}
-        value={formik.values.newAnswer}
+        {...formik.getFieldProps("newAnswer")}
       ></textarea>
-      {formik.errors.newAnswer ? <div>{formik.errors.newAnswer}</div> : null}
+      {formik.errors.newAnswer ? <div style={{color:'red',textAlign:'center',width:'100%'}}>{formik.errors.newAnswer}</div> : null}
       <Button variant="contained" color="primary" type="submit">
         SEND
       </Button>
