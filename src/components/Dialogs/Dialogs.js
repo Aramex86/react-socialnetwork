@@ -3,30 +3,66 @@ import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import { Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
-import {TextArea} from "../common/FormControl/TextArea";
-import { maxLength,required } from "../../utilies/Validation";
+import { TextArea } from "../common/FormControl/TextArea";
+import { maxLength, required } from "../../utilies/Validation";
+import { useFormik } from "formik";
+import Button from "@material-ui/core/Button";
 
-const maxLength50 = maxLength(50);
+// const maxLength50 = maxLength(50);
+
+// const DialogsForm = (props) => {
+//   console.log(props);
+//   return (
+//     <form onSubmit={props.handleSubmit}>
+//       <Field
+//         name="newAnswer"
+//         placeholder="your message here..."
+//         component={TextArea}
+//         validate={[required,maxLength50]}
+//       ></Field>
+//       <button>SEND</button>
+//     </form>
+//   );
+// };
+// let DialogsFormRedux = reduxForm({ form: "dialogsForm" })(DialogsForm);
+const validate = (values) => {
+  const errors = {};
+  if (!values.newAnswer) {
+    errors.newAnswer = "The field can not be empty";
+  } else if (values.newAnswer.length > 25) {
+    errors.newAnswer = "Must be 15 characters or less";
+  }
+};
 
 const DialogsForm = (props) => {
+  const formik = useFormik({
+    initialValues: {
+      newAnswer: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      props.sendMessage(values.newAnswer);
+    },
+  });
   return (
-    <form onSubmit={props.handleSubmit}>
-      <Field
+    <form onSubmit={formik.handleSubmit}>
+      <textarea
         name="newAnswer"
-        placeholder="your message here..."
-        component={TextArea}
-        validate={[required,maxLength50]}
-      ></Field>
-      <button>SEND</button>
+        id="newAnswer"
+        type="textarea"
+        onChange={formik.handleChange}
+        value={formik.values.newAnswer}
+      ></textarea>
+      {formik.errors.newAnswer ? <div>{formik.errors.newAnswer}</div> : null}
+      <Button variant="contained" color="primary" type="submit">
+        SEND
+      </Button>
     </form>
   );
 };
-let DialogsFormRedux = reduxForm({ form: "dialogsForm" })(DialogsForm);
-
 
 const Dialogs = (props) => {
   if (!props.isAuth) return <Redirect to="/login" />;
-
 
   const dialog = props.dialogs.map((dialog, index) => (
     <DialogItem
@@ -45,17 +81,17 @@ const Dialogs = (props) => {
       profile={props.profile}
     />
   ));
-
-  const addMessage = (values) => {
-    props.sendMessage(values.newAnswer);
-    //props.store.dispatch(addNewMessageActionCreator());
-  };
+  // const addMessage = (values) => {
+  //   props.sendMessage(values.newAnswer);
+  //   //props.store.dispatch(addNewMessageActionCreator());
+  // };
 
   return (
     <div className="dialogs__wrapper">
       <div className="dialogs__wrapper-dialogs">{dialog}</div>
       <div className="dialogs__wrapper-messages">
-        {message} <DialogsFormRedux onSubmit={addMessage} />
+        {message} <DialogsForm {...props} />
+        {/* <DialogsFormRedux onSubmit={addMessage} /> */}
       </div>
     </div>
   );
