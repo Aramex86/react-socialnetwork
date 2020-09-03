@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { login } from "../Redux/auth-reducer";
 import { Redirect } from "react-router-dom";
 import loginBg from "../../assets/images/loginPagePicture.jpg";
-import ShowPas from './ShowPass';
+import ShowPas from "./ShowPass";
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
