@@ -1,28 +1,38 @@
 .profile__posts {
-    margin-top: 30px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  & form {
+    width: 80%;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
-    & form {
-        width: 80%;
-        min-height: 50px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        margin-top: 15px;
-        align-items: flex-end;
-        
-        & button {
-            width: 8rem;
-            height: 3rem;
-            margin-top: 6px;
-            border: none;
-            background: #02569c;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-        }
+    margin: 0 auto;
+    margin-top: 15px;
+    align-items: flex-end;
+    & textarea {
+      width: 100% !important;
+      min-height: 60px;
+      border-radius: 8px;
+      padding: 1rem;
+      resize: none;
+      outline: none;
+      box-shadow: inset 0px 0px 3px 2px #d2d2d2;
     }
 
+    & button {
+      width: 8rem;
+      height: 3rem;
+      margin-top: 6px;
+      border: none;
+      background: #02569c;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      text-transform: capitalize;
+      font-size: 1.1rem;
+    }
+  }
 }

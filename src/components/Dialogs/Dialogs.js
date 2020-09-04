@@ -48,7 +48,7 @@ const DialogsForm = (props) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <textarea
-        maxlength="27"
+        maxLength="27"
         name="newAnswer"
         id="newAnswer"
         type="textarea"
