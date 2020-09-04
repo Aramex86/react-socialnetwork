@@ -2,9 +2,9 @@ import React from "react";
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import { Redirect } from "react-router-dom";
-import { Field, reduxForm } from "redux-form";
-import { TextArea } from "../common/FormControl/TextArea";
-import { maxLength, required } from "../../utilies/Validation";
+// import { Field, reduxForm } from "redux-form";
+// import { TextArea } from "../common/FormControl/TextArea";
+// import { maxLength, required } from "../../utilies/Validation";
 import { useFormik } from "formik";
 import Button from "@material-ui/core/Button";
 

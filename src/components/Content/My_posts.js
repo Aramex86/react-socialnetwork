@@ -1,11 +1,11 @@
 import React from "react";
 import Posts from "./Posts";
-import { Field } from "redux-form";
-import { reduxForm } from "redux-form";
-import { required, maxLength } from "../../utilies/Validation";
-import { TextArea } from "../common/FormControl/TextArea";
+// import { Field } from "redux-form";
+// import { reduxForm } from "redux-form";
+// import { required, maxLength } from "../../utilies/Validation";
+// import { TextArea } from "../common/FormControl/TextArea";
 import Button from "@material-ui/core/Button";
-import { useFormik, Formik } from "formik";
+import { useFormik } from "formik";
 
 // const maxLength10 = maxLength(10);
 
