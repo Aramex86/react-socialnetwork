@@ -8,7 +8,6 @@ const PlayerHearder = (props) => {
             <div className="player-header__title"><h2>Your Library</h2></div>
             <Showinfo/>
             <AddToPlayList/>
-
         </div>
     )
 }
