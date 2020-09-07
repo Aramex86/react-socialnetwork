@@ -1,7 +1,7 @@
 import React from "react";
-import { reduxForm } from "redux-form";
-import { Input, createField } from "../common/FormControl/TextArea";
-import { required } from "../../utilies/Validation";
+// import { reduxForm } from "redux-form";
+// import { Input, createField } from "../common/FormControl/TextArea";
+// import { required } from "../../utilies/Validation";
 import { connect } from "react-redux";
 import { login } from "../Redux/auth-reducer";
 import { Redirect } from "react-router-dom";
@@ -12,6 +12,24 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import {useFormik} from 'formik';
 
+
+
+const validate = (values) => {
+  const errors = {};
+  if (!values.password) {
+    errors.password = "The field can not be empty";
+  } 
+
+
+  if (!values.email) {
+    errors.email = 'The field can not be empty';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+  return errors;
+};
+
+
 const LoginForm = ({captchaUrl,login}) => {
   const formik = useFormik({
     initialValues:{
@@ -20,6 +38,7 @@ const LoginForm = ({captchaUrl,login}) => {
       rememberMe:'',
       captcha:''
     },
+    validate,
     onSubmit:(values)=>{
      console.log(JSON.stringify(values, null, 2));
       login(values.email,values.password);
@@ -34,7 +53,7 @@ const LoginForm = ({captchaUrl,login}) => {
       <div className="login-bg">
         <img src={loginBg} alt="login-pic"/>
       </div>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className="login__wrapper-form">
         {/* {createField("Email", "email", Input, [required], "email")}
         {createField("Password", "password", Input, [required], "password")}
         {createField(null, "rememberMe", Input, [], "checkbox", "remember me")} */}
@@ -48,7 +67,11 @@ const LoginForm = ({captchaUrl,login}) => {
           variant="outlined"
           name='email'
           {...formik.getFieldProps('email')}
+          className="login__wrapper-forminput"
         />
+        {formik.errors.email ? <div style={{color:'red',textAlign:'center',width:'100%',marginBottom:'10px'}}>{formik.errors.email}</div> : null}
+
+       
 <TextField
           id="password"
           label="password"
@@ -57,12 +80,14 @@ const LoginForm = ({captchaUrl,login}) => {
           variant="outlined"
           name='password'
           {...formik.getFieldProps('password')}
+          className="login__wrapper-forminput"
         />
-        <Checkbox
+         {formik.errors.password ? <div style={{color:'red',textAlign:'center',width:'100%'}}>{formik.errors.password}</div> : null}
+        <Checkbox className="login__wrapper-checkbox"
         id='rememberMe' type='checkbox' name='rememberMe'{...formik.getFieldProps('rememberMe')}
         color="primary"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
-      />
+      /> 
 {/*         <input id='email' type='email' name='email'{...formik.getFieldProps('email')}/>
        <input id='password' type='password' name='password'{...formik.getFieldProps('password')}/>
       <input id='rememberMe' type='checkbox' name='rememberMe'{...formik.getFieldProps('rememberMe')}/>*/}
@@ -73,6 +98,7 @@ const LoginForm = ({captchaUrl,login}) => {
 
         <div>
           {/* <button className="login__btn">Login</button> */}
+         
           <Button variant="contained" color="primary" type="submit" className="login__btn">Login</Button>
         </div>
       </form>
