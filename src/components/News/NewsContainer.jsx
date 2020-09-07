@@ -1,25 +1,23 @@
 import React, { Component } from "react";
 import News from "./News";
-import { getNewsSelector } from "../Redux/Selectors/news-selector";
+import { getNewsSelector,getIsFetching } from "../Redux/Selectors/news-selector";
 import { connect } from "react-redux";
-import { getNews } from "../Redux/news-reducer";
-import { newsRequest } from "../../api/Api";
+import { getNews,getNewsRequest } from "../Redux/news-reducer";
 
 class NewsContainer extends Component {
   componentDidMount() {
-    newsRequest().then((res) => {
-      this.props.getNews(res.articles);
-    });
+    this.props.getNewsRequest();
   }
 
   render() {
-    return <News articles={this.props.articles} />;
+    return <News articles={this.props.articles} isFetching={this.props.isFetching}/>;
   }
 }
 export const mapStateToProps = (state) => {
   return {
     articles: getNewsSelector(state),
+    isFetching: getIsFetching(state),
   };
 };
 
-export default connect(mapStateToProps, { getNews })(NewsContainer);
+export default connect(mapStateToProps, { getNews,getNewsRequest })(NewsContainer);

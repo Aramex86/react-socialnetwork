@@ -2,7 +2,8 @@ import React from "react";
 import Atricle from "./Article";
 import ScrollToTop from "react-scroll-to-top";
 
-const News = ({ articles }) => {
+
+const News = ({ articles,isFetching }) => {
   const article = articles.map((article, i) => (
     <Atricle
       key={i}
@@ -14,6 +15,7 @@ const News = ({ articles }) => {
       publishedAt={article.publishedAt}
       image={article.image}
       source={article.source}
+      isFetching={isFetching}
     />
   ));
 

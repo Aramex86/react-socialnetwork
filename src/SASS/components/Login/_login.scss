@@ -19,7 +19,18 @@
   &-form{
     display: flex;
     flex-direction: column;
-    width: 25%;  
+    width: 25%;
+    margin-top: 3rem;
+    @include respond(small-phone){
+      width:56%;
+        
+    }  
+    @include respond(phone){
+      width:33%;
+    }  
+    @include respond(tab-port){
+      width:32%;
+    }  
     
     & div:nth-last-child(1){
       margin-bottom: 15px !important;
@@ -34,6 +45,7 @@
   &-forminput{
     & div input{
       font-size: 1.5rem;
+      padding: 1rem 1rem;
     }
    
     & label{

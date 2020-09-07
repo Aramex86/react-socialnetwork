@@ -1,4 +1,5 @@
 import React from "react";
+import Preloader from '../common/Prealoder/Prealoder';
 
 const Article = ({
   title,
@@ -6,9 +7,12 @@ const Article = ({
   url,
   image,
   publishedAt,
-  source
+  source,
+  isFetching
 }) => {
   return (
+    <>
+    {isFetching? <Preloader/>: null}
     <div className="article-wrapper">
       <h3 className="article-wrapper_title">{title}</h3>
       <img className="article-wrapper_image" src={image} alt="img" />
@@ -20,6 +24,7 @@ const Article = ({
         <span className="article-wrapper_fotter-source"></span>
       </div>
     </div>
+    </>
   );
 };
 
