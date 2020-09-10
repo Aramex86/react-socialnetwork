@@ -1,10 +1,10 @@
 import React from 'react';
-import Navigation from './Navigation';
+import Musicnavigation from './Navigation';
 
-const PlayerFooter = (props) => {
+const PlayerFooter = ({music,playMusic, moveRigth,moveLeft}) => {
     return (
         <div className="palyerfooter-wrapper">
-           <Navigation/>
+           <Musicnavigation music={music} playMusic={playMusic} moveRigth={moveRigth} moveLeft={moveLeft}/>
         </div>
     )
 }
