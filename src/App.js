@@ -5,7 +5,7 @@ import { initializeApp } from "./components/Redux/app-reducer";
 import { connect } from "react-redux";
 
 import NavigationContainer from "./components/Navigation/NavigationContainer";
-import Music from "./components/Music/Music";
+import MusicContainer from "./components/Music/MusicContainer";
 //import NewsConatiner from "./components/News/NewsContainer";
 import AllUsersContainer from "./components/All_Users/All_UsersContainer";
 import Setings from "./components/Setings/Setings";
@@ -87,7 +87,9 @@ class App extends Component {
           <Route path="/news"
            render={WithSuspense(NewsConatiner)} />
 
-          <Route path="/music" component={Music} />
+          <Route path="/music" 
+            render={()=><MusicContainer/>}
+          />
 
           <Route path="/allusers" render={() => <AllUsersContainer />} />
 

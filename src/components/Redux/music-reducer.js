@@ -1,73 +1,78 @@
-import cover from "../../assets/images/player/Avicii.png";
+import cover1 from "../../assets/images/player/Avicii.png";
+import cover2 from "../../assets/images/player/ritaOra.jpg";
 import TheDays from "../../assets/musicTest/TheDays.mp3";
 import AviciifeatRitaOra  from '../../assets/musicTest/Avicii feat. Rita Ora - Lonely Together (DJ Licious Remix).mp3'
 
-const PLAY_SONG = "PLAY_SONG";
+const COUNTER_MINUS = "COUNTER_MINUS";
+const COUNTER_PLUS = "COUNTER_PLUS";
 const PAUSE_SONG = "PAUSE_SONG";
 const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
 const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
+const PLAYED_SONGS = 'PLAYED_SONGS';
 
 const initialState = {
   songs: [
     {
       id: 1,
-      name: "Avicii",
-      cover: cover,
-      bg: cover,
+      artist:'Avicii',
+      name: "TheDays",
+      cover: cover1,
+      bg: cover1,
       song: TheDays,
-      playerBg: "#e2ad5c",
+      playerBg: "#7d68c4",
     },
     {
       id: 2,
-      name: "Avicii",
-      cover: cover,
-      bg: cover,
+      artist:'Avicii feat. Rita Ora',
+      name: "Lonely Together (DJ Licious Remix)",
+      cover: cover2,
+      bg: cover2,
       song: AviciifeatRitaOra,
       playerBg: "#e2ad5c",
     },
   ],
-
-  counter:0,
 
 };
 
 
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
-    case PLAY_SONG: {
-      return {
-        ...state,
-        songs:[Object.values(...state.songs)]
-      };
-    }
-    case MOVE_RIGTH_SONG:{
-        return{
-            ...state,
-            
-        }
-    }
-    case MOVE_LEFT_SONG:{
-        return{
-            ...state,
-            counter:state.counter-1
-        }
-    }
+    case PLAYED_SONGS:{
+  return{
+    
+  }
+}    // case COUNTER_MINUS: {
+    //   return {
+    //     ...state,
+    //     counter:state.counter -1,
+    //   };
+    // }
+    // case COUNTER_PLUS: {
+    //   return {
+    //     ...state,
+    //     counter:state.counter +1,
+    //   };
+    // }
     default:
       return state;
   }
+
+
 };
+
+
 
 //Action  creators
-
-export const playSong = () => {
-  return { type: PLAY_SONG };
-};
-
-export const moveRigth=()=>{
-    return{ type: MOVE_RIGTH_SONG}
+// export const getCounterMinus=()=>{
+//   return{type:COUNTER_MINUS}
+// }
+// export const getCounterPlus=()=>{
+//   return{type:COUNTER_PLUS}
+// }
+export const getPlayedMusic=()=>{
+  return{type:PLAYED_SONGS}
 }
-export const moveLeft=()=>{
-    return{ type: MOVE_LEFT_SONG}
-}
+
+
 
 export default musicReducer;

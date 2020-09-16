@@ -10,6 +10,7 @@ class NewsContainer extends Component {
   }
 
   render() {
+    console.log(this.props)
     return <News articles={this.props.articles} isFetching={this.props.isFetching}/>;
   }
 }

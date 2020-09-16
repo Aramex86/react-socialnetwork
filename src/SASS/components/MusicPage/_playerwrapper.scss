@@ -1,136 +1,136 @@
-.player-wrapper {
-  background: #e2ad5c;
-}
-//player Header
-.player-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 80%;
-  margin: 0 auto;
-  background: #a7a7a7a6;
-  &__title {
-    color: #ffffff;
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-  }
+// .player-wrapper {
+//   background: #e2ad5c;
+// }
+// //player Header
+// .player-header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   width: 80%;
+//   margin: 0 auto;
+//   background: #a7a7a7a6;
+//   &__title {
+//     color: #ffffff;
+//     text-transform: uppercase;
+//     font-size: 1.1rem;
+//     letter-spacing: 2px;
+//   }
 
-  &__showinfo {
-    order: -2;
-    & svg {
-      width: 3rem;
-      height: 3rem;
-      fill: #ffffff;
-      cursor: pointer;
-    }
-  }
-  &__addtoplaylist {
-    & svg {
-      width: 2rem;
-      height: 2rem;
-      fill: #ffffff;
-      cursor: pointer;
-    }
-  }
-}
+//   &__showinfo {
+//     order: -2;
+//     & svg {
+//       width: 3rem;
+//       height: 3rem;
+//       fill: #ffffff;
+//       cursor: pointer;
+//     }
+//   }
+//   &__addtoplaylist {
+//     & svg {
+//       width: 2rem;
+//       height: 2rem;
+//       fill: #ffffff;
+//       cursor: pointer;
+//     }
+//   }
+// }
 
-//player Body
-.playerbody-wrapper {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-  &__header {
-    margin-top: 5px;
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-    color: #ffffff;
-    z-index: 2;
-  }
-  &__bg {
-    outline: 1px solid black;
-    margin: 0 auto;
-    min-height: 80vh;
-    width: 100%;
-    background: url("../../../assets/images/player/Avicii.png");
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-blend-mode: screen;
-    filter: blur(9px);
-  }
-  &__image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-//player Footer
-.palyerfooter-wrapper {
-  width: 80%;
-  margin: 0 auto;
-  background: #a7a7a7a6;
-  padding: 3rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-}
+// //player Body
+// .playerbody-wrapper {
+//   width: 80%;
+//   margin: 0 auto;
+//   position: relative;
+//   &__header {
+//     margin-top: 5px;
+//     position: absolute;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 1rem 0;
+//     color: #ffffff;
+//     z-index: 2;
+//   }
+//   &__bg {
+//     outline: 1px solid black;
+//     margin: 0 auto;
+//     min-height: 80vh;
+//     width: 100%;
+//     background: url("../../../assets/images/player/Avicii.png");
+//     background-size: cover;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-blend-mode: screen;
+//     filter: blur(9px);
+//   }
+//   &__image {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+// }
+// //player Footer
+// .palyerfooter-wrapper {
+//   width: 80%;
+//   margin: 0 auto;
+//   background: #a7a7a7a6;
+//   padding: 3rem 0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   color: #ffffff;
+// }
 
-.playernavigation-wrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0;
-    cursor: pointer;
-    & svg {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
+// .playernavigation-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+//   &__header {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 2rem 0;
+//     cursor: pointer;
+//     & svg {
+//       width: 2.5rem;
+//       height: 2.5rem;
+//     }
 
-    &-track {
-      width: 70%;
-      display: flex;
-      //padding-bottom: 2rem;
-      margin-top: 2rem;
-      transition: all 0.5s ease-in;
-      &-hide {
-        padding: 0;
-      }
-      &-show {
-        padding-bottom: 2rem;
-      }
+//     &-track {
+//       width: 70%;
+//       display: flex;
+//       //padding-bottom: 2rem;
+//       margin-top: 2rem;
+//       transition: all 0.5s ease-in;
+//       &-hide {
+//         padding: 0;
+//       }
+//       &-show {
+//         padding-bottom: 2rem;
+//       }
 
-      & input {
-        cursor: pointer;
-        width: 100%;
-      }
-    }
-  }
-  &__nav {
-    display: grid;
-    grid-template-columns: repeat(5, 10rem);
-    align-items: center;
-    justify-items: center;
-    cursor: pointer;
-    & svg {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-    & svg:nth-child(3) {
-      width: 4.5rem;
-      height: 4.5rem;
-    }
-  }
-}
+//       & input {
+//         cursor: pointer;
+//         width: 100%;
+//       }
+//     }
+//   }
+//   &__nav {
+//     display: grid;
+//     grid-template-columns: repeat(5, 10rem);
+//     align-items: center;
+//     justify-items: center;
+//     cursor: pointer;
+//     & svg {
+//       width: 2.5rem;
+//       height: 2.5rem;
+//     }
+//     & svg:nth-child(3) {
+//       width: 4.5rem;
+//       height: 4.5rem;
+//     }
+//   }
+// }
