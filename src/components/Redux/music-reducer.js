@@ -9,6 +9,7 @@ const PAUSE_SONG = "PAUSE_SONG";
 const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
 const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
 const PLAYED_SONGS = 'PLAYED_SONGS';
+const TEXT = 'TEXT';
 
 const initialState = {
   songs: [
@@ -31,7 +32,6 @@ const initialState = {
       playerBg: "#e2ad5c",
     },
   ],
-
 };
 
 
@@ -39,9 +39,13 @@ const musicReducer = (state = initialState, action) => {
   switch (action.type) {
     case PLAYED_SONGS:{
   return{
-    
+   
   }
-}    // case COUNTER_MINUS: {
+}  
+   
+
+
+// case COUNTER_MINUS: {
     //   return {
     //     ...state,
     //     counter:state.counter -1,
@@ -73,6 +77,9 @@ export const getPlayedMusic=()=>{
   return{type:PLAYED_SONGS}
 }
 
+export const setText=()=>{
+  return{type:TEXT}
+}
 
 
 export default musicReducer;
