@@ -3,13 +3,12 @@ import cover2 from "../../assets/images/player/ritaOra.jpg";
 import TheDays from "../../assets/musicTest/TheDays.mp3";
 import AviciifeatRitaOra  from '../../assets/musicTest/Avicii feat. Rita Ora - Lonely Together (DJ Licious Remix).mp3'
 
-const COUNTER_MINUS = "COUNTER_MINUS";
-const COUNTER_PLUS = "COUNTER_PLUS";
-const PAUSE_SONG = "PAUSE_SONG";
-const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
-const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
+// const COUNTER_MINUS = "COUNTER_MINUS";
+// const COUNTER_PLUS = "COUNTER_PLUS";
+// const PAUSE_SONG = "PAUSE_SONG";
+// const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
+// const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
 const PLAYED_SONGS = 'PLAYED_SONGS';
-const TEXT = 'TEXT';
 
 const initialState = {
   songs: [
@@ -77,9 +76,7 @@ export const getPlayedMusic=()=>{
   return{type:PLAYED_SONGS}
 }
 
-export const setText=()=>{
-  return{type:TEXT}
-}
+
 
 
 export default musicReducer;

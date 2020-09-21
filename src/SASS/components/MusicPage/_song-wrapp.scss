@@ -1,0 +1,19 @@
+.item-container{
+    display: flex;
+    padding: 2rem 1rem;
+    cursor: pointer;
+    &__img{
+        width: 15%;
+    }
+    &__name{
+        margin-left: 20px;
+        &__artist{
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        &__songname{
+            font-size: 2rem;
+        }
+    }
+}
+  
