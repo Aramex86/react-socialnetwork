@@ -4,7 +4,7 @@ const PlayList = ({ name, cover, song, state, artist, addSong }) => {
   //    console.log(name, cover, song, state, artist,addSong);
 
   return (
-    <div className="song-wrapp" onClick={() => addSong(song)}>
+    <div className="song-wrapp" onClick={() => addSong(song,cover)}>
       <div className="item-container">
         <img src={cover} alt="cover" className="item-container__img" />
         <div className="item-container__name">

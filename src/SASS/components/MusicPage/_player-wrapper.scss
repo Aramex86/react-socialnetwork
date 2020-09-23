@@ -1,3 +1,49 @@
 .player-wrapper{
-    height: 500px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-bottom: 1px solid #80808059;
+    box-shadow: 0px 0px 3px 1px grey;
+
+    min-height: 200px;
+    &__img{
+        width: 20%;
+        padding: 2rem 2rem;
+        position: relative;
+        & span{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            width: 1rem;
+            height: 1rem;
+            background: #ffffff;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+        }
+
+        & img{
+            width: 100%;
+            border-radius: 100px;
+        }
+    }
+
+    &__btns{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        & button{
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        & svg{
+            fill:#444ea596;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
 }

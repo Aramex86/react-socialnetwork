@@ -8,13 +8,14 @@ import Player from './Player';
 class MusicContainer extends React.Component {
   state = {
     selectedTrack: null,
+    cover:null
   };
 
-  songPlay = new Audio()
 
-  addSongsToState = (song) => {
+  addSongsToState = (song,cover) => {
     this.setState({
       selectedTrack:song,
+      cover:cover
     });
   };
 
@@ -22,7 +23,7 @@ class MusicContainer extends React.Component {
 
   render() {
     console.log(this.state.selectedTrack);
-     //console.log(this.props);
+     console.log(this.props);
 
     const songList = this.props.songList.map((item) => (
       <PlayList
@@ -36,7 +37,7 @@ class MusicContainer extends React.Component {
     ));
 
     return <div className="player-page">
-      <Player props={this.props.songList} state={this.state} />
+      <Player  state={this.state} />
       {songList}
       </div>;
   }

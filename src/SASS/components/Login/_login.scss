@@ -21,15 +21,18 @@
     flex-direction: column;
     width: 25%;
     margin-top: 3rem;
-    @include respond(small-phone){
-      width:56%;
-        
+    
+    
+    @include respond(tab-port){
+      width:32%;
     }  
+    
     @include respond(phone){
       width:33%;
     }  
-    @include respond(tab-port){
-      width:32%;
+    @include respond(small-phone){
+      width:60%;
+      
     }  
     
     & div:nth-last-child(1){
@@ -49,8 +52,9 @@
     }
    
     & label{
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-transform: capitalize;
+      transform: translate(14px,14px);
     }
   }
   
