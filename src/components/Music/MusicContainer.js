@@ -8,7 +8,6 @@ import Player from './Player';
 class MusicContainer extends React.Component {
   state = {
     selectedTrack: null,
-    cover:null
   };
 
 
@@ -22,8 +21,8 @@ class MusicContainer extends React.Component {
  
 
   render() {
-    console.log(this.state.selectedTrack);
-     console.log(this.props);
+    //console.log(this.state.selectedTrack);
+     // console.log(this.props);
 
     const songList = this.props.songList.map((item) => (
       <PlayList

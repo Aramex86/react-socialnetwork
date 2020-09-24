@@ -1,32 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import StopIcon from "@material-ui/icons/Stop";
-//import song from '../../assets/musicTest/TheDays.mp3';
+import song from "../../assets/musicTest/TheDays.mp3";
 
 const Player = (props) => {
   // console.log("Player", props);
   // console.log("Player###", props.state);
+  const [played, setPlay] = useState(true);
+
   const track = props.state.selectedTrack;
 
-  //console.log("TRACK", props.state.selectedTrack);
-
   const playSong = new Audio(track);
+  const playPauseRef = useRef(null);
+  const sourceRef = useRef(null);
 
-  const handlePlay = () => {
-    playSong.play();
+  //console.log("TRACK", props.state.selectedTrack);
+  //console.log(played);
+  console.log(sourceRef);
+
+  useEffect(() => {
+    return sourceRef.current.currentTime;
+  });
+
+  const playSound = () => {
+    playPauseRef.current.play();
+    setPlay(false);
   };
 
-  const stopPlay = () => {
-    playSong.pause();
+  const stopSound = () => {
+    playPauseRef.current.pause();
+    setPlay(true);
   };
 
   return (
     <div className="player-wrapper">
-      <audio>
-        <source src={track} type="audio/mpeg"></source>
-        <source src={track} type="audio/ogg"></source>
+      <audio ref={playPauseRef} src={track}>
+        <source ref={sourceRef} src={track} type="audio/mpeg" />
       </audio>
-
       <div className="player-wrapper__img">
         {!props.state.cover ? (
           "NO TRACK SELECTED"
@@ -38,18 +48,22 @@ const Player = (props) => {
       </div>
 
       <div className="player-wrapper__btns">
+        {/* <div>
+          <input type="range" min="0" max="100" />
+        </div> */}
         <div>
-        <input type="range"/>
+          {played ? (
+            <button onClick={playSound} disabled={track === null}>
+              <PlayCircleOutlineIcon
+                style={{ width: "5rem", height: "5rem" }}
+              />
+            </button>
+          ) : (
+            <button onClick={stopSound}>
+              <StopIcon style={{ width: "3.5rem", height: "3.5rem" }} />
+            </button>
+          )}
         </div>
-        <div>
-        <button onClick={() => handlePlay()}>
-          <PlayCircleOutlineIcon style={{ width: "4rem", height: "4rem" }} />
-        </button>{" "}
-        <button onClick={() => stopPlay()}>
-          <StopIcon style={{ width: "3rem", height: "3rem" }} />
-        </button>
-        </div>
-        
       </div>
     </div>
   );
