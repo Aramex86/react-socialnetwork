@@ -1,9 +1,11 @@
 import cover1 from "../../assets/images/player/Avicii.png";
 import cover2 from "../../assets/images/player/ritaOra.jpg";
 import cover3 from "../../assets/images/player/brokenArrows.jpg";
+import cover4 from "../../assets/images/player/DirtFGL.jpg";
 import TheDays from "../../assets/musicTest/TheDays.mp3";
 import AviciifeatRitaOra  from '../../assets/musicTest/LonelyTogether.mp3';
 import BrokenArrows  from '../../assets/musicTest/Broken Arrows.mp3';
+import Dirt  from '../../assets/musicTest/florida-georgia-line_dirt.mp3';
 
 // const COUNTER_MINUS = "COUNTER_MINUS";
 // const COUNTER_PLUS = "COUNTER_PLUS";
@@ -39,6 +41,15 @@ const initialState = {
       cover: cover3,
       bg: cover3,
       song: BrokenArrows,
+      playerBg: "#e2ad5c",
+    },
+    {
+      id: 4,
+      artist:'Florida Georgia Line',
+      name: "Dirt",
+      cover: cover4,
+      bg: cover4,
+      song: Dirt,
       playerBg: "#e2ad5c",
     },
   ],
