@@ -5,7 +5,7 @@ import cover4 from "../../assets/images/player/DirtFGL.jpg";
 import TheDays from "../../assets/musicTest/TheDays.mp3";
 import AviciifeatRitaOra  from '../../assets/musicTest/LonelyTogether.mp3';
 import BrokenArrows  from '../../assets/musicTest/Broken Arrows.mp3';
-import Dirt  from '../../assets/musicTest/florida-georgia-line_dirt.mp3';
+import Dirt  from '../../assets/musicTest/Florida Georgia Line - Dirt.mp3';
 
 // const COUNTER_MINUS = "COUNTER_MINUS";
 // const COUNTER_PLUS = "COUNTER_PLUS";

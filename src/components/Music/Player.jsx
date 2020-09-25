@@ -1,26 +1,38 @@
 import React, { useState, useRef, useEffect } from "react";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import StopIcon from "@material-ui/icons/Stop";
-import song from "../../assets/musicTest/TheDays.mp3";
+//import song from "../../assets/musicTest/TheDays.mp3";
 
 const Player = (props) => {
   // console.log("Player", props);
   // console.log("Player###", props.state);
   const [played, setPlay] = useState(true);
+  const [currentTime,setCurrentTime]=useState(0);
+  const [duration,setDuration]=useState(0);
+
+  console.log(currentTime);
+  console.log(duration);
 
   const track = props.state.selectedTrack;
 
-  const playSong = new Audio(track);
+  //const playSong = new Audio(track);
   const playPauseRef = useRef(null);
-  const sourceRef = useRef(null);
+
 
   //console.log("TRACK", props.state.selectedTrack);
   //console.log(played);
-  console.log(sourceRef);
 
   useEffect(() => {
-    return sourceRef.current.currentTime;
-  });
+    const soundTime = playPauseRef.current;
+    // const time = document.getElementById('time');
+    
+    // time.innerHTML = Math.round(soundTime.duration/60);
+    // console.log(Math.round(soundTime.duration/60));
+    soundTime.addEventListener('timeupdate',e=>{
+        setCurrentTime(e.target.currentTime);
+        setDuration(e.target.duration);
+    });
+  },[currentTime,duration]); 
 
   const playSound = () => {
     playPauseRef.current.play();
@@ -32,10 +44,14 @@ const Player = (props) => {
     setPlay(true);
   };
 
+  const selectCurrentTime=(event)=>{
+    setCurrentTime(event.target.value);
+  }
+
   return (
     <div className="player-wrapper">
       <audio ref={playPauseRef} src={track}>
-        <source ref={sourceRef} src={track} type="audio/mpeg" />
+        <source src={track} type="audio/mpeg" />
       </audio>
       <div className="player-wrapper__img">
         {!props.state.cover ? (
@@ -48,9 +64,10 @@ const Player = (props) => {
       </div>
 
       <div className="player-wrapper__btns">
-        {/* <div>
-          <input type="range" min="0" max="100" />
-        </div> */}
+        <div>
+          <input type="range" value={currentTime} onChange={selectCurrentTime}/>
+        <span>{currentTime}/{duration}</span>
+        </div>
         <div>
           {played ? (
             <button onClick={playSound} disabled={track === null}>
