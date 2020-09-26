@@ -24,15 +24,11 @@ const Player = (props) => {
 
   useEffect(() => {
     const soundTime = playPauseRef.current;
-    // const time = document.getElementById('time');
-    
-    // time.innerHTML = Math.round(soundTime.duration/60);
-    // console.log(Math.round(soundTime.duration/60));
     soundTime.addEventListener('timeupdate',e=>{
         setCurrentTime(e.target.currentTime);
         setDuration(e.target.duration);
     });
-  },[currentTime,duration]); 
+  },[]); 
 
   const playSound = () => {
     playPauseRef.current.play();
@@ -48,6 +44,14 @@ const Player = (props) => {
     setCurrentTime(event.target.value);
   }
 
+  function getTime(time) {
+    if(!isNaN(time)) {
+      return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
+    }
+  }
+
+  
+
   return (
     <div className="player-wrapper">
       <audio ref={playPauseRef} src={track}>
@@ -57,16 +61,16 @@ const Player = (props) => {
         {!props.state.cover ? (
           "NO TRACK SELECTED"
         ) : (
-          <div>
+          <>
             <img src={props.state.cover} alt="cover" /> <span></span>
-          </div>
+          </>
         )}
       </div>
 
       <div className="player-wrapper__btns">
         <div>
-          <input type="range" value={currentTime} onChange={selectCurrentTime}/>
-        <span>{currentTime}/{duration}</span>
+          <input type="range"  value={currentTime} onChange={selectCurrentTime}/>
+        <span>{getTime(currentTime)}/{getTime(duration)}</span>
         </div>
         <div>
           {played ? (
