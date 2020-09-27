@@ -1,7 +1,10 @@
 import React from "react";
 
+
 const PlayList = ({ name, cover, song, state, artist, addSong }) => {
   //    console.log(name, cover, song, state, artist,addSong);
+
+
 
   return (
     <div className="song-wrapp" onClick={() => addSong(song, cover)}>

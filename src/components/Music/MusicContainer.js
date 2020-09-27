@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import PlayList from "./PlayList";
 import Player from './Player';
 
+import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
+import FormatListBulletedRoundedIcon from '@material-ui/icons/FormatListBulletedRounded';
+
 class MusicContainer extends React.Component {
   state = {
     selectedTrack: null,
@@ -37,7 +40,13 @@ class MusicContainer extends React.Component {
 
     return <div className="player-page">
       <Player  state={this.state} />
+      <div className="switchLayout-btn">
+      <AppsOutlinedIcon/>
+      <FormatListBulletedRoundedIcon/>  
+      </div>
+      <div className='items-wrapp items-wrapp__grid'>
       {songList}
+      </div>
       </div>;
   }
 }

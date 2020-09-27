@@ -1,0 +1,26 @@
+.player-wrapper {
+  background: #e2ad5c;
+  margin-bottom: 10px;
+}
+
+.switchLayout-btn{
+    text-align: right;
+    padding: 0 5rem;
+    margin-bottom: 10px;
+    & svg{
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+        fill: #02569c;
+    }   
+}
+
+.items-wrapp{
+  display: flex;
+  flex-direction: column;
+
+}
+.items-wrapp__grid{
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+}
