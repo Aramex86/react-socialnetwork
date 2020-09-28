@@ -7,57 +7,62 @@ const Player = (props) => {
   // console.log("Player", props);
   // console.log("Player###", props.state);
   const [played, setPlay] = useState(true);
-  const [currentTime,setCurrentTime]=useState(0);
-  const [duration,setDuration]=useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [imgRotate, setImgRotate] = useState(true);
 
   console.log(currentTime);
   console.log(duration);
+  console.log(imgRotate);
 
   const track = props.state.selectedTrack;
 
   //const playSong = new Audio(track);
   const playPauseRef = useRef(null);
 
-
   //console.log("TRACK", props.state.selectedTrack);
   //console.log(played);
 
   useEffect(() => {
     const soundTime = playPauseRef.current;
-    soundTime.addEventListener('timeupdate',e=>{
-        setCurrentTime(e.target.currentTime);
-        setDuration(e.target.duration);
+    soundTime.addEventListener("timeupdate", (e) => {
+      setCurrentTime(e.target.currentTime);
+      setDuration(e.target.duration);
     });
-  },[]); 
+  }, []);
 
   const playSound = () => {
     playPauseRef.current.play();
+    setImgRotate(false);
     setPlay(false);
   };
 
   const stopSound = () => {
     playPauseRef.current.pause();
+    setImgRotate(true);
     setPlay(true);
   };
 
-  const selectCurrentTime=(event)=>{
+  const selectCurrentTime = (event) => {
     setCurrentTime(event.target.value);
-  }
+  };
 
   function getTime(time) {
-    if(!isNaN(time)) {
-      return Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
+    if (!isNaN(time)) {
+      return (
+        Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+      );
     }
   }
-
-  
 
   return (
     <div className="player-wrapper">
       <audio ref={playPauseRef} src={track}>
         <source src={track} type="audio/mpeg" />
       </audio>
-      <div className="player-wrapper__img">
+      <div
+        className={imgRotate ? "player-wrapper__img" : "player-wrapper__rotate"}
+      >
         {!props.state.cover ? (
           "NO TRACK SELECTED"
         ) : (
@@ -69,8 +74,15 @@ const Player = (props) => {
 
       <div className="player-wrapper__btns">
         <div>
-          <input type="range"  value={currentTime} onChange={selectCurrentTime}/>
-        <span>{getTime(currentTime)}/{getTime(duration)}</span>
+          <input
+            type="range"
+            value={currentTime}
+            onChange={selectCurrentTime}
+          />
+          <br />
+          <span>
+            {getTime(currentTime)}/{getTime(duration)}
+          </span>
         </div>
         <div>
           {played ? (
