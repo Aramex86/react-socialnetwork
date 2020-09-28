@@ -3,29 +3,40 @@ import { musicSelector } from "../Redux/Selectors/music-selector";
 import { connect } from "react-redux";
 
 import PlayList from "./PlayList";
-import Player from './Player';
+import Player from "./Player";
 
-import AppsOutlinedIcon from '@material-ui/icons/AppsOutlined';
-import FormatListBulletedRoundedIcon from '@material-ui/icons/FormatListBulletedRounded';
+import AppsOutlinedIcon from "@material-ui/icons/AppsOutlined";
+import FormatListBulletedRoundedIcon from "@material-ui/icons/FormatListBulletedRounded";
 
 class MusicContainer extends React.Component {
   state = {
     selectedTrack: null,
+    grid: false,
   };
 
-
-  addSongsToState = (song,cover) => {
+  addSongsToState = (song, cover) => {
     this.setState({
-      selectedTrack:song,
-      cover:cover
+      selectedTrack: song,
+      cover: cover,
     });
   };
 
- 
+  swhichGrid = () => {
+    this.setState({
+      grid: true,
+    });
+    console.log("click");
+  };
+  swhichList = () => {
+    this.setState({
+      grid: false,
+    });
+    console.log("click");
+  };
 
   render() {
     //console.log(this.state.selectedTrack);
-     // console.log(this.props);
+    // console.log(this.props);
 
     const songList = this.props.songList.map((item) => (
       <PlayList
@@ -38,16 +49,16 @@ class MusicContainer extends React.Component {
       />
     ));
 
-    return <div className="player-page">
-      <Player  state={this.state} />
-      <div className="switchLayout-btn">
-      <AppsOutlinedIcon/>
-      <FormatListBulletedRoundedIcon/>  
+    return (
+      <div className="player-page">
+        <Player state={this.state} />
+        <div className="switchLayout-btn">
+          <AppsOutlinedIcon onClick={this.swhichGrid}/>
+          <FormatListBulletedRoundedIcon onClick={this.swhichList} />
+        </div>
+        <div className={this.state.grid?'items-wrapp__grid':'items-wrapp'}>{songList}</div>
       </div>
-      <div className='items-wrapp items-wrapp__grid'>
-      {songList}
-      </div>
-      </div>;
+    );
   }
 }
 

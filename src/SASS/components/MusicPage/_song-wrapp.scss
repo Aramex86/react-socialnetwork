@@ -10,9 +10,12 @@
         &__artist{
             font-size: 1.5rem;
             margin-top: 10px;
+            font-weight: 500;
         }
         &__songname{
-            font-size: 2rem;
+            font-size: 1.5rem;
+            color:  #02569c;
+            
         }
     }
 }
