@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f4bc9dd04eb3dafc3b8c04597721532c",
+    "revision": "6ceb661179804aa26f20e276de8653ad",
     "url": "/react-socialnetwork/index.html"
   },
   {
-    "revision": "47217c9f6b115ca6dad5",
-    "url": "/react-socialnetwork/static/css/main.1c130a0a.chunk.css"
+    "revision": "29bcc49ac83884cd614a",
+    "url": "/react-socialnetwork/static/css/main.768f6235.chunk.css"
   },
   {
-    "revision": "9c49848e82becfba01e6",
-    "url": "/react-socialnetwork/static/js/2.fe8b2632.chunk.js"
+    "revision": "436db820291ae98fd9ff",
+    "url": "/react-socialnetwork/static/js/2.a95eae1c.chunk.js"
   },
   {
     "revision": "1d39cb94ca8a885eea36525b6157c6f0",
-    "url": "/react-socialnetwork/static/js/2.fe8b2632.chunk.js.LICENSE.txt"
+    "url": "/react-socialnetwork/static/js/2.a95eae1c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b736373a42a8118ab272",
-    "url": "/react-socialnetwork/static/js/3.e7260708.chunk.js"
+    "revision": "5964af9ad994ab3f8bb3",
+    "url": "/react-socialnetwork/static/js/3.82881a1a.chunk.js"
   },
   {
-    "revision": "214ac7475283f6f89e7d",
-    "url": "/react-socialnetwork/static/js/4.6042534e.chunk.js"
+    "revision": "d93f07d02708739944d9",
+    "url": "/react-socialnetwork/static/js/4.dd52fa0e.chunk.js"
   },
   {
     "revision": "a71c6fc896be302d5ace",
@@ -32,12 +32,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-socialnetwork/static/js/6.449a0fc8.chunk.js"
   },
   {
-    "revision": "47217c9f6b115ca6dad5",
-    "url": "/react-socialnetwork/static/js/main.fea7163e.chunk.js"
+    "revision": "29bcc49ac83884cd614a",
+    "url": "/react-socialnetwork/static/js/main.c9f6ce76.chunk.js"
   },
   {
-    "revision": "072ae81233d23686a741",
-    "url": "/react-socialnetwork/static/js/runtime-main.d34bd606.js"
+    "revision": "5ac4a293fb58ed40c3f8",
+    "url": "/react-socialnetwork/static/js/runtime-main.3853864f.js"
   },
   {
     "revision": "450f07ada5656317b6031df338f0ac2b",
