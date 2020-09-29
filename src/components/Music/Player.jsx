@@ -1,21 +1,23 @@
 import React, { useState, useRef, useEffect } from "react";
+
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import StopIcon from "@material-ui/icons/Stop";
+
+import Slider from "@material-ui/core/Slider";
 //import song from "../../assets/musicTest/TheDays.mp3";
 
 const Player = (props) => {
-  // console.log("Player", props);
+  console.log("Player", props);
   // console.log("Player###", props.state);
   const [played, setPlay] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [imgRotate, setImgRotate] = useState(true);
 
-  console.log(currentTime);
-  console.log(duration);
-  console.log(imgRotate);
-
+  
   const track = props.state.selectedTrack;
+  const playerBg = props.state.playerBg;
+  console.log(playerBg)
 
   //const playSong = new Audio(track);
   const playPauseRef = useRef(null);
@@ -56,7 +58,7 @@ const Player = (props) => {
   }
 
   return (
-    <div className="player-wrapper">
+    <div className="player-wrapper" >
       <audio ref={playPauseRef} src={track}>
         <source src={track} type="audio/mpeg" />
       </audio>
@@ -73,14 +75,14 @@ const Player = (props) => {
       </div>
 
       <div className="player-wrapper__btns">
-        <div>
-          <input
-            type="range"
+        <div className="player-wrapper__timeline">
+          <Slider
+            max={duration}
             value={currentTime}
+            aria-labelledby="continuous-slider"
             onChange={selectCurrentTime}
           />
-          <br />
-          <span>
+          <span className='player-wrapper__timeline-time'>
             {getTime(currentTime)}/{getTime(duration)}
           </span>
         </div>

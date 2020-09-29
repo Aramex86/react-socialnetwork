@@ -1,13 +1,10 @@
 import React from "react";
 
-
-const PlayList = ({ name, cover, song, state, artist, addSong }) => {
+const PlayList = ({ name, cover, song, state, artist, addSong, playerBg }) => {
   //    console.log(name, cover, song, state, artist,addSong);
 
-
-
   return (
-    <div className="song-wrapp" onClick={() => addSong(song, cover)}>
+    <div className="song-wrapp" onClick={() => addSong(song, cover, playerBg)}>
       <div className="item-container">
         <img src={cover} alt="cover" className="item-container__img" />
         <div className="item-container__name">

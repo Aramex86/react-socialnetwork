@@ -12,12 +12,14 @@ class MusicContainer extends React.Component {
   state = {
     selectedTrack: null,
     grid: false,
+    playerBg: null,
   };
 
-  addSongsToState = (song, cover) => {
+  addSongsToState = (song, cover,playerBg) => {
     this.setState({
       selectedTrack: song,
       cover: cover,
+      playerBg:playerBg,
     });
   };
 
@@ -36,7 +38,7 @@ class MusicContainer extends React.Component {
 
   render() {
     //console.log(this.state.selectedTrack);
-    // console.log(this.props);
+    //console.log(this.props);
 
     const songList = this.props.songList.map((item) => (
       <PlayList
@@ -45,6 +47,7 @@ class MusicContainer extends React.Component {
         cover={item.cover}
         song={item.song}
         artist={item.artist}
+        playerBg={item.playerBg}
         addSong={this.addSongsToState}
       />
     ));
