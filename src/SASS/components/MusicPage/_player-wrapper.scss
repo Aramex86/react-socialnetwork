@@ -2,11 +2,16 @@
   //background: #e2ad5c;
   background-image: linear-gradient(to right, #1cb5e0b0, #4545a5db);
   margin-bottom: 10px;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #80808059;
   box-shadow: 0px 0px 3px 1px grey;
   min-height: 200px;
+  @include respond(small-phone) {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
   &__img {
     width: 25%;
     padding: 2rem 2rem;
@@ -66,7 +71,9 @@
     //flex-direction: column;
     width: 60%;
     @include respond(small-phone) {
-      width: 40%;
+      width: 100%;
+    display: flex;
+    justify-content: center;
     }
     & button {
       background: none;
@@ -92,6 +99,9 @@
     width: 30%;
     order: 2;
     margin-left: 22px;
+    @include respond(small-phone){
+      width: 50%;
+    }
     &-time{
       font-size: 1.4rem;
       color: #fff;

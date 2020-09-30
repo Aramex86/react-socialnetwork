@@ -13,13 +13,12 @@ const Player = (props) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [imgRotate, setImgRotate] = useState(true);
+  const [item, setItem] = useState(props.state.selectedTrack);
 
-  
   const track = props.state.selectedTrack;
-  const playerBg = props.state.playerBg;
-  console.log(playerBg)
+  console.log(`Current Time ${currentTime} / Duration ${duration}`);
+ // console.log(currentTime = 150);
 
-  //const playSong = new Audio(track);
   const playPauseRef = useRef(null);
 
   //console.log("TRACK", props.state.selectedTrack);
@@ -32,6 +31,14 @@ const Player = (props) => {
       setDuration(e.target.duration);
     });
   }, []);
+
+  useEffect(() => {
+    setItem(props.state.selectedTrack);
+    if (item) {
+      setImgRotate(true);
+      setPlay(true);
+    }
+  }, [props.state.selectedTrack]);
 
   const playSound = () => {
     playPauseRef.current.play();
@@ -46,9 +53,11 @@ const Player = (props) => {
   };
 
   const selectCurrentTime = (event) => {
-    setCurrentTime(event.target.value);
+   return setCurrentTime(event.currentTarget.value);
+  
   };
 
+console.log('currentTime',currentTime);
   function getTime(time) {
     if (!isNaN(time)) {
       return (
@@ -58,7 +67,7 @@ const Player = (props) => {
   }
 
   return (
-    <div className="player-wrapper" >
+    <div className="player-wrapper">
       <audio ref={playPauseRef} src={track}>
         <source src={track} type="audio/mpeg" />
       </audio>
@@ -78,11 +87,12 @@ const Player = (props) => {
         <div className="player-wrapper__timeline">
           <Slider
             max={duration}
-            value={currentTime}
+            //value={currentTime}
             aria-labelledby="continuous-slider"
             onChange={selectCurrentTime}
+            style={{padding:'6px 0',color:'#fff',marginTop:'10px'}}
           />
-          <span className='player-wrapper__timeline-time'>
+          <span className="player-wrapper__timeline-time">
             {getTime(currentTime)}/{getTime(duration)}
           </span>
         </div>

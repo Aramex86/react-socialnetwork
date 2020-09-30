@@ -1,4 +1,8 @@
 import React from "react";
+import FavoriteBorderRoundedIcon from "@material-ui/icons/FavoriteBorderRounded";
+import FavoriteRoundedIcon from "@material-ui/icons/FavoriteRounded";
+
+//PUT SONG IN FAVORITE
 
 const PlayList = ({ name, cover, song, state, artist, addSong, playerBg }) => {
   //    console.log(name, cover, song, state, artist,addSong);
@@ -10,7 +14,7 @@ const PlayList = ({ name, cover, song, state, artist, addSong, playerBg }) => {
         <div className="item-container__name">
           <span className="item-container__name__artist"> {artist} </span>
           <br />
-          <span className="item-container__name__songname"> {name} </span>
+          <span className="item-container__name__songname"> {name}</span>
         </div>
       </div>
     </div>
