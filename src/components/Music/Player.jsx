@@ -7,7 +7,7 @@ import Slider from "@material-ui/core/Slider";
 //import song from "../../assets/musicTest/TheDays.mp3";
 
 const Player = (props) => {
-  console.log("Player", props);
+  //console.log("Player", props);
   // console.log("Player###", props.state);
   const [played, setPlay] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
@@ -16,8 +16,7 @@ const Player = (props) => {
   const [item, setItem] = useState(props.state.selectedTrack);
 
   const track = props.state.selectedTrack;
-  console.log(`Current Time ${currentTime} / Duration ${duration}`);
- // console.log(currentTime = 150);
+  // console.log(currentTime = 150);
 
   const playPauseRef = useRef(null);
 
@@ -38,7 +37,7 @@ const Player = (props) => {
       setImgRotate(true);
       setPlay(true);
     }
-  }, [props.state.selectedTrack]);
+  }, [props.state.selectedTrack,item]);
 
   const playSound = () => {
     playPauseRef.current.play();
@@ -53,11 +52,9 @@ const Player = (props) => {
   };
 
   const selectCurrentTime = (event) => {
-   return setCurrentTime(event.currentTarget.value);
-  
+    return setCurrentTime(event.currentTarget.value);
   };
 
-console.log('currentTime',currentTime);
   function getTime(time) {
     if (!isNaN(time)) {
       return (
@@ -90,7 +87,7 @@ console.log('currentTime',currentTime);
             //value={currentTime}
             aria-labelledby="continuous-slider"
             onChange={selectCurrentTime}
-            style={{padding:'6px 0',color:'#fff',marginTop:'10px'}}
+            style={{ padding: "6px 0", color: "#fff", marginTop: "10px" }}
           />
           <span className="player-wrapper__timeline-time">
             {getTime(currentTime)}/{getTime(duration)}

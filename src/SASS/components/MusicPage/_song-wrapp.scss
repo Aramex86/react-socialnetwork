@@ -1,22 +1,38 @@
-.item-container{
-    display: flex;
-    padding: 2rem 1rem;
-    cursor: pointer;
-    &__img{
-        width: 15%;
-    }
-    &__name{
-        margin-left: 20px;
-        &__artist{
-            font-size: 1.5rem;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-        &__songname{
-            font-size: 1.5rem;
-            color:  #02569c;
-            
-        }
-    }
+.song-wrapp {
+  padding: 1.5rem 0;
 }
-  
+
+.item-container {
+  position: relative;
+  display: flex;
+  padding: 2rem 1rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  width: 98%;
+  margin: 0 auto;
+  &:hover {
+    box-shadow: 1px 4px 8px 4px grey;
+  }
+  &__img {
+    width: 15%;
+  }
+  &__name {
+    margin-left: 20px;
+    &__artist {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    &__songname {
+      font-size: 1.5rem;
+      color: #02569c;
+    }
+  }
+  & svg {
+    position: absolute;
+    right: 6%;
+    width: 3rem;
+    height: 3rem;
+    fill: #2196f3;
+  }
+}

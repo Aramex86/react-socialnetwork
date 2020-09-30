@@ -1,13 +1,20 @@
 .player-wrapper {
   //background: #e2ad5c;
   background-image: linear-gradient(to right, #1cb5e0b0, #4545a5db);
-  margin-bottom: 10px;
   padding: 1rem 1rem;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #80808059;
   box-shadow: 0px 0px 3px 1px grey;
   min-height: 200px;
+  width: 98%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  transition: all .5s ease;
+  &:hover{
+    box-shadow: 1px 4px 8px 4px grey;
+  }
   @include respond(small-phone) {
     flex-direction: column;
     padding: 2rem 1rem;
