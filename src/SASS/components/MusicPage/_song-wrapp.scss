@@ -1,6 +1,6 @@
 .song-wrapp {
   padding: 1.5rem 0;
-  width: 50%;
+  width: 90%;
 }
 
 .item-container {
@@ -35,4 +35,8 @@
     height: 3rem;
     fill: #2196f3;
   }
+}
+
+.MuiTooltip-tooltip{
+  font-size: 1rem !important;
 }

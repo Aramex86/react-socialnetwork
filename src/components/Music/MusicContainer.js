@@ -1,13 +1,18 @@
 import React from "react";
-import { musicSelector,favoriteSelector} from "../Redux/Selectors/music-selector";
-import {addSongsToFavorite} from '../Redux/music-reducer';
+import {
+  musicSelector,
+  favoriteSelector,
+} from "../Redux/Selectors/music-selector";
+import { addSongsToFavorite } from "../Redux/music-reducer";
 import { connect } from "react-redux";
 
 import PlayList from "./PlayList";
 import Player from "./Player";
+import AddToFavorite from "./AddToFavorite";
 
 import AppsOutlinedIcon from "@material-ui/icons/AppsOutlined";
 import FormatListBulletedRoundedIcon from "@material-ui/icons/FormatListBulletedRounded";
+
 
 class MusicContainer extends React.Component {
   state = {
@@ -16,11 +21,11 @@ class MusicContainer extends React.Component {
     playerBg: null,
   };
 
-  addSongsToState = (song, cover,playerBg) => {
+  addSongsToState = (song, cover, playerBg) => {
     this.setState({
       selectedTrack: song,
       cover: cover,
-      playerBg:playerBg,
+      playerBg: playerBg,
     });
   };
 
@@ -42,7 +47,7 @@ class MusicContainer extends React.Component {
 
     const songList = this.props.songList.map((item) => (
       <PlayList
-      id={item.id}
+        id={item.id}
         key={item.id}
         name={item.name}
         cover={item.cover}
@@ -58,10 +63,17 @@ class MusicContainer extends React.Component {
       <div className="player-page">
         <Player state={this.state} />
         <div className="switchLayout-btn">
-          <AppsOutlinedIcon onClick={this.swhichGrid}/>
+          <AppsOutlinedIcon onClick={this.swhichGrid} />
           <FormatListBulletedRoundedIcon onClick={this.swhichList} />
         </div>
-        <div className={this.state.grid?'items-wrapp__grid':'items-wrapp'}>{songList}</div>
+        <div className="bodyplayer-wrapp">
+          <div
+            className={this.state.grid ? "items-wrapp__grid" : "items-wrapp"}
+          >
+            {songList}
+          </div>
+            <AddToFavorite favorite={this.props.favorite}/>
+        </div>
       </div>
     );
   }
@@ -69,16 +81,16 @@ class MusicContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    favorite:favoriteSelector(state),
+    favorite: favoriteSelector(state),
     songList: musicSelector(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addSongTo:(id,artist,name,song)=>{
-      dispatch(addSongsToFavorite(id,artist,name,song));
-    }
+    addSongTo: (id, artist, name, song) => {
+      dispatch(addSongsToFavorite(id, artist, name, song));
+    },
     // setCounterMinus:()=>{
     //   dispatch(getCounterMinus())
     // },
