@@ -1,48 +1,60 @@
-.items-wrapp{
-    display: flex;
-    flex-direction: column;
-  
-  }
-  .items-wrapp__grid{
-    display: grid;
-    grid-template-columns: repeat(4,auto);
-  
-  }
-  .items-wrapp__grid .song-wrapp .item-container{
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &__img{
-      width: 70%;
-      margin-bottom: 10px;
-    }
-    &__name{
-        margin-left: 0;
-        display: flex;
-        flex-direction: column;
-        width: 70%;
-      &__artist{
-        font-size: 1.5rem;
-      }
-      &__songname{
-        font-size: 1.5rem;
-      }
-    }
-  }
+.items-wrapp {
+  display: flex;
+  flex-direction: column;
+}
+.items-wrapp__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 33rem);
+  justify-items: center;
+}
+
+.items-wrapp__grid .song-wrapp{
+  width: 75%;
+}
 
 
-  .switchLayout-btn{
-    text-align: right;
-    padding: 0 5rem;
+.items-wrapp__grid .song-wrapp .item-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__img {
+    width: 70%;
     margin-bottom: 10px;
-    & svg{
-        width: 2.5rem;
-        height: 2.5rem;
-        cursor: pointer;
-        fill: gray;
-    }   
-    & :hover{
-        fill: #02569c;
+  }
+  &__name {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    &__artist {
+      font-size: 1.5rem;
     }
+    &__songname {
+      font-size: 1.5rem;
+    }
+  }
+  & svg {
+    position: absolute;
+    right: 3%;
+    top: 0%;
+    width: 3rem;
+    height: 3rem;
+    fill: #2196f3;
+  }
+}
+
+.switchLayout-btn {
+  text-align: right;
+  padding: 0 5rem;
+  margin-bottom: 10px;
+  & svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    fill: gray;
+  }
+  & :hover {
+    fill: #02569c;
+  }
 }

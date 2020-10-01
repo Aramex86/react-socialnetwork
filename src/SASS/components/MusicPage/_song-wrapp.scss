@@ -1,15 +1,15 @@
 .song-wrapp {
   padding: 1.5rem 0;
+  width: 50%;
 }
 
 .item-container {
   position: relative;
   display: flex;
-  padding: 2rem 1rem;
+  padding: 2rem 1.5rem;
+  width:100%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
-  width: 98%;
-  margin: 0 auto;
   &:hover {
     box-shadow: 1px 4px 8px 4px grey;
   }

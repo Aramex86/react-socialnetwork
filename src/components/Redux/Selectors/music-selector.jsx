@@ -1,6 +1,6 @@
 
-export const counterSelector=(state)=>{
-    return state.music.counter;
+export const favoriteSelector=(state)=>{
+    return state.music.favorite;
 }
 
 export const musicSelector=(state)=>{

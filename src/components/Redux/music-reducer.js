@@ -3,22 +3,23 @@ import cover2 from "../../assets/images/player/ritaOra.jpg";
 import cover3 from "../../assets/images/player/brokenArrows.jpg";
 import cover4 from "../../assets/images/player/DirtFGL.jpg";
 import TheDays from "../../assets/musicTest/TheDays.mp3";
-import AviciifeatRitaOra  from '../../assets/musicTest/LonelyTogether.mp3';
-import BrokenArrows  from '../../assets/musicTest/Broken Arrows.mp3';
-import Dirt  from '../../assets/musicTest/Florida Georgia Line - Dirt.mp3';
+import AviciifeatRitaOra from "../../assets/musicTest/LonelyTogether.mp3";
+import BrokenArrows from "../../assets/musicTest/Broken Arrows.mp3";
+import Dirt from "../../assets/musicTest/Florida Georgia Line - Dirt.mp3";
 
 // const COUNTER_MINUS = "COUNTER_MINUS";
 // const COUNTER_PLUS = "COUNTER_PLUS";
 // const PAUSE_SONG = "PAUSE_SONG";
 // const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
 // const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
-const PLAYED_SONGS = 'PLAYED_SONGS';
+const PLAYED_SONGS = "PLAYED_SONGS";
+const ADD_SONGS = "ADD_SONGS";
 
 const initialState = {
   songs: [
     {
       id: 1,
-      artist:'Avicii',
+      artist: "Avicii",
       name: "TheDays",
       cover: cover1,
       bg: cover1,
@@ -27,7 +28,7 @@ const initialState = {
     },
     {
       id: 2,
-      artist:'Avicii feat. Rita Ora',
+      artist: "Avicii feat. Rita Ora",
       name: "Lonely Together (DJ Licious Remix)",
       cover: cover2,
       bg: cover2,
@@ -36,7 +37,7 @@ const initialState = {
     },
     {
       id: 3,
-      artist:'Avicii feat. Zac Brown Band',
+      artist: "Avicii feat. Zac Brown Band",
       name: "Broken Arrows",
       cover: cover3,
       bg: cover3,
@@ -45,7 +46,7 @@ const initialState = {
     },
     {
       id: 4,
-      artist:'Florida Georgia Line',
+      artist: "Florida Georgia Line",
       name: "Dirt",
       cover: cover4,
       bg: cover4,
@@ -53,20 +54,28 @@ const initialState = {
       playerBg: "#e2ad5c",
     },
   ],
+  favorite: [],
 };
-
 
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
-    case PLAYED_SONGS:{
-  return{
-   
-  }
-}  
-   
+    // case PLAYED_SONGS: {
+    //   return {};
+    // };
+    case ADD_SONGS: {
+      const songItem = {
+        id: 2,
+        artist: "artist",
+        name: "name",
+        song: "song",
+      };
+      return {
+        ...state,
+        favorite: [...state.favorite, action.songItem],
+      };
+    }
 
-
-// case COUNTER_MINUS: {
+    // case COUNTER_MINUS: {
     //   return {
     //     ...state,
     //     counter:state.counter -1,
@@ -81,11 +90,7 @@ const musicReducer = (state = initialState, action) => {
     default:
       return state;
   }
-
-
 };
-
-
 
 //Action  creators
 // export const getCounterMinus=()=>{
@@ -94,11 +99,8 @@ const musicReducer = (state = initialState, action) => {
 // export const getCounterPlus=()=>{
 //   return{type:COUNTER_PLUS}
 // }
-export const getPlayedMusic=()=>{
-  return{type:PLAYED_SONGS}
-}
-
-
-
+export const addSongsToFavorite = (id, artist, name, song) => {
+  return { type: ADD_SONGS, songItem: { id, artist, name, song } };
+};
 
 export default musicReducer;

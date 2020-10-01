@@ -1,5 +1,6 @@
 import React from "react";
-import { musicSelector } from "../Redux/Selectors/music-selector";
+import { musicSelector,favoriteSelector} from "../Redux/Selectors/music-selector";
+import {addSongsToFavorite} from '../Redux/music-reducer';
 import { connect } from "react-redux";
 
 import PlayList from "./PlayList";
@@ -33,15 +34,15 @@ class MusicContainer extends React.Component {
     this.setState({
       grid: false,
     });
-    console.log("click");
   };
 
   render() {
     //console.log(this.state.selectedTrack);
-    //console.log(this.props);
+    console.log(this.props);
 
     const songList = this.props.songList.map((item) => (
       <PlayList
+      id={item.id}
         key={item.id}
         name={item.name}
         cover={item.cover}
@@ -49,6 +50,7 @@ class MusicContainer extends React.Component {
         artist={item.artist}
         playerBg={item.playerBg}
         addSong={this.addSongsToState}
+        addSongto={this.props.addSongTo}
       />
     ));
 
@@ -67,13 +69,16 @@ class MusicContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    // counter:counterSelector(state)
+    favorite:favoriteSelector(state),
     songList: musicSelector(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    addSongTo:(id,artist,name,song)=>{
+      dispatch(addSongsToFavorite(id,artist,name,song));
+    }
     // setCounterMinus:()=>{
     //   dispatch(getCounterMinus())
     // },
