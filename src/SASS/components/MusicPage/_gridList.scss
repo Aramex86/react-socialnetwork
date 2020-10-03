@@ -6,6 +6,9 @@
   display: grid;
   grid-template-columns: repeat(2, 33rem);
   justify-items: center;
+  @include respond(small-phone){
+    grid-template-columns: repeat(1,33rem);
+  }
 }
 
 .items-wrapp__grid .song-wrapp{

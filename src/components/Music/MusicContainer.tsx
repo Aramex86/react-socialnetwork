@@ -13,15 +13,31 @@ import AddToFavorite from "./AddToFavorite";
 import AppsOutlinedIcon from "@material-ui/icons/AppsOutlined";
 import FormatListBulletedRoundedIcon from "@material-ui/icons/FormatListBulletedRounded";
 
+type IProps = {
+  songList: Array<string>;
+  favorite: Array<object>;
+  addSong: Function;
+  addSongTo: Function;
+};
+type State = {
+  selectedTrack: string | undefined;
+  grid: boolean;
+  playerBg: string | null;
+  cover: string | null;
+};
+type IState = {
+  state: { [key: string]: State };
+};
 
-class MusicContainer extends React.Component {
-  state = {
-    selectedTrack: null,
+class MusicContainer extends React.Component<IProps, State> {
+  state: State = {
+    selectedTrack: "",
     grid: false,
     playerBg: null,
+    cover: null,
   };
 
-  addSongsToState = (song, cover, playerBg) => {
+  addSongsToState = (song: string, cover: string, playerBg: string) => {
     this.setState({
       selectedTrack: song,
       cover: cover,
@@ -43,15 +59,16 @@ class MusicContainer extends React.Component {
 
   render() {
     //console.log(this.state.selectedTrack);
-    console.log(this.props);
+    //console.log(this.props);
 
-    const songList = this.props.songList.map((item) => (
+    const songList = this.props.songList.map((item: any) => (
       <PlayList
         id={item.id}
         key={item.id}
         name={item.name}
         cover={item.cover}
         song={item.song}
+        //state={this.state}
         artist={item.artist}
         playerBg={item.playerBg}
         addSong={this.addSongsToState}
@@ -72,23 +89,23 @@ class MusicContainer extends React.Component {
           >
             {songList}
           </div>
-            <AddToFavorite favorite={this.props.favorite}/>
+          <AddToFavorite favorite={this.props.favorite} />
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: object) => {
   return {
     favorite: favoriteSelector(state),
     songList: musicSelector(state),
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    addSongTo: (id, artist, name, song) => {
+    addSongTo: (id: number, artist: string, name: string, song: string) => {
       dispatch(addSongsToFavorite(id, artist, name, song));
     },
     // setCounterMinus:()=>{

@@ -1,10 +1,9 @@
-import Item from 'antd/lib/list/Item';
 import React from 'react'
 
 const AddToFavorite = ({favorite}) => {
 
     console.log(favorite);
-const faforiteList = favorite.map(item =><span>{item.name}</span>) 
+const faforiteList = favorite.map(item =><div key={item.id}>{item.name} {item.artist}</div>) 
 
     return (
         <div className="favoriteSomgs-wrapp">

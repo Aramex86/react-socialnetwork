@@ -12,7 +12,7 @@ import Dirt from "../../assets/musicTest/Florida Georgia Line - Dirt.mp3";
 // const PAUSE_SONG = "PAUSE_SONG";
 // const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
 // const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
-const PLAYED_SONGS = "PLAYED_SONGS";
+//const PLAYED_SONGS = "PLAYED_SONGS";
 const ADD_SONGS = "ADD_SONGS";
 
 const initialState = {

@@ -1,3 +1,6 @@
 .bodyplayer-wrapp{
     display: flex;
+    @include respond(small-phone){
+        flex-direction: column-reverse;
+    }
 }

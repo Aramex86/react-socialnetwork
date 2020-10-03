@@ -4,10 +4,20 @@ import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import StopIcon from "@material-ui/icons/Stop";
 
 import Slider from "@material-ui/core/Slider";
-//import song from "../../assets/musicTest/TheDays.mp3";
 
-const Player = (props) => {
-  //console.log("Player", props);
+type State = {
+  selectedTrack: string | undefined;
+  grid: boolean;
+  playerBg: string | null;
+  cover: string | null;
+};
+
+type PropsType = {
+  state: State;
+};
+
+const Player = (props: PropsType) => {
+  // console.log("Player", props);
   // console.log("Player###", props.state);
   const [played, setPlay] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
@@ -18,16 +28,16 @@ const Player = (props) => {
   const track = props.state.selectedTrack;
   // console.log(currentTime = 150);
 
-  const playPauseRef = useRef(null);
+  const playPauseRef = useRef(document.createElement("audio"));
 
   //console.log("TRACK", props.state.selectedTrack);
   //console.log(played);
 
   useEffect(() => {
-    const soundTime = playPauseRef.current;
-    soundTime.addEventListener("timeupdate", (e) => {
-      setCurrentTime(e.target.currentTime);
-      setDuration(e.target.duration);
+    const soundTime: any = playPauseRef.current;
+    soundTime.addEventListener("timeupdate", (event: any) => {
+      setCurrentTime(event.target.currentTime);
+      setDuration(event.target.duration);
     });
   }, []);
 
@@ -37,7 +47,7 @@ const Player = (props) => {
       setImgRotate(true);
       setPlay(true);
     }
-  }, [props.state.selectedTrack,item]);
+  }, [props.state.selectedTrack, item]);
 
   const playSound = () => {
     playPauseRef.current.play();
@@ -51,11 +61,11 @@ const Player = (props) => {
     setPlay(true);
   };
 
-  const selectCurrentTime = (event) => {
+  const selectCurrentTime = (event: any) => {
     return setCurrentTime(event.currentTarget.value);
   };
 
-  function getTime(time) {
+  function getTime(time: number) {
     if (!isNaN(time)) {
       return (
         Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
