@@ -57,6 +57,7 @@ const initialState = {
   favorite: [],
 };
 
+
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
     // case PLAYED_SONGS: {
@@ -64,14 +65,15 @@ const musicReducer = (state = initialState, action) => {
     // };
     case ADD_SONGS: {
       const songItem = {
-        id: 2,
+        id: action.id,
         artist: "artist",
+        cover:'cover',
         name: "name",
         song: "song",
       };
       return {
         ...state,
-        favorite: [...state.favorite, action.songItem],
+       favorite:[...state.favorite,action.songItem]
       };
     }
 
@@ -99,8 +101,8 @@ const musicReducer = (state = initialState, action) => {
 // export const getCounterPlus=()=>{
 //   return{type:COUNTER_PLUS}
 // }
-export const addSongsToFavorite = (id, artist, name, song) => {
-  return { type: ADD_SONGS, songItem: { id, artist, name, song } };
+export const addSongsToFavorite = (id, artist, name, song,cover) => {
+  return { type: ADD_SONGS, songItem: { id, artist, name, song, cover} };
 };
 
 export default musicReducer;

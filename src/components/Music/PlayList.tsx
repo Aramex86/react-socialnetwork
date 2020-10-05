@@ -10,7 +10,7 @@ type PlayListType={
   artist:string,
   addSong:Function,
   playerBg:string
-  addSongto:Function,
+  addSongToFavorite:Function,
 }
 
 
@@ -22,14 +22,14 @@ const PlayList = ({
   artist,
   addSong,
   playerBg,
-  addSongto,
+  addSongToFavorite,
 }:PlayListType) => {
   return (
     <div className="song-wrapp" onClick={() => addSong(song, cover, playerBg)}>
       <div className="item-container">
       <Tooltip title="Add" aria-label="add" className='item-container__tooltip'>
         <AddCircleOutlineIcon
-          onClick={() => addSongto(id, artist, name, song)}
+          onClick={() => addSongToFavorite(id, artist, name, song,cover)}
         />
       </Tooltip>
         <img src={cover} alt="cover" className="item-container__img" />

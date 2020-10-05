@@ -1,7 +1,7 @@
 import React from "react";
 import {
   musicSelector,
-  favoriteSelector,
+  favoriteSelector
 } from "../Redux/Selectors/music-selector";
 import { addSongsToFavorite } from "../Redux/music-reducer";
 import { connect } from "react-redux";
@@ -15,7 +15,7 @@ import FormatListBulletedRoundedIcon from "@material-ui/icons/FormatListBulleted
 
 type IProps = {
   songList: Array<string>;
-  favorite: Array<object>;
+  favorite: Array<any>;
   addSong: Function;
   addSongTo: Function;
 };
@@ -25,9 +25,9 @@ type State = {
   playerBg: string | null;
   cover: string | null;
 };
-type IState = {
-  state: { [key: string]: State };
-};
+// type IState = {
+//   state: { [key: string]: State };
+// };
 
 class MusicContainer extends React.Component<IProps, State> {
   state: State = {
@@ -72,7 +72,7 @@ class MusicContainer extends React.Component<IProps, State> {
         artist={item.artist}
         playerBg={item.playerBg}
         addSong={this.addSongsToState}
-        addSongto={this.props.addSongTo}
+        addSongToFavorite={this.props.addSongTo}
       />
     ));
 
@@ -89,7 +89,7 @@ class MusicContainer extends React.Component<IProps, State> {
           >
             {songList}
           </div>
-          <AddToFavorite favorite={this.props.favorite} />
+          <AddToFavorite favorite={this.props.favorite} addSong={this.addSongsToState}/>
         </div>
       </div>
     );
@@ -105,8 +105,8 @@ const mapStateToProps = (state: object) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    addSongTo: (id: number, artist: string, name: string, song: string) => {
-      dispatch(addSongsToFavorite(id, artist, name, song));
+    addSongTo: (id: number, artist: string, name: string, song: string,cover:string) => {
+      dispatch(addSongsToFavorite(id, artist, name, song,cover));
     },
     // setCounterMinus:()=>{
     //   dispatch(getCounterMinus())
