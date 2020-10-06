@@ -13,8 +13,9 @@ type ItemType = {
   cover: string;
 };
 
+
 const AddToFavorite = ({ favorite, addSong }: FavoriteType) => {
-  const favoriteList = favorite.map((item) => (
+  const favoriteList = favorite.map((item:any) => (
     <div className="list-wrapp__list" key={item.id} onClick={() => addSong(item.song, item.cover)}>
       <img src={item.cover} alt="cover" />
     </div>

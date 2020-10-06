@@ -57,7 +57,6 @@ const initialState = {
   favorite: [],
 };
 
-
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
     // case PLAYED_SONGS: {
@@ -67,13 +66,19 @@ const musicReducer = (state = initialState, action) => {
       const songItem = {
         id: action.id,
         artist: "artist",
-        cover:'cover',
+        cover: "cover",
         name: "name",
         song: "song",
       };
+
+      const removeDuplicates = new Set(state.favorite.map((item) => item.id));
+      if (removeDuplicates.has(action.songItem.id)) {
+        return state;
+      }
+
       return {
         ...state,
-       favorite:[...state.favorite,action.songItem]
+        favorite: state.favorite.concat(action.songItem),
       };
     }
 
@@ -101,8 +106,8 @@ const musicReducer = (state = initialState, action) => {
 // export const getCounterPlus=()=>{
 //   return{type:COUNTER_PLUS}
 // }
-export const addSongsToFavorite = (id, artist, name, song,cover) => {
-  return { type: ADD_SONGS, songItem: { id, artist, name, song, cover} };
+export const addSongsToFavorite = (id, artist, name, song, cover) => {
+  return { type: ADD_SONGS, songItem: { id, artist, name, song, cover } };
 };
 
 export default musicReducer;
