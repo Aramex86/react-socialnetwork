@@ -1,5 +1,8 @@
 .bodyplayer-wrapp{
     display: flex;
+    overflow: hidden;
+    align-items: flex-start;
+    position: relative;
     @include respond(small-phone){
         flex-direction: column-reverse;
     }

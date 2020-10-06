@@ -24,7 +24,6 @@ type State = {
   grid: boolean;
   playerBg: string | null;
   cover: string | null;
-  showFav:boolean
 };
 // type IState = {
 //   state: { [key: string]: State };
@@ -36,7 +35,6 @@ class MusicContainer extends React.Component<IProps, State> {
     grid: false,
     playerBg: null,
     cover: null,
-    showFav:false
   };
 
   addSongsToState = (song: string, cover: string, playerBg: string) => {
@@ -58,12 +56,6 @@ class MusicContainer extends React.Component<IProps, State> {
       grid: false,
     });
   };
-
-  showSelected=()=>{
-    this.setState({
-      showFav:!this.state.showFav,
-    })
-  }
 
   render() {
     //console.log(this.state.selectedTrack);
@@ -97,14 +89,10 @@ class MusicContainer extends React.Component<IProps, State> {
           >
             {songList}
           </div>
-          <button style={{ height: "50px" }} onClick={()=>this.showSelected()}>Show/Hide
-          </button>
-          {this.state.showFav?
-            <AddToFavorite 
-              favorite={this.props.favorite}
-              addSong={this.addSongsToState}
-            />
-          :''}
+          <AddToFavorite
+            favorite={this.props.favorite}
+            addSong={this.addSongsToState}
+          />
         </div>
       </div>
     );
