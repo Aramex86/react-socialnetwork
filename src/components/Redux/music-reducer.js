@@ -7,12 +7,7 @@ import AviciifeatRitaOra from "../../assets/musicTest/LonelyTogether.mp3";
 import BrokenArrows from "../../assets/musicTest/Broken Arrows.mp3";
 import Dirt from "../../assets/musicTest/Florida Georgia Line - Dirt.mp3";
 
-// const COUNTER_MINUS = "COUNTER_MINUS";
-// const COUNTER_PLUS = "COUNTER_PLUS";
-// const PAUSE_SONG = "PAUSE_SONG";
-// const MOVE_RIGTH_SONG = "MOVE_RIGTH_SONG";
-// const MOVE_LEFT_SONG = "MOVE_LEFT_SONG";
-//const PLAYED_SONGS = "PLAYED_SONGS";
+
 const ADD_SONGS = "ADD_SONGS";
 
 const initialState = {
@@ -59,9 +54,7 @@ const initialState = {
 
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case PLAYED_SONGS: {
-    //   return {};
-    // };
+  
     case ADD_SONGS: {
       const songItem = {
         id: action.id,
@@ -82,30 +75,13 @@ const musicReducer = (state = initialState, action) => {
       };
     }
 
-    // case COUNTER_MINUS: {
-    //   return {
-    //     ...state,
-    //     counter:state.counter -1,
-    //   };
-    // }
-    // case COUNTER_PLUS: {
-    //   return {
-    //     ...state,
-    //     counter:state.counter +1,
-    //   };
-    // }
+  
     default:
       return state;
   }
 };
 
-//Action  creators
-// export const getCounterMinus=()=>{
-//   return{type:COUNTER_MINUS}
-// }
-// export const getCounterPlus=()=>{
-//   return{type:COUNTER_PLUS}
-// }
+
 export const addSongsToFavorite = (id, artist, name, song, cover) => {
   return { type: ADD_SONGS, songItem: { id, artist, name, song, cover } };
 };

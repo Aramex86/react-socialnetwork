@@ -1,7 +1,7 @@
 import React from "react";
 import {
   musicSelector,
-  favoriteSelector
+  favoriteSelector,
 } from "../Redux/Selectors/music-selector";
 import { addSongsToFavorite } from "../Redux/music-reducer";
 import { connect } from "react-redux";
@@ -24,6 +24,7 @@ type State = {
   grid: boolean;
   playerBg: string | null;
   cover: string | null;
+  showFav:boolean
 };
 // type IState = {
 //   state: { [key: string]: State };
@@ -35,6 +36,7 @@ class MusicContainer extends React.Component<IProps, State> {
     grid: false,
     playerBg: null,
     cover: null,
+    showFav:false
   };
 
   addSongsToState = (song: string, cover: string, playerBg: string) => {
@@ -56,6 +58,12 @@ class MusicContainer extends React.Component<IProps, State> {
       grid: false,
     });
   };
+
+  showSelected=()=>{
+    this.setState({
+      showFav:!this.state.showFav,
+    })
+  }
 
   render() {
     //console.log(this.state.selectedTrack);
@@ -89,7 +97,14 @@ class MusicContainer extends React.Component<IProps, State> {
           >
             {songList}
           </div>
-          <AddToFavorite favorite={this.props.favorite} addSong={this.addSongsToState}/>
+          <button style={{ height: "50px" }} onClick={()=>this.showSelected()}>Show/Hide
+          </button>
+          {this.state.showFav?
+            <AddToFavorite 
+              favorite={this.props.favorite}
+              addSong={this.addSongsToState}
+            />
+          :''}
         </div>
       </div>
     );
@@ -105,8 +120,14 @@ const mapStateToProps = (state: object) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    addSongTo: (id: number, artist: string, name: string, song: string,cover:string) => {
-      dispatch(addSongsToFavorite(id, artist, name, song,cover));
+    addSongTo: (
+      id: number,
+      artist: string,
+      name: string,
+      song: string,
+      cover: string
+    ) => {
+      dispatch(addSongsToFavorite(id, artist, name, song, cover));
     },
     // setCounterMinus:()=>{
     //   dispatch(getCounterMinus())
