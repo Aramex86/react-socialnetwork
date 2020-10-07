@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type PostType = {
   id: number;
   message: string;
@@ -38,3 +40,44 @@ export type UserType={
     name: string
     img: string
   }
+
+
+  //News Reducer types
+export type NewsSourceType={
+  name:string
+  url:string
+}
+
+  export type NewsArticalsType={
+    description: string
+    image: string
+    publishedAt: string
+    source: NewsSourceType
+    title: string
+    url: string
+  }
+//Music Reducer types
+
+export type SongsType={
+  id: number
+  artist: string,
+  name: string,
+  cover:string,
+  bg: string,
+  song: string,
+  playerBg: string,
+}
+export type FavoriteType={
+        id: number
+        artist: string
+        cover: string
+        name: string
+        song: string
+}
+export type SongItemType={
+  id: number
+  artist: string
+  cover: string
+  name: string
+  song: string
+}

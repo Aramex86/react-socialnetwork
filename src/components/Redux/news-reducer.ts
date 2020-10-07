@@ -1,20 +1,22 @@
 import {newsRequest} from '../../api/Api';
+import { NewsArticalsType } from '../../Types/Types';
 
 const GET_NEWS = 'GET_NEWS';
 const FETCHING_NEWS_REQUEST = 'FETCHING_NEWS_REQUEST';
 
 const initialSatate= {
     //isFetching:false,
-    articles:[]
+    articles:[] as Array<NewsArticalsType>,
+    isFetching:false
 }
 
-
-const newsReducer = (state = initialSatate,action)=>{
+type InitialStateType = typeof initialSatate;
+const newsReducer = (state = initialSatate,action:any):InitialStateType=>{
     switch(action.type){
         case  FETCHING_NEWS_REQUEST:{
             return{
                 ...state,
-                payload:state.isFetching
+                isFetching:action.isFetching
             }
         }
         case GET_NEWS:{
@@ -28,16 +30,26 @@ const newsReducer = (state = initialSatate,action)=>{
     }
 };
 
-export const getNews=(articles)=>{
+type GetNewsType={
+    type:typeof GET_NEWS,
+    articles:Array<NewsArticalsType>
+}
+
+export const getNews=(articles:Array<NewsArticalsType>):GetNewsType=>{
     return{type:GET_NEWS, articles}
 };
 
-export const isFetchingRequest=(isFetching)=>{
+type IsFetchingRequestType={
+    type:typeof FETCHING_NEWS_REQUEST,
+    isFetching:boolean
+}
+
+export const isFetchingRequest=(isFetching:boolean):IsFetchingRequestType=>{
     return{type:FETCHING_NEWS_REQUEST,isFetching}
 }
 
 // Thunck 
-export const getNewsRequest = ()=> async(dispatch)=>{
+export const getNewsRequest = ()=> async(dispatch:any)=>{
     const res = await newsRequest();
     dispatch(getNews(res.articles));
 };

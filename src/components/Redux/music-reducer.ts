@@ -1,14 +1,15 @@
+import { SongsType, FavoriteType, SongItemType } from './../../Types/Types';
 import cover1 from "../../assets/images/player/Avicii.png";
 import cover2 from "../../assets/images/player/ritaOra.jpg";
 import cover3 from "../../assets/images/player/brokenArrows.jpg";
 import cover4 from "../../assets/images/player/DirtFGL.jpg";
 import cover5 from "../../assets/images/player/something.jpg";
-import TheDays from "../../assets/musicTest/TheDays.mp3";
 
-import AviciifeatRitaOra from "../../assets/musicTest/LonelyTogether.mp3";
-import BrokenArrows from "../../assets/musicTest/Broken Arrows.mp3";
-import Dirt from "../../assets/musicTest/Florida Georgia Line - Dirt.mp3";
-import TheChainsmokers from '../../assets/musicTest/The Chainsmokers & Coldplay - Something Just Like This.mp3';
+const TheDays = require( "../../assets/musicTest/TheDays.mp3");
+const AviciifeatRitaOra= require("../../assets/musicTest/LonelyTogether.mp3");
+const BrokenArrows=require ( "../../assets/musicTest/Broken Arrows.mp3");
+const Dirt=require ( "../../assets/musicTest/Florida Georgia Line - Dirt.mp3");
+const TheChainsmokers=require ( '../../assets/musicTest/The Chainsmokers & Coldplay - Something Just Like This.mp3');
 
 const ADD_SONGS = "ADD_SONGS";
 
@@ -59,11 +60,13 @@ const initialState = {
       song: TheChainsmokers,
       playerBg: "#e2ad5c",
     },
-  ],
-  favorite: [],
+  ] as Array<SongsType>,
+  favorite: []as Array<FavoriteType>,
 };
 
-const musicReducer = (state = initialState, action) => {
+type InitialStateType = typeof initialState;
+
+const musicReducer = (state = initialState, action:any):InitialStateType => {
   switch (action.type) {
     case ADD_SONGS: {
       // const songItem = {
@@ -90,7 +93,12 @@ const musicReducer = (state = initialState, action) => {
   }
 };
 
-export const addSongsToFavorite = (id, artist, name, song, cover) => {
+type AddSongsToFavoriteType ={
+  type:typeof ADD_SONGS,
+   songItem: SongItemType
+}
+
+export const addSongsToFavorite = (id:number, artist:string, name:string, song:string, cover:string):AddSongsToFavoriteType => {
   return { type: ADD_SONGS, songItem: { id, artist, name, song, cover } };
 };
 
