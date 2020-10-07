@@ -1,5 +1,9 @@
+import { FriendsType, ProfileType } from './../../Types/Types';
 import { profileAPI } from "../../api/Api";
 const SET_SIDEBAR_USER_PROFILE = "SET_SIDEBAR_USER_PROFILE";
+
+
+
 
 let initialState = {
     friends: [
@@ -15,10 +19,12 @@ let initialState = {
             name: 'Olga',
             img: 'https://randomuser.me/api/portraits/women/88.jpg'
         }
-    ],
+    ] as Array<FriendsType>,
     profile:null,
 };
-const sideBarReducer=(state=initialState,action)=>{
+
+type InitialStatetype = typeof initialState;
+const sideBarReducer=(state=initialState,action:any):InitialStatetype=>{
             switch(action.type){
                 case SET_SIDEBAR_USER_PROFILE:{
                  return{
@@ -33,11 +39,16 @@ const sideBarReducer=(state=initialState,action)=>{
            
 }
 
-export const setSideBarUserProfile=(profile)=>{
+type SetSideBarUserProfileType={
+    type:typeof SET_SIDEBAR_USER_PROFILE,
+     profile:ProfileType
+}
+
+export const setSideBarUserProfile=(profile:ProfileType)=>{
     return{type:SET_SIDEBAR_USER_PROFILE, profile}
 }
 
-export const getSideBar = (userId)=> async (dispatch)=>{
+export const getSideBar = (userId:number)=> async (dispatch:any)=>{
     const res = await profileAPI.getSideBar(userId);
     console.log(res)
     dispatch(setSideBarUserProfile(res));

@@ -33,3 +33,8 @@ export type UserType={
     status:null
     followed:boolean
   }
+
+  export type FriendsType={
+    name: string
+    img: string
+  }

@@ -39,6 +39,12 @@ export const usersAPI = {
 };
 
 export const profileAPI = {
+  getSideBar(userId) {
+    return instance.get(`/profile/${userId}`).then((res) => {
+      return res.data;
+    });
+  },
+
   getProfile(userId) {
     return instance.get(`/profile/${userId}`).then((res) => {
       return res.data;
