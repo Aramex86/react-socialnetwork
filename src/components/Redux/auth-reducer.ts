@@ -7,23 +7,25 @@ import { stopSubmit } from "redux-form";
 const SET_USER_DATA = "social-network/auth/SET_USER_DATA";
 const GET_CAPTCHA_URL_SUCCES = "social-network/auth/GET_CAPTCHA_URL_SUCCES";
 
-export type InitialStateType={
-  userId:number| null,
-  email:string| null,
-  login:string| null,
-  isAuth: boolean,
-  captchaUrl: string|null,
-}
+// export type InitialStateType={
+//   userId:number| null,
+//   email:string| null,
+//   login:string| null,
+//   isAuth: boolean,
+//   captchaUrl: string|null,
+// }
 
 
 // Step 1) innitilState
-let initialState:InitialStateType = {
-  userId: null,
-  email: null,
-  login: null,
+let initialState = {
+  userId: null as number|null,
+  email: null as string|null,
+  login: null as string|null,
   isAuth: false,
-  captchaUrl: null,
+  captchaUrl: null as string|null,
 };
+
+export type InitialStateType = typeof initialState;
 
 // Step 2) Create Reducer
 const authReducer = (state = initialState, action:any):InitialStateType => {

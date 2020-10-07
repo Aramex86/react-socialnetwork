@@ -1,5 +1,4 @@
 import React from "react";
-import Prealoader from '../common/Prealoder/Prealoder'
 
 const WithSuspense = (Component) => {
   return (props) => {

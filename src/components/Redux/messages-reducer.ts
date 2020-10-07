@@ -1,6 +1,19 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'; 
 //initialState
 
+
+type Dialogs ={
+    id:number
+    name:string
+    img:string
+} 
+
+type Messages={
+    id:number
+    message:string
+    img:string
+}
+
 let initialState = {
     dialogs: [
         {
@@ -25,7 +38,7 @@ let initialState = {
             img: 'https://randomuser.me/api/portraits/men/94.jpg'
         },
         
-    ],
+    ] as Array<Dialogs>,
     messages: [
         {
             id: 1,
@@ -46,11 +59,13 @@ let initialState = {
             message: 'Thanks yo!!',
             img: 'https://randomuser.me/api/portraits/women/88.jpg'
         },
-    ],
+    ]as Array<Messages>,
     newAnswer:''
 }
 
- const messagesReducer = (state = initialState,action)=>{
+export type InitialStateType = typeof initialState
+
+ const messagesReducer = (state = initialState,action:any):InitialStateType=>{
     switch(action.type){
         case ADD_MESSAGE:{
             const newMessage ={
@@ -80,7 +95,13 @@ let initialState = {
             return state;   
     }   
 }
-export const addNewMessageActionCreator = (newAnswer) =>{
+
+type addNewMessageActionCreatorType={
+    type:typeof ADD_MESSAGE,
+    newAnswer:string
+} 
+
+export const addNewMessageActionCreator = (newAnswer:string):addNewMessageActionCreatorType =>{
     return {type: ADD_MESSAGE , newAnswer}
 }
 

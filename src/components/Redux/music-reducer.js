@@ -66,13 +66,13 @@ const initialState = {
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_SONGS: {
-      const songItem = {
-        id: action.id,
-        artist: "artist",
-        cover: "cover",
-        name: "name",
-        song: "song",
-      };
+      // const songItem = {
+      //   id: action.id,
+      //   artist: "artist",
+      //   cover: "cover",
+      //   name: "name",
+      //   song: "song",
+      // };
 
       const removeDuplicates = new Set(state.favorite.map((item) => item.id));
       if (removeDuplicates.has(action.songItem.id)) {
