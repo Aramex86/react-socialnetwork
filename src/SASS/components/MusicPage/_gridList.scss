@@ -1,6 +1,10 @@
 .items-wrapp {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  @include respond(small-phone){
+    width: 100%;
+  }
 }
 .items-wrapp__grid {
   display: grid;

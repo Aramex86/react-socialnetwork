@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import BookmarkBorderRoundedIcon from "@material-ui/icons/BookmarkBorderRounded";
+import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
 
 type FavoriteType = {
   favorite: Array<ItemType>;
@@ -28,6 +29,7 @@ const AddToFavorite = ({ favorite, addSong }: FavoriteType) => {
       key={item.id}
       onClick={() => addSong(item.song, item.cover)}
     >
+      <DeleteForeverRoundedIcon className="list-wrapp__list__icon"/>
       <img src={item.cover} alt="cover" />
     </div>
   ));
@@ -40,7 +42,7 @@ const AddToFavorite = ({ favorite, addSong }: FavoriteType) => {
         color="primary"
         onClick={() => toggleBtn()}
       >
-        <BookmarkBorderRoundedIcon fontSize="large" />
+        <BookmarkBorderRoundedIcon fontSize='inherit'/>
       </Button>
       <div
         className={

@@ -1,6 +1,9 @@
 .song-wrapp {
-  padding: 1.5rem 0;
-  width: 90%;
+  padding: 1.5rem 1.5rem;
+  width: 100%;
+  @include respond(small-phone){
+    width: 100%;
+  }
 }
 
 .item-container {
