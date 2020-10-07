@@ -1,5 +1,6 @@
 import { profileAPI } from "../../api/Api";
 import { stopSubmit } from "redux-form";
+import { PhotosType, PostType, ProfileType } from "../../Types/Types";
 
 const ADD_POST = "ADD-POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -8,12 +9,14 @@ const DELETE_POST = "DELETE_POST";
 const SAVE_PHOTO_SUCCES = "SAVE_PHOTO_SUCCES";
 //initialState
 
+
 let initialState = {
   posts: [
     {
       id: 1,
       message: "It's Sunny Day",
       likesCount: 10,
+      
     },
     {
       id: 2,
@@ -30,13 +33,15 @@ let initialState = {
       message: "Everything is GooD!!!",
       likesCount: 20,
     }
-    
-  ],
-  profile: null,
-  status: "",
+  ] as Array<PostType>,
+  profile: null as ProfileType|null,
+  status: '',
+  
 };
 
-const profileReducer = (state = initialState, action) => {
+export type InitialStateType = typeof initialState
+
+const profileReducer = (state = initialState, action:any):InitialStateType => {
   switch (action.type) {
     case ADD_POST: {
       let newPost = {
@@ -83,52 +88,77 @@ const profileReducer = (state = initialState, action) => {
       };
     }
     case SAVE_PHOTO_SUCCES: {
-      return {
-        ...state,
-        profile: {...state.profile,photos:action.photos}
-      };
+      return {...state,profile:{...state.profile,photos:action.photos} as ProfileType}
+    
     }
     default:
       return state;
   }
 };
 
-export const addNewPostActionCreator = (newText) => {
+type AddNewPostActionCreatorType={
+  type:typeof ADD_POST,
+  newText:string
+}
+
+export const addNewPostActionCreator = (newText:string):AddNewPostActionCreatorType => {
   return { type: ADD_POST, newText };
 };
 
-export const deletePost = (postId) => {
+type DeletePostType={
+  type:typeof DELETE_POST,
+  postId:number
+}
+export const deletePost = (postId:number) => {
   return { type: DELETE_POST, postId };
 };
 // export const updatePostTextActionCreator = (newText) => {
 //   return { type: UPDATE_POST_TEXT, action:newText };
 // };
-export const setUserProfile = (profile) => {
+
+type SetUserProfileType ={
+  type: typeof SET_USER_PROFILE,
+  profile:ProfileType
+}
+export const setUserProfile = (profile:ProfileType):SetUserProfileType => {
   return { type: SET_USER_PROFILE, profile };
 };
-export const setUserStatus = (status) => {
+
+type SetUserStatusType={
+  type:typeof SET_USER_STATUS,
+  status:string
+}
+
+export const setUserStatus = (status:string):SetUserStatusType => {
   return { type: SET_USER_STATUS, status };
 };
-export const savePhotoSucces = (photos) => {
+
+type SavePhotoSuccesType={
+  type:typeof SAVE_PHOTO_SUCCES,
+  photos:PhotosType
+}
+
+
+export const savePhotoSucces = (photos:PhotosType):SavePhotoSuccesType => {
   return { type: SAVE_PHOTO_SUCCES, photos };
 };
 //Thunk creator
 
-export const getProfile = (userId) => async (dispatch) => {
+export const getProfile = (userId:number) => async (dispatch:any) => {
   const res = await profileAPI.getProfile(userId);
   dispatch(setUserProfile(res));
 };
-export const getStatus = (userId) => async (dispatch) => {
+export const getStatus = (userId:number) => async (dispatch:any) => {
   const res = await profileAPI.getStatus(userId);
   dispatch(setUserStatus(res.data));
 };
-export const updateStatus = (status) => async (dispatch) => {
+export const updateStatus = (status:string) => async (dispatch:any) => {
   const res = await profileAPI.updateStatus(status);
   if (res.data.resultCode === 0) {
     dispatch(setUserStatus(status));
   }
 };
-export const savePhoto = (file) => async (dispatch) => {
+export const savePhoto = (file:any) => async (dispatch:any) => {
   const res = await profileAPI.savePhoto(file);
   if (res.data.resultCode === 0) {
     dispatch(savePhotoSucces(res.data.data.photos));
@@ -136,7 +166,7 @@ export const savePhoto = (file) => async (dispatch) => {
 }
 
 
-export const saveProfile = (profile) => async (dispatch, getState) => {
+export const saveProfile = (profile:ProfileType) => async (dispatch:any, getState:any) => {
   const userId = getState().auth.userId;
   const response = await profileAPI.saveProfile(profile);
 
