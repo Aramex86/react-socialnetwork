@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState} from "react";
 import Button from "@material-ui/core/Button";
 import BookmarkBorderRoundedIcon from "@material-ui/icons/BookmarkBorderRounded";
 import DeleteForeverRoundedIcon from '@material-ui/icons/DeleteForeverRounded';
+import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 
 type FavoriteType = {
   favorite: Array<ItemType>
@@ -20,6 +21,7 @@ type ItemType = {
 const AddToFavorite = ({ favorite, addSong,deleteSong }: FavoriteType) => {
   const [showFav, setShowFav] = useState(false);
   
+  
 
   const toggleBtn = () => {
     setShowFav(!showFav);
@@ -36,15 +38,14 @@ const AddToFavorite = ({ favorite, addSong,deleteSong }: FavoriteType) => {
     </div>
   ));
 
-  return (
-    <>
+  return (<>
       <Button
         variant="contained"
         size="small"
         color="primary"
         onClick={() => toggleBtn()}
       >
-        <BookmarkBorderRoundedIcon fontSize='inherit'/>
+       {favorite.length===0? <BookmarkBorderRoundedIcon fontSize='inherit'/>:<BookmarkRoundedIcon fontSize='inherit'/>}
       </Button>
       <div
         className={

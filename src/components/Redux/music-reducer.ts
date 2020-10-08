@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { SongsType, FavoriteType, SongItemType } from './../../Types/Types';
 import cover1 from "../../assets/images/player/Avicii.png";
 import cover2 from "../../assets/images/player/ritaOra.jpg";
