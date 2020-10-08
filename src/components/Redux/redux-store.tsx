@@ -12,7 +12,7 @@ import musicReducer from "./music-reducer";
 
 
 
-let reducers = combineReducers({
+let rootReducers = combineReducers({
     profilePage: profileReducer,
     messagesPage: messagesReducer,
     sideBar: sideBarReducer,
@@ -24,14 +24,20 @@ let reducers = combineReducers({
     music:musicReducer,
 });
 
+type RootReducerType = typeof rootReducers; // (globalState: GLOBALSTATE) => GLOBALSTATE
+
+export type AppStateType = ReturnType<RootReducerType>
+
+
+// @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMidlleWare)));
+const store = createStore(rootReducers, composeEnhancers(applyMiddleware(thunkMidlleWare)))
 
 //let store = createStore(reducers,applyMiddleware(thunkMidlleWare));
 
 
+// @ts-ignore
+window.___store__ = store
 
-window.___store__ = store;
-
-export default store;
+export default store
 

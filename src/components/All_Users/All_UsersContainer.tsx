@@ -12,7 +12,7 @@ import {
 } from "../Redux/users-reducer";
 import AllUsers from "./All_Users";
 import Prealoder from "../common/Prealoder/Prealoder";
-import { compose } from "redux";
+//import { compose } from "redux";
 // import WithAuthRedirect from "../HOC/WithAuthRedirect";
 import {
   getUsers,
@@ -22,15 +22,47 @@ import {
   getIsFetching,
   getFollowingInProgress,
 } from "../Redux/Selectors/users-selector";
+import { UserType } from "../../Types/Types";
+import { AppStateType } from "../Redux/redux-store";
+
+type MapStatePropsType = {
+  currentPage: number;
+  pageSize: number;
+  isFetching: boolean;
+  totalUserCount: number;
+  users: Array<UserType>;
+  followingInProgress: Array<number>;
+};
+type MapDispatchPropsType ={
+  follow: (userId: number) => void
+  unfollow: (userId: number) => void
+  setUsers:(users: Array<UserType>)=>void
+  setCurrentPage:(currentPage: number)=>void
+  setTotalUsersCount:(totalUserCount: number)=>void
+  setPrealoader:(isFetching: boolean)=>void
+  toggleFollowngProggress:(isFetching: boolean, userId: number)=>void
+  requestUsers:(currentPage:number,pageSize:number)=>void
+  //getUsers:()=>void
+};
+
+type OwnPropsType = {
+  //Props given directly to component
+  title: string;
+};
+
+type PropsType = MapStatePropsType &
+  MapDispatchPropsType &
+  OwnPropsType &
+  AppStateType;
 
 // class component for API calls
 
-class AllUsersApiCall extends React.Component {
+class AllUsersApiCall extends React.Component<PropsType> {
   componentDidMount() {
     this.props.requestUsers(this.props.currentPage, this.props.pageSize);
   }
 
-  onPageChanged = (pageNumber) => {
+  onPageChanged = (pageNumber: number) => {
     this.props.requestUsers(pageNumber, this.props.pageSize);
 
     //     this.props.setPrealoader(true);
@@ -43,6 +75,7 @@ class AllUsersApiCall extends React.Component {
   render() {
     return (
       <>
+        <h2>{this.props.title}</h2>
         {this.props.isFetching ? <Prealoder /> : null}
         <AllUsers
           totalUserCount={this.props.totalUserCount}
@@ -71,7 +104,7 @@ class AllUsersApiCall extends React.Component {
 //     followingInProgress: state.usersPage.followingInProgress,
 //   };
 // };
-export let mapStateToProps = (state) => {
+export let mapStateToProps = (state: AppStateType): MapStatePropsType => {
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
@@ -109,27 +142,30 @@ export let mapStateToProps = (state) => {
 } */
 
 // Step 1) Create component cotainer with connect
-// const AllUsersContainer = connect(mapStateToProps, {
-//   follow,
-//   unfollow,
-//   setUsers,
-//   setCurrentPage,
-//   setTotalUsersCount,
-//   setPrealoader,
-//   toggleFollowngProggress,
-//   getUsers,
-// })(AllUsersApiCall);
+export default connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  setPrealoader,
+  toggleFollowngProggress,
+  requestUsers
+})(AllUsersApiCall);
 
-export default compose(
+ //compose(
   // WithAuthRedirect,
-  connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
-    setCurrentPage,
-    setTotalUsersCount,
-    setPrealoader,
-    toggleFollowngProggress,
-    requestUsers,
-  })
-)(AllUsersApiCall);
+//   connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(
+//     mapStateToProps,
+//     {
+//       follow,
+//       unfollow,
+//       setUsers,
+//       setCurrentPage,
+//       setTotalUsersCount,
+//       setPrealoader,
+//       toggleFollowngProggress,
+//       requestUsers,
+//     }
+//   )
+// )(AllUsersApiCall);

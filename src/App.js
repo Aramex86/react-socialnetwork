@@ -91,7 +91,7 @@ class App extends Component {
             render={()=><MusicContainer/>}
           />
 
-          <Route path="/allusers" render={() => <AllUsersContainer />} />
+          <Route path="/allusers" render={() => <AllUsersContainer title={'Users'}/>} />
 
           <Route path="/setings" component={Setings} />
           <Route path="/login" component={Login} />

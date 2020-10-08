@@ -1,4 +1,3 @@
-import { type } from "os";
 
 export type PostType = {
   id: number;
@@ -34,6 +33,7 @@ export type UserType={
     photos:PhotosType
     status:null
     followed:boolean
+    
   }
 
   export type FriendsType={
