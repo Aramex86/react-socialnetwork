@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-socialnetwork/static/css/main.af9e7516.chunk.css",
+    "main.css": "/react-socialnetwork/static/css/main.c57b17d9.chunk.css",
     "main.js": "/react-socialnetwork/static/js/main.8bb7063c.chunk.js",
     "main.js.map": "/react-socialnetwork/static/js/main.8bb7063c.chunk.js.map",
     "runtime-main.js": "/react-socialnetwork/static/js/runtime-main.63cfc863.js",
@@ -16,9 +16,9 @@
     "static/js/6.66f17566.chunk.js": "/react-socialnetwork/static/js/6.66f17566.chunk.js",
     "static/js/6.66f17566.chunk.js.map": "/react-socialnetwork/static/js/6.66f17566.chunk.js.map",
     "index.html": "/react-socialnetwork/index.html",
-    "precache-manifest.c973f315cd83de6c5c9b65355d1caee9.js": "/react-socialnetwork/precache-manifest.c973f315cd83de6c5c9b65355d1caee9.js",
+    "precache-manifest.6efc9c7b25091fbb950102567ca7790b.js": "/react-socialnetwork/precache-manifest.6efc9c7b25091fbb950102567ca7790b.js",
     "service-worker.js": "/react-socialnetwork/service-worker.js",
-    "static/css/main.af9e7516.chunk.css.map": "/react-socialnetwork/static/css/main.af9e7516.chunk.css.map",
+    "static/css/main.c57b17d9.chunk.css.map": "/react-socialnetwork/static/css/main.c57b17d9.chunk.css.map",
     "static/js/2.9654994d.chunk.js.LICENSE.txt": "/react-socialnetwork/static/js/2.9654994d.chunk.js.LICENSE.txt",
     "static/media/Avicii.png": "/react-socialnetwork/static/media/Avicii.450f07ad.png",
     "static/media/Broken Arrows.mp3": "/react-socialnetwork/static/media/Broken Arrows.5d857368.mp3",
@@ -37,7 +37,7 @@
   "entrypoints": [
     "static/js/runtime-main.63cfc863.js",
     "static/js/2.9654994d.chunk.js",
-    "static/css/main.af9e7516.chunk.css",
+    "static/css/main.c57b17d9.chunk.css",
     "static/js/main.8bb7063c.chunk.js"
   ]
 }
