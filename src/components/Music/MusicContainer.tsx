@@ -3,7 +3,7 @@ import {
   musicSelector,
   favoriteSelector,
 } from "../Redux/Selectors/music-selector";
-import { addSongsToFavorite } from "../Redux/music-reducer";
+import { addSongsToFavorite, deleteSongFromFavorite } from "../Redux/music-reducer";
 import { connect } from "react-redux";
 
 import PlayList from "./PlayList";
@@ -14,10 +14,11 @@ import AppsOutlinedIcon from "@material-ui/icons/AppsOutlined";
 import FormatListBulletedRoundedIcon from "@material-ui/icons/FormatListBulletedRounded";
 
 type IProps = {
-  songList: Array<string>;
-  favorite: Array<any>;
-  addSong: Function;
-  addSongTo: Function;
+  songList: Array<string>
+  favorite: Array<any>
+  addSong: Function
+  addSongTo: Function
+  deleteSong:Function
 };
 type State = {
   selectedTrack: string | undefined;
@@ -92,6 +93,7 @@ class MusicContainer extends React.Component<IProps, State> {
           <AddToFavorite
             favorite={this.props.favorite}
             addSong={this.addSongsToState}
+            deleteSong={this.props.deleteSong}
           />
         </div>
       </div>
@@ -117,6 +119,9 @@ const mapDispatchToProps = (dispatch: any) => {
     ) => {
       dispatch(addSongsToFavorite(id, artist, name, song, cover));
     },
+    deleteSong:(id:number)=>{
+      dispatch(deleteSongFromFavorite(id));
+    }
     // setCounterMinus:()=>{
     //   dispatch(getCounterMinus())
     // },

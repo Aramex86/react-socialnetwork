@@ -1,3 +1,4 @@
+import { type } from 'os';
 import { SongsType, FavoriteType, SongItemType } from './../../Types/Types';
 import cover1 from "../../assets/images/player/Avicii.png";
 import cover2 from "../../assets/images/player/ritaOra.jpg";
@@ -12,6 +13,7 @@ const Dirt=require ( "../../assets/musicTest/Florida Georgia Line - Dirt.mp3");
 const TheChainsmokers=require ( '../../assets/musicTest/The Chainsmokers & Coldplay - Something Just Like This.mp3');
 
 const ADD_SONGS = "ADD_SONGS";
+const DELETE_SONGS = "DELETE_SONGS";
 
 const initialState = {
   songs: [
@@ -87,6 +89,13 @@ const musicReducer = (state = initialState, action:any):InitialStateType => {
         favorite: state.favorite.concat(action.songItem),
       };
     }
+    case DELETE_SONGS:{
+      return{
+        ...state,
+        favorite: [...state.favorite.filter(item=>item.id !== action.id)]
+
+      }
+    }
 
     default:
       return state;
@@ -101,5 +110,15 @@ type AddSongsToFavoriteType ={
 export const addSongsToFavorite = (id:number, artist:string, name:string, song:string, cover:string):AddSongsToFavoriteType => {
   return { type: ADD_SONGS, songItem: { id, artist, name, song, cover } };
 };
+
+type DeleteSongFromFavoriteType={
+  type:typeof DELETE_SONGS,
+  id:number
+}
+
+export const deleteSongFromFavorite=(id:number):DeleteSongFromFavoriteType=>{
+  return{type:DELETE_SONGS,id}
+
+}
 
 export default musicReducer;

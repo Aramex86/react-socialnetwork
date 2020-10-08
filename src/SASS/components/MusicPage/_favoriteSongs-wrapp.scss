@@ -36,6 +36,9 @@
       width: 3rem !important;
       height: 3rem !important;
       opacity: 0;
+      @include respond(small-phone){
+        left: 9rem;
+      }
     }
     &:hover &__icon {
       opacity: 5;
