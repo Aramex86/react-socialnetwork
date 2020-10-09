@@ -75,7 +75,7 @@ class AllUsersApiCall extends React.Component<PropsType> {
   render() {
     return (
       <>
-        <h2>{this.props.title}</h2>
+        {/* <h2>{this.props.title}</h2> */}
         {this.props.isFetching ? <Prealoder /> : null}
         <AllUsers
           totalUserCount={this.props.totalUserCount}
@@ -153,7 +153,7 @@ export default connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, Ap
   requestUsers
 })(AllUsersApiCall);
 
- //compose(
+ //export default compose(
   // WithAuthRedirect,
 //   connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(
 //     mapStateToProps,

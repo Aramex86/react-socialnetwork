@@ -1,8 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import userPhoto from "../../assets/images/user.png";
 import { NavLink } from "react-router-dom";
+import { UserType } from "../../Types/Types";
 
-const User = ({ user, followingInProgress, unfollow, follow }) => {
+type PropsType={
+  follow:(userId:number)=>void
+  unfollow:(userId:number)=>void
+  followingInProgress:Array<number>
+  user:UserType
+}
+
+
+const User:FC<PropsType> = ({ user, followingInProgress, unfollow, follow }) => {
   return (
     <div className="userspage__wrapp">
       <div className="userspage__wrapp-avatar">
@@ -15,7 +24,7 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
         <div>
           {user.followed ? (
             <button
-              disabled={followingInProgress.some((id) => id === user.id)}
+              disabled={followingInProgress.some((id:number) => id === user.id)}
               onClick={() => {
                 unfollow(user.id);
               }}
@@ -24,7 +33,7 @@ const User = ({ user, followingInProgress, unfollow, follow }) => {
             </button>
           ) : (
             <button
-              disabled={followingInProgress.some((id) => id === user.id)}
+              disabled={followingInProgress.some((id:number) => id === user.id)}
               onClick={() => {
                 follow(user.id);
               }}
