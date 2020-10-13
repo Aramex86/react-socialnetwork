@@ -2,29 +2,26 @@ import React from "react";
 import Atricle from "./Article";
 import ScrollToTop from "react-scroll-to-top";
 
-
 export type SourceType = {
-  name: string
-  url: string
+  name: string;
+  url: string;
 };
 
 type ArticleType = {
-  title: string
-  description: string
-  url: string
+  title: string;
+  description: string;
+  url: string;
   image: string;
-  publishedAt: string
-  source: SourceType
+  publishedAt: string;
+  source: SourceType;
 };
 
-type NewsPropsType={
-  articles:Array<ArticleType>
-  isFetching:boolean
-}
+type NewsPropsType = {
+  articles: Array<ArticleType>;
+  isFetching: boolean;
+};
 
-
-
-const News:React.FC<NewsPropsType> = ({ articles,isFetching }) => {
+const News: React.FC<NewsPropsType> = ({ articles, isFetching }) => {
   const article = articles.map((article, i) => (
     <Atricle
       key={i}
@@ -41,11 +38,7 @@ const News:React.FC<NewsPropsType> = ({ articles,isFetching }) => {
   return (
     <div>
       {article}
-      <ScrollToTop
-        smooth
-        className="up"
-        svgPath=''
-      />
+      <ScrollToTop smooth className="up" svgPath="" />
     </div>
   );
 };

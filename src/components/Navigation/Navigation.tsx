@@ -1,9 +1,31 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ProfileType } from "../../Types/Types";
 import Friends from "./Friends";
+import { SideBarType } from "./NavigationContainer";
 import SideBarHeader from "./SideBar-header";
 
-const SidebarProfile = ({ profile, authUserId, ...props }) => {
+export type FriendsType={
+  name:string
+  img:string
+}
+
+
+type SideBarPropsType={
+  profile:ProfileType|null
+  authUserId:number
+  auth:boolean
+  sideBar:SideBarType
+  props:any
+}
+
+
+
+
+
+const SidebarProfile:React.FC<SideBarPropsType> = ({ profile, authUserId,auth, ...props }) => {
+
+  console.log(props);
   const [hideMenu, setHideMenu] = useState(true);
 
   const hideMenuFunc = () => {
@@ -17,7 +39,7 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
   let width = window.innerWidth;
 
   let state = props.sideBar;
-  let friend = state.friends.map((friend, index) => (
+  let friend = state.friends.map((friend:FriendsType, index:number) => (
     <Friends key={index} name={friend.name} img={friend.img} />
   ));
   return (
@@ -42,7 +64,7 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
             <div >
               {" "}
               <div className="nav__wrapper">
-                {props.auth ? (
+                {auth ? (
                   <SideBarHeader
                     profile={profile}
                     authUserId={authUserId}
@@ -83,7 +105,7 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
                     </li>
                   </ul>
                 </nav>
-                {props.auth ? (
+                {auth ? (
                   <div className="nav__wrapper-friends">
                     <h3>Friends</h3>
                     <div className="nav__wrapper-friends-wrapp">{friend}</div>
@@ -98,7 +120,7 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
     </div>
   : <div className="nav__wrapper">
       
-  {props.auth ? (
+  {auth ? (
     <SideBarHeader
       profile={profile}
       authUserId={authUserId}
@@ -139,7 +161,7 @@ const SidebarProfile = ({ profile, authUserId, ...props }) => {
       </li>
     </ul>
   </nav>
-  {props.auth ? (
+  {auth ? (
     <div className="nav__wrapper-friends">
       <h3>Friends</h3>
       <div className="nav__wrapper-friends-wrapp">{friend}</div>

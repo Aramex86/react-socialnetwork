@@ -20,7 +20,7 @@ type ArticleType = {
   publishedAt: string;
   source: SourceType;
 };
- 
+
 export type NewsPropsType = {
   articles: Array<ArticleType>;
   isFetching: boolean;
@@ -33,7 +33,7 @@ class NewsContainer extends Component<NewsPropsType> {
   }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <News articles={this.props.articles} isFetching={this.props.isFetching} />
     );

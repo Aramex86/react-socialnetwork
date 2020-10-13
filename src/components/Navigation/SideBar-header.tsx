@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { ProfileType } from '../../Types/Types';
 
-const SideBarHeader = ({profile,authUserId,...props}) => {
+
+type SideBarHeaderType={
+  profile:ProfileType|null
+  authUserId:number
+  props:any
+}
+
+
+const SideBarHeader:FC<SideBarHeaderType> = ({profile,authUserId,...props}) => {
     
     const userProfile = profile?profile.userId:'';
     
-    const compareUserId = (userId, userProfile) => {
+    const compareUserId = (userId:number, userProfile:number|string) => {
     if (userId === userProfile) {
       return (
         <>
