@@ -24,6 +24,8 @@ import {
 } from "../Redux/Selectors/users-selector";
 import { UserType } from "../../Types/Types";
 import { AppStateType } from "../Redux/redux-store";
+import { compose } from "redux";
+import WithAuthRedirect from "../HOC/WithAuthRedirect";
 
 type MapStatePropsType = {
   currentPage: number;
@@ -142,7 +144,9 @@ export let mapStateToProps = (state: AppStateType): MapStatePropsType => {
 } */
 
 // Step 1) Create component cotainer with connect
-export default connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
+export default compose(
+ // WithAuthRedirect,
+  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
   follow,
   unfollow,
   setUsers,
@@ -151,7 +155,7 @@ export default connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, Ap
   setPrealoader,
   toggleFollowngProggress,
   requestUsers
-})(AllUsersApiCall);
+})(AllUsersApiCall));
 
  //export default compose(
   // WithAuthRedirect,

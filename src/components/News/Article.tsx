@@ -1,7 +1,21 @@
 import React from "react";
 import Preloader from '../common/Prealoder/Prealoder';
+import { SourceType } from "./News";
 
-const Article = ({
+
+type ArticlePropsType={
+  title:string
+  description:string
+  url:string
+  image:string
+  publishedAt:string
+  source:SourceType
+  isFetching:boolean
+}
+
+
+
+const Article:React.FC<ArticlePropsType> = ({
   title,
   description,
   url,
