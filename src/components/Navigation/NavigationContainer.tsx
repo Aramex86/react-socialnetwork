@@ -8,21 +8,21 @@ import { FriendsType, ProfileType, UserType } from "../../Types/Types";
 import { AppStateType } from "../Redux/redux-store";
 
 export type SideBarType = {
-  friends: Array<FriendsType>
-  profile: ProfileType | null
+  friends: Array<FriendsType>;
+  profile: ProfileType | null;
 };
 
 type MapsStatePropsType = {
-  auth: boolean
-  sideBar: SideBarType
-  profile: ProfileType | null
-  users: Array<UserType>
-  authUserId: number 
+  auth: boolean;
+  sideBar: SideBarType;
+  profile: ProfileType | null;
+  users: Array<UserType>;
+  authUserId: number;
 };
 
-type MapDispatchPropsType={
-  getSideBar:(userId: number)=>void
-}
+type MapDispatchPropsType = {
+  getSideBar: (userId: number) => void;
+};
 
 type PropsType = MapsStatePropsType & MapDispatchPropsType & AppStateType;
 
@@ -42,7 +42,7 @@ class ProfileContainer extends Component<PropsType> {
   }
 }
 
-let mapStateToProps = (state:any): MapsStatePropsType => {
+let mapStateToProps = (state: any): MapsStatePropsType => {
   return {
     sideBar: state.sideBar,
     profile: state.profilePage.profile,
@@ -54,5 +54,8 @@ let mapStateToProps = (state:any): MapsStatePropsType => {
 
 export default compose(
   withRouter,
-  connect<MapsStatePropsType,MapDispatchPropsType,AppStateType>(mapStateToProps, { getSideBar })
+  connect<MapsStatePropsType, MapDispatchPropsType, AppStateType>(
+    mapStateToProps,
+    { getSideBar }
+  )
 )(ProfileContainer);
