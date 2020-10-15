@@ -21,7 +21,7 @@ let initialState = {
   userId: null as number|null,
   email: null as string|null,
   login: null as string|null,
-  isAuth: false,
+  isAuth: false as boolean,
   captchaUrl: null as string|null,
 };
 

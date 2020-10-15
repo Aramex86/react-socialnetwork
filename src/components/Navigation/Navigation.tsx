@@ -24,7 +24,7 @@ const SidebarProfile: React.FC<SideBarPropsType> = ({
   auth,
   ...props
 }) => {
-  console.log(props);
+  //console.log(props);
   const [hideMenu, setHideMenu] = useState(true);
 
   const hideMenuFunc = () => {

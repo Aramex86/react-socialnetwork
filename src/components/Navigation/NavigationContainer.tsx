@@ -28,7 +28,7 @@ type PropsType = MapsStatePropsType & MapDispatchPropsType & AppStateType;
 
 class ProfileContainer extends Component<PropsType> {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
 
     return (
       <SidebarProfile

@@ -1,10 +1,29 @@
-import React from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import SignOut from "../../assets/images/signout.png";
+import { ProfileType } from "../../Types/Types";
 //import {compareUserId} from '../../utilies/Helpers/compareUserId';
 
-const Header = (props) => {
-  const compareUserId = (userId, userProfile) => {
+
+
+
+type PropsType={
+ 
+  profile:ProfileType
+  login:()=>void
+  logout:()=>void
+  photos:string
+  fullName:string
+  isAuth:boolean
+  authUserId:number
+  compareUserId:()=>void
+
+}
+
+
+
+const Header:FC<PropsType> = (props:PropsType) => {
+  const compareUserId = (userId:number|string, userProfile:ProfileType|number) => {
     if (userId === userProfile) {
       return (
         <>

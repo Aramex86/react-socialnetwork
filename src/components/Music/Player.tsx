@@ -51,6 +51,7 @@ const Player = (props: PropsType) => {
 
   const playSound = () => {
     playPauseRef.current.play();
+    !props.state.cover?setImgRotate(true):
     setImgRotate(false);
     setPlay(false);
   };
@@ -62,8 +63,12 @@ const Player = (props: PropsType) => {
   };
 
   const selectCurrentTime = (event: any) => {
-    return setCurrentTime(event.currentTarget.value);
+    return  setCurrentTime(event.currentTarget.value);
+    
   };
+
+
+
 
   function getTime(time: number) {
     if (!isNaN(time)) {
