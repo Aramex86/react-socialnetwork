@@ -1,43 +1,43 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ffa1e527a6969051369e110e466c5088",
+    "revision": "aa820eccf95d7bbdb7ccfa7230b9eb15",
     "url": "/react-socialnetwork/index.html"
   },
   {
-    "revision": "74629c50f7dcdad997ea",
+    "revision": "b1b31344ef19c383e7ea",
     "url": "/react-socialnetwork/static/css/main.36f3be6f.chunk.css"
   },
   {
-    "revision": "3253277b8c4a7c0ad78d",
-    "url": "/react-socialnetwork/static/js/2.997e6e21.chunk.js"
+    "revision": "2bcb61d848f3953aeb96",
+    "url": "/react-socialnetwork/static/js/2.4b5fa9c0.chunk.js"
   },
   {
     "revision": "24a84c9401e1580e8b7bb987b0e971cb",
-    "url": "/react-socialnetwork/static/js/2.997e6e21.chunk.js.LICENSE.txt"
+    "url": "/react-socialnetwork/static/js/2.4b5fa9c0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "191d496ce6b39ff3cc9a",
-    "url": "/react-socialnetwork/static/js/3.ac7a4cfa.chunk.js"
+    "revision": "4da0dfaf0a563ebc9e05",
+    "url": "/react-socialnetwork/static/js/3.67bd9142.chunk.js"
   },
   {
-    "revision": "1a7f992a31b9b06e8fb8",
-    "url": "/react-socialnetwork/static/js/4.5d6fb054.chunk.js"
+    "revision": "d339bad7e3259df916f4",
+    "url": "/react-socialnetwork/static/js/4.3db1f2e6.chunk.js"
   },
   {
     "revision": "3255e04adc1378ad6f6c",
     "url": "/react-socialnetwork/static/js/5.ba5df6ee.chunk.js"
   },
   {
-    "revision": "3da38aaeca159afdf452",
-    "url": "/react-socialnetwork/static/js/6.74f0dd8e.chunk.js"
+    "revision": "2e3bd25220bb101e7119",
+    "url": "/react-socialnetwork/static/js/6.449f635d.chunk.js"
   },
   {
-    "revision": "74629c50f7dcdad997ea",
-    "url": "/react-socialnetwork/static/js/main.83705ca7.chunk.js"
+    "revision": "b1b31344ef19c383e7ea",
+    "url": "/react-socialnetwork/static/js/main.3fee1150.chunk.js"
   },
   {
-    "revision": "e5b7f8e4e0e681f9a3da",
-    "url": "/react-socialnetwork/static/js/runtime-main.1619839d.js"
+    "revision": "27ab1514409b578e68c2",
+    "url": "/react-socialnetwork/static/js/runtime-main.a7358ae0.js"
   },
   {
     "revision": "450f07ada5656317b6031df338f0ac2b",
