@@ -43,18 +43,17 @@ export type UserType={
 
 
   //News Reducer types
-export type NewsSourceType={
-  name:string
-  url:string
-}
+
 
   export type NewsArticalsType={
     description: string
     image: string
     publishedAt: string
-    source: NewsSourceType
+    section: string
     title: string
     url: string
+    abstract:string
+    created_date:string
   }
 //Music Reducer types
 

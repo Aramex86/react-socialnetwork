@@ -25,7 +25,7 @@ import {
 import { UserType } from "../../Types/Types";
 import { AppStateType } from "../Redux/redux-store";
 import { compose } from "redux";
-import WithAuthRedirect from "../HOC/WithAuthRedirect";
+//import WithAuthRedirect from "../HOC/WithAuthRedirect";
 
 type MapStatePropsType = {
   currentPage: number;

@@ -7,11 +7,18 @@ const instance = axios.create({
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
   //headers api
   headers: {
-    "API-KEY": "3cbba7a4-ece5-49a7-bc29-e1705c0d4fa1",
+    "API-KEY": "8c823512-6149-48ff-94c9-511079e6b0c0",
   },
 });
 
-
+const options = {
+  method: 'GET',
+  url: 'https://api.nytimes.com/svc/topstories/v2/science.json?api-key=yourkey',
+  headers: {
+    'x-rapidapi-key': 'b400990badmsh2e90a029187c53bp11fc28jsn0d9974984aaf',
+    'x-rapidapi-host': 'google-news.p.rapidapi.com'
+  }
+};
 
 export const usersAPI = {
   getUsers(currentPage, pageSize) {
@@ -46,9 +53,14 @@ export const profileAPI = {
   },
 
   getProfile(userId) {
-    return instance.get(`/profile/${userId}`).then((res) => {
-      return res.data;
-    });
+    return instance
+      .get(`/profile/${userId}`)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 
   getStatus(userId) {
@@ -98,8 +110,13 @@ export const securityApi = {
 
 //News request
 
- //const  proxy_url = 'https://cors-anywhere.herokuapp.com/';
+//const  proxy_url = 'https://cors-anywhere.herokuapp.com/';
+//WgdjCCubBiqsqHXgExjLyTLGk9Fc9cp9
 
 export const newsRequest = () => {
- return axios.get(`https://gnews.io/api/v3/search?q=example&token=8c8e1cce3fd5612ebed49da3879a9b9d`).then(res=>res.data);
+  return axios.get(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=WgdjCCubBiqsqHXgExjLyTLGk9Fc9cp9`).then(function (response) {
+    return response.data.results
+  }).catch(function (error) {
+    console.error(error);
+  });
 };

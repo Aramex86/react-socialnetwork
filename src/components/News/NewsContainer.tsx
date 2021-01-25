@@ -7,19 +7,30 @@ import {
 import { connect } from "react-redux";
 import { getNews, getNewsRequest } from "../Redux/news-reducer";
 
-type SourceType = {
-  name: string;
-  url: string;
-};
+
+
+type MultimediaType={
+  caption: string
+  copyright: string
+  format: string
+  height: number
+  subtype: string
+  type: string
+  url: string
+  width: number
+}
 
 type ArticleType = {
   title: string;
   description: string;
   url: string;
-  image: string;
   publishedAt: string;
-  source: SourceType;
+  section: string;
+  multimedia:Array<MultimediaType>
+  abstract:string
+  created_date:string
 };
+
 
 export type NewsPropsType = {
   articles: Array<ArticleType>;
@@ -33,7 +44,7 @@ class NewsContainer extends Component<NewsPropsType> {
   }
 
   render() {
-    //console.log(this.props);
+    console.log(this.props);
     return (
       <News articles={this.props.articles} isFetching={this.props.isFetching} />
     );

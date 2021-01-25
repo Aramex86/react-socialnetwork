@@ -42,13 +42,17 @@
         &-author{
             margin-right: 15px;
             font-weight: 600;
+            width: 7%;
         }
         &-urlto a{
             margin-right: 15px;
             text-decoration: none;
             color:#02569c;
         }
-        &-date{}
+        &-date{
+            text-align: right;
+            width: 100%;
+        }
     }
 }
 

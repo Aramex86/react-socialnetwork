@@ -48,6 +48,7 @@ class App extends Component {
     if (!this.props.initialized) {
       return <Prealoder />;
     }
+
    
 
     return (

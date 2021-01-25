@@ -51,7 +51,7 @@ export const isFetchingRequest=(isFetching:boolean):IsFetchingRequestType=>{
 // Thunck 
 export const getNewsRequest = ()=> async(dispatch:any)=>{
     const res = await newsRequest();
-    dispatch(getNews(res.articles));
+    dispatch(getNews(res));
 };
 
 

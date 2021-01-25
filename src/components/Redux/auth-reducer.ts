@@ -66,7 +66,7 @@ type GetCaptchaUrlSuccesType={
   payload:{captchaUrl:string}
 }
 
-export const getCaptchaUrlSucces = (captchaUrl:string) => ({
+export const getCaptchaUrlSucces = (captchaUrl:string):GetCaptchaUrlSuccesType => ({
   type: GET_CAPTCHA_URL_SUCCES,
   payload: { captchaUrl },
 });
