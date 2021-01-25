@@ -23,6 +23,7 @@ type ArticlePropsType = {
   isFetching: boolean;
   multimedia:Array<MultimediaType>
   date:string
+  byLine:string
 };
 
 const Article: React.FC<ArticlePropsType> = ({
@@ -32,13 +33,13 @@ const Article: React.FC<ArticlePropsType> = ({
   section,
   isFetching,
   multimedia,
-  date
+  date,
+  byLine
 }) => {
 
 const mainImage = multimedia.map(i=>i.url).slice(0,1).toLocaleString();
 
 const publishDate = new Date(date).toLocaleDateString();
-console.log(publishDate)
   return (
     <>
       {isFetching ? <Preloader /> : null}
@@ -47,10 +48,10 @@ console.log(publishDate)
         <img className="article-wrapper_image" src={mainImage} alt="img" />
         <p className="article-wrapper_desc">{description}</p>
         <div className="article-wrapper_fotter">
-          <span className="article-wrapper_fotter-author">{section}</span>
+          <span className="article-wrapper_fotter-author"></span>
           <span className="article-wrapper_fotter-urlto">
             <a href={url} target="_blank" rel="noopener noreferrer">
-              source
+            {byLine} {section}
             </a>
           </span>
           <span className="article-wrapper_fotter-date">publish date: {publishDate}</span>

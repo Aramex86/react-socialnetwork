@@ -54,6 +54,7 @@ export type UserType={
     url: string
     abstract:string
     created_date:string
+    byline:string
   }
 //Music Reducer types
 

@@ -29,6 +29,7 @@ type ArticleType = {
   multimedia:Array<MultimediaType>
   abstract:string
   created_date:string
+  byline:string
 };
 
 
@@ -44,7 +45,7 @@ class NewsContainer extends Component<NewsPropsType> {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <News articles={this.props.articles} isFetching={this.props.isFetching} />
     );

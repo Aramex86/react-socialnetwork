@@ -22,6 +22,7 @@ type ArticleType = {
   multimedia: Array<MultimediaType>;
   abstract:string
   created_date:string
+  byline:string
 };
 
 type NewsPropsType = {
@@ -30,7 +31,7 @@ type NewsPropsType = {
 };
 
 const News: React.FC<NewsPropsType> = ({ articles, isFetching }) => {
-  console.log(articles);
+  console.log(articles)
   const article = articles.map((article, i) => (
     <Atricle
       key={i}
@@ -42,6 +43,7 @@ const News: React.FC<NewsPropsType> = ({ articles, isFetching }) => {
       isFetching={isFetching}
       multimedia={article.multimedia}
       date={article.created_date}
+      byLine={article.byline}
     />
   ));
 

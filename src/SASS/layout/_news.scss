@@ -1,58 +1,60 @@
-.article-wrapper{
+.article-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem;
+  position: relative;
+
+  &_title {
+    width: 100%;
+    margin-bottom: 2rem;
+    background: #02569c;
+    padding: 1rem 1rem;
+    color: #ffffff;
+    @include respond(small-phone) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &_image {
+    width: 50%;
+    margin-bottom: 2rem;
+    @include respond(small-phone) {
+      width: 100%;
+    }
+  }
+
+  &_desc {
+    font-size: 2rem;
+    width: 75%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 2rem;
-    position: relative;
-
-    &_title{
-        width: 100%;
-        margin-bottom: 2rem;
-        background: #02569c;
-        padding: 1rem 1rem;
-        color: #ffffff;
-        @include respond(small-phone){
-            font-size: 1.5rem;
-        }
+    margin-bottom: 2rem;
+    @include respond(small-phone) {
+      width: 100%;
+      font-size: 1.5rem;
     }
+  }
 
-    &_image{
-        width: 50%;
-        margin-bottom: 2rem;
-        @include respond(small-phone){
-            width: 100%;
-        }
+  &_fotter {
+    display: flex;
+    width: 100%;
+    &-author {
+      // margin-right: 15px;
+      // font-weight: 600;
+      // width: 7%;
     }
-
-    &_desc{
-        font-size: 2rem;
-        width: 75%;
-        display: flex;
-        margin-bottom: 2rem;
-        @include respond(small-phone){
-            width: 100%;
-            font-size: 1.5rem;
-        }
+    &-urlto {
+      width: 105%;
     }
-
-    &_fotter{
-        display: flex;
-        width: 100%;
-        &-author{
-            margin-right: 15px;
-            font-weight: 600;
-            width: 7%;
-        }
-        &-urlto a{
-            margin-right: 15px;
-            text-decoration: none;
-            color:#02569c;
-        }
-        &-date{
-            text-align: right;
-            width: 100%;
-        }
+    &-urlto a {
+      text-decoration: none;
+      color: #02569c;
+      width: 100%;
     }
+    &-date {
+      text-align: right;
+      width: 100%;
+    }
+  }
 }
-
