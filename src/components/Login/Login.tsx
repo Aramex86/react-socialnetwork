@@ -28,8 +28,6 @@ type MapStateToPropsType = {
   isAuth: boolean;
 };
 
-
-
 const validate = (values: Validate) => {
   const errors: FormikErrors<Validate> = {};
   if (!values.password) {
@@ -61,9 +59,9 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
 
   return (
     <>
-      <div className="login-bg">
+      {/* <div className="login-bg">
         <img src={loginBg} alt="login-pic" />
-      </div>
+      </div> */}
       <form onSubmit={formik.handleSubmit} className="login__wrapper-form">
         {/* {createField("Email", "email", Input, [required], "email")}
         {createField("Password", "password", Input, [required], "password")}
@@ -97,7 +95,7 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
           type="password"
           autoComplete="current-password"
           variant="outlined"
-           // @ts-ignore
+          // @ts-ignore
           name="password"
           {...formik.getFieldProps("password")}
           className="login__wrapper-forminput"
@@ -110,7 +108,7 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
         <Checkbox
           className="login__wrapper-checkbox"
           id="rememberMe"
-           // @ts-ignore
+          // @ts-ignore
           name="rememberMe"
           {...formik.getFieldProps("rememberMe")}
           color="primary"
@@ -123,7 +121,7 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
         {captchaUrl && (
           <input
             placeholder="Symbols from image"
-             // @ts-ignore
+            // @ts-ignore
             name="captcha"
             {...formik.getFieldProps("rememberMe")}
           />
@@ -166,8 +164,9 @@ const Login = (props: any) => {
 
   return (
     <div className="login__wrapper">
-      <ShowPas />
+      {/* <ShowPas /> */}
       {/* <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} /> */}
+      <div className="profile__pic">Profile</div>
       <LoginForm login={props.login} captchaUrl={props.captchaUrl} />
     </div>
   );

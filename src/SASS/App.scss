@@ -13,7 +13,7 @@
 @import "components/MusicPage/song-wrapp";
 @import "components/MusicPage/player-wrapper";
 @import "components/MusicPage/gridList";
-@import 'components/MusicPage/favoriteSongs-wrapp';
+@import "components/MusicPage/favoriteSongs-wrapp";
 
 @import "components/Posts/my-posts";
 @import "components/Posts/posts";
@@ -26,64 +26,67 @@
 
 @import "layout/header";
 @import "layout/navbar";
-@import "layout/news";  
+@import "layout/news";
 @import "layout/profile";
 
-
-//General 
+//General
 *,
 *::before,
-*::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-body{
-    font-size: 1.5rem;
-    box-sizing: border-box;
+body {
+  font-size: 1.5rem;
+  box-sizing: border-box;
 }
 
-html{
+html {
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
+  @include respond(small-phone) {
+    font-size: 25%; //width < 400
+  }
 
-    font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
-    @include respond(small-phone){
-      font-size: 25%; //width < 400 
-    }
+  @include respond(phone) {
+    font-size: 37.5%; //width < 600 ? 1rem = 6px ; 6/16 = 35.5%
+  }
 
-    @include respond(phone){
-      font-size: 37.5%; //width < 600 ? 1rem = 6px ; 6/16 = 35.5%
-    }
-
-    @include respond(tab-land){//width < 1200 ?
-      font-size: 56.25%;// 1rem = 9px ;9/16 = 56.25%
-    }
-    @include respond(tab-port){//width < 900 ?
-      font-size: 50%; // 1rem = 8px ;8/16 = 50%
-    }
-    @include respond(big-desktop){
-      font-size: 75%;// 1rem = 12px ;12/16 = 75%
-    }
-  
+  @include respond(tab-land) {
+    //width < 1200 ?
+    font-size: 56.25%; // 1rem = 9px ;9/16 = 56.25%
+  }
+  @include respond(tab-port) {
+    //width < 900 ?
+    font-size: 50%; // 1rem = 8px ;8/16 = 50%
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px ;12/16 = 75%
+  }
 }
 
-.app-wrapper{
-    display: grid;
-    grid-template-columns: repeat(8,1fr);
-    grid-template-rows:6rem 1fr;
-    gap:10px;
-    background: rgba(241, 241, 241, 0.486);
-    min-height: 100vh;
+.app-wrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 6rem 1fr;
+  gap: 10px;
+  background: rgba(241, 241, 241, 0.486);
+  min-height: 100vh;
 }
 
-.content-wrapper{
-    grid-column: 3/8;
-    grid-row: 2/2;
-    background: #ffffff;
-    @include respond(phone){
-      grid-column: 2/9;
-      padding: 0 1rem;
-    }
+.content-wrapper {
+  grid-column: 3/8;
+  grid-row: 2/2;
+  background: #ffffff;
+  @include respond(phone) {
+    grid-column: 2/9;
+    padding: 0 1rem;
+  }
 }
 
-
+.content-wrapper--noauth {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

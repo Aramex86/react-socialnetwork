@@ -51,7 +51,7 @@ const publishDate = new Date(date).toLocaleDateString();
           <span className="article-wrapper_fotter-author"></span>
           <span className="article-wrapper_fotter-urlto">
             <a href={url} target="_blank" rel="noopener noreferrer">
-            {byLine} {section}
+            {byLine}<br/>section: {section}
             </a>
           </span>
           <span className="article-wrapper_fotter-date">publish date: {publishDate}</span>

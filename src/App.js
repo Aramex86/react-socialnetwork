@@ -49,15 +49,16 @@ class App extends Component {
       return <Prealoder />;
     }
 
-   
+    const {isAuth} = this.props
 
     return (
       
-      <div className="app-wrapper">
-         <HeaderContainer />
-        <NavigationContainer />
+      <div className="app-wrapper" style={isAuth?{display:'grid'}:{display:'flex',width:'100%'}}>
+        {isAuth?<> <HeaderContainer />
+        <NavigationContainer /></>:''}
         
-        <div className="content-wrapper">
+        
+        <div className={isAuth?"content-wrapper":'content-wrapper--noauth'}>
           {/* <Route
             path="/content/:userId?"
             render={() => {
@@ -106,6 +107,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
+  isAuth: state.auth.isAuth,
   
 });
 
