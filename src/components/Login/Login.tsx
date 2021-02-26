@@ -142,7 +142,7 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
             type="submit"
             className="login__btn"
           >
-            Login
+            Log In
           </Button>
         </div>
       </form>

@@ -1,61 +1,60 @@
-.profile__pic{
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-  }
+.profile__pic {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
 
-  .profilepic__header{
-      display: flex;
-      flex-direction: column;
-      &-heading{
-          color: dodgerblue;
-          font-size: 3.5rem;
-      }
-      &-subheading{
-          font-size: 2.5rem;
-          font-weight: 100;
-      }
+.profilepic__header {
+  display: flex;
+  flex-direction: column;
+  &-heading {
+    color: dodgerblue;
+    font-size: 3.5rem;
   }
+  &-subheading {
+    font-size: 2.5rem;
+    font-weight: 100;
+  }
+}
 
-  .profile__cards{
-      margin-top: 10px;
-      display: flex;
-      &-card{
-        border: 1px solid #d8d8d8ad;
-        width: 160px;
-        min-height: 200px;
-        border-radius: 7px;
-        overflow: hidden;
-        cursor: pointer;
-        margin-right: 15px;
-        &:hover{
-            box-shadow: 0px 0px 3px 0px #8080807d;
-        }
-        &-body{
-            background-color: #f5f6f7;
-            width: 100%;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            & svg{
-                width: 5rem;
-                height: 5rem;
-                color: rgb(27, 124, 221);
-            }
-        }
-        &-footer{
-            background: #fff;
-            width: 100%;
-            height: 50px;
-            text-align: center;
-            padding: 1.5rem;
-            color: dodgerblue;
-            font-weight: 400;
-            font-size: 1.7rem;
-        }
+.profile__cards {
+  margin-top: 10px;
+  display: flex;
+  &-card {
+    border: 1px solid #d8d8d8ad;
+    width: 160px;
+    min-height: 200px;
+    border-radius: 7px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-right: 15px;
+    &:hover {
+      box-shadow: 0px 0px 3px 0px #8080807d;
     }
+    &-body {
+      background-color: #f5f6f7;
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & svg {
+        width: 5rem;
+        height: 5rem;
+        color: rgb(27, 124, 221);
       }
-  
+    }
+    &-footer {
+      background: #fff;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      padding: 1.5rem;
+      color: dodgerblue;
+      font-weight: 400;
+      font-size: 1.7rem;
+    }
+  }
+}
