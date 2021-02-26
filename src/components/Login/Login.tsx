@@ -12,6 +12,7 @@ import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
 import { FormikErrors, useFormik } from "formik";
 import { AppStateType } from "../Redux/redux-store";
+import ProfilePics from "./ProfilePics";
 
 type Validate = {
   password: number | string;
@@ -105,15 +106,19 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
             {formik.errors.password}
           </div>
         ) : null}
-        <Checkbox
-          className="login__wrapper-checkbox"
-          id="rememberMe"
-          // @ts-ignore
-          name="rememberMe"
-          {...formik.getFieldProps("rememberMe")}
-          color="primary"
-          inputProps={{ "aria-label": "secondary checkbox" }}
-        />
+        <div>
+          <Checkbox
+            className="login__wrapper-checkbox"
+            id="rememberMe"
+            // @ts-ignore
+            name="rememberMe"
+            size="medium"
+            {...formik.getFieldProps("rememberMe")}
+            color="primary"
+            inputProps={{ "aria-label": "secondary checkbox" }}
+          />{" "}
+          Remember Me
+        </div>
         {/*         <input id='email' type='email' name='email'{...formik.getFieldProps('email')}/>
        <input id='password' type='password' name='password'{...formik.getFieldProps('password')}/>
       <input id='rememberMe' type='checkbox' name='rememberMe'{...formik.getFieldProps('rememberMe')}/>*/}
@@ -166,7 +171,7 @@ const Login = (props: any) => {
     <div className="login__wrapper">
       {/* <ShowPas /> */}
       {/* <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} /> */}
-      <div className="profile__pic">Profile</div>
+      <ProfilePics />
       <LoginForm login={props.login} captchaUrl={props.captchaUrl} />
     </div>
   );
