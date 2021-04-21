@@ -1,43 +1,43 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6414d2b3ba224785c1b5cb47f68e4892",
+    "revision": "fe1d8ab8ca9d24110a478539274f9e6c",
     "url": "/react-socialnetwork/index.html"
   },
   {
-    "revision": "aad04b426956657bd0cf",
+    "revision": "db250d7131472f688bba",
     "url": "/react-socialnetwork/static/css/main.f0e5904c.chunk.css"
   },
   {
-    "revision": "062f52ff3aea7ac0844e",
-    "url": "/react-socialnetwork/static/js/2.ee60a8bf.chunk.js"
+    "revision": "75b9d4048b3e05b58346",
+    "url": "/react-socialnetwork/static/js/2.835cac96.chunk.js"
   },
   {
     "revision": "24a84c9401e1580e8b7bb987b0e971cb",
-    "url": "/react-socialnetwork/static/js/2.ee60a8bf.chunk.js.LICENSE.txt"
+    "url": "/react-socialnetwork/static/js/2.835cac96.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3b5f00557c42c2d144da",
-    "url": "/react-socialnetwork/static/js/3.2de4aec3.chunk.js"
+    "revision": "e5195fcb838b41be9d1c",
+    "url": "/react-socialnetwork/static/js/3.4050f619.chunk.js"
   },
   {
-    "revision": "d86d63ea04cd4b214e4f",
-    "url": "/react-socialnetwork/static/js/4.9be3fbef.chunk.js"
+    "revision": "6482a6d20d539260a8ed",
+    "url": "/react-socialnetwork/static/js/4.1a3c2161.chunk.js"
   },
   {
-    "revision": "9321c663851de7c23af0",
-    "url": "/react-socialnetwork/static/js/5.2f53fb15.chunk.js"
+    "revision": "a61dc78ae7fe90ef4d95",
+    "url": "/react-socialnetwork/static/js/5.4ec74789.chunk.js"
   },
   {
-    "revision": "3a9bbdaa37c793254fe1",
-    "url": "/react-socialnetwork/static/js/6.a0515ed1.chunk.js"
+    "revision": "29afbc951adfe662abe9",
+    "url": "/react-socialnetwork/static/js/6.55012a45.chunk.js"
   },
   {
-    "revision": "aad04b426956657bd0cf",
-    "url": "/react-socialnetwork/static/js/main.7941030d.chunk.js"
+    "revision": "db250d7131472f688bba",
+    "url": "/react-socialnetwork/static/js/main.56e342d1.chunk.js"
   },
   {
-    "revision": "8126bed3a2158674e1de",
-    "url": "/react-socialnetwork/static/js/runtime-main.7ee66b49.js"
+    "revision": "fdba8767b3eba955775f",
+    "url": "/react-socialnetwork/static/js/runtime-main.825d8567.js"
   },
   {
     "revision": "450f07ada5656317b6031df338f0ac2b",
