@@ -5,3 +5,4 @@ export const getNewsSelector=(state)=>{
 export const getIsFetching=(state)=>{
     return state.newsPage.isFetching;
 }
+

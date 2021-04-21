@@ -17,12 +17,12 @@ type ArticleType = {
   title: string;
   description: string;
   url: string;
- publishedAt: string;
+  publishedAt: string;
   section: string;
   multimedia: Array<MultimediaType>;
-  abstract:string
-  created_date:string
-  byline:string
+  abstract: string;
+  created_date: string;
+  byline: string;
 };
 
 type NewsPropsType = {
@@ -30,8 +30,8 @@ type NewsPropsType = {
   isFetching: boolean;
 };
 
+
 const News: React.FC<NewsPropsType> = ({ articles, isFetching }) => {
-  console.log(articles)
   const article = articles.map((article, i) => (
     <Atricle
       key={i}

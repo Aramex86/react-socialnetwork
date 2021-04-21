@@ -12,6 +12,9 @@ import AddToFavorite from "./AddToFavorite";
 
 import AppsOutlinedIcon from "@material-ui/icons/AppsOutlined";
 import FormatListBulletedRoundedIcon from "@material-ui/icons/FormatListBulletedRounded";
+import { compose } from "redux";
+import { withRouter } from "react-router";
+import WithAuthRedirect from "../HOC/WithAuthRedirect";
 
 type IProps = {
   songList: Array<string>
@@ -131,4 +134,10 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MusicContainer);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps),
+  WithAuthRedirect
+)(MusicContainer);
+
+

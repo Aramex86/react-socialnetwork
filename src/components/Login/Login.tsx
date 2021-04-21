@@ -53,13 +53,14 @@ const LoginForm: FC<LoginFormType> = ({ captchaUrl, login }) => {
     },
     validate,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      // console.log(JSON.stringify(values, null, 2));
       login(values.email, values.password);
     },
   });
 
   return (
     <>
+    <ShowPas/>
       {/* <div className="login-bg">
         <img src={loginBg} alt="login-pic" />
       </div> */}

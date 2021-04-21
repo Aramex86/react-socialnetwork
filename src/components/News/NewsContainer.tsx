@@ -6,6 +6,9 @@ import {
 } from "../Redux/Selectors/news-selector";
 import { connect } from "react-redux";
 import { getNews, getNewsRequest } from "../Redux/news-reducer";
+import { compose } from "redux";
+import { withRouter } from "react-router";
+import WithAuthRedirect from "../HOC/WithAuthRedirect";
 
 
 
@@ -40,12 +43,13 @@ export type NewsPropsType = {
 };
 
 class NewsContainer extends Component<NewsPropsType> {
+
   componentDidMount() {
     this.props.getNewsRequest();
   }
 
   render() {
-    // console.log(this.props);
+     console.log(this.props);
     return (
       <News articles={this.props.articles} isFetching={this.props.isFetching} />
     );
@@ -55,9 +59,12 @@ export const mapStateToProps = (state: any) => {
   return {
     articles: getNewsSelector(state),
     isFetching: getIsFetching(state),
+    authUserId: state.auth.userId,
   };
 };
 
-export default connect(mapStateToProps, { getNews, getNewsRequest })(
-  NewsContainer
-);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { getNews, getNewsRequest }),
+  WithAuthRedirect
+)(NewsContainer);
