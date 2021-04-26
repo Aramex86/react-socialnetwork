@@ -31,7 +31,7 @@ type NewsPropsType = {
 };
 
 
-const News: React.FC<NewsPropsType> = ({ articles, isFetching }) => {
+const News: React.FC<NewsPropsType> = ({ articles=[], isFetching }) => {
   const article = articles.map((article, i) => (
     <Atricle
       key={i}

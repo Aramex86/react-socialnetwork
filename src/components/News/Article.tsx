@@ -37,7 +37,7 @@ const Article: React.FC<ArticlePropsType> = ({
   byLine
 }) => {
 
-const mainImage = multimedia.map(i=>i.url).slice(0,1).toLocaleString();
+  const mainImage = multimedia !==null? multimedia.map(i=>i.url).slice(0,1).toLocaleString():'';
 
 const publishDate = new Date(date).toLocaleDateString();
   return (
